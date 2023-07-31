@@ -1,4 +1,21 @@
 {
+  "name": "snf_bombeiros",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SenasFire/snf_bombeiros.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SenasFire/snf_bombeiros/issues"
+  },
+  "homepage": "https://github.com/SenasFire/snf_bombeiros#readme",
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }
