@@ -24,3 +24,9 @@ extend: {
   },
 }
 ```
+
+Classes responsivas Tailwind:
+- sm = small,
+- md = medium,
+- lg = large,
+- xl = extra-large

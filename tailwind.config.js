@@ -19,7 +19,18 @@ module.exports = {
         'extrabold': 800,
         'black': 900
       },
-      fontStyle: ['italic']
+      fontStyle: ['italic'],
+      colors: {
+        vermelho: '#C7402D',
+        cinza: '#595959',
+        preto: '#252525'
+      },
+      width: {
+        imagem_placeholder: '192px'
+      },
+      height: {
+        imagem_placeholder: '192px'
+      }
     },
   },
   plugins: [],
