@@ -29,7 +29,8 @@ module.exports = {
         imagem_placeholder: '192px'
       },
       height: {
-        imagem_placeholder: '192px'
+        imagem_placeholder: '192px',
+        fundo_branco: '580px'
       }
     },
   },
