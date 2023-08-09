@@ -24,10 +24,16 @@ module.exports = {
         'black': 900
       },
       fontStyle: ['italic'],
+      fontSize: {
+        exsm: '0.5rem',
+        sm: '1rem'
+      },
       colors: {
         vermelho: '#C7402D',
         cinza: '#595959',
-        preto: '#252525'
+        preto: '#252525',
+        input_color: '#EDEDED',
+        input_placeholder: 'rgba(89,89,89,0.75)'
       },
       width: {
         imagem_placeholder: '192px'
