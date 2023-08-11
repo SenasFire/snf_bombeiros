@@ -5,9 +5,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-<footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch p-8 bg-white">
+<footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white">
 
-  <section class="container_footer flex flex-col justify-center items-center gap-5 self-stretch">
+  <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch">
     <!-- LOGOS: -->
     <section class="logos_row flex flex-row justify-center items-center gap-[0.9375rem] self-stretch">
       <img src="../public/images/logo-noar.png" alt="Logo Noar" class="w-[10rem] h-[10rem]">
