@@ -46,6 +46,12 @@ module.exports = {
       height: {
         imagem_placeholder: '192px',
         fundo_branco: '580px'
+      },
+      backgroundImage: {
+        'menu-icon-toggle': "url('/public/images/menu-icon-toggle.svg')",
+      },
+      aspectRatio: {
+        '1': '1 / 1',
       }
     },
   },

@@ -11,14 +11,9 @@
     <h1 id="nav_title" class="font-poppins font-semibold text-white text-2xl">NOAR</h1>
   </header>
   <!-- MENU ICON / Criar uma imagem depois para não bugar o estado -->
-  <svg class="peer" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <mask id="mask0_44_89" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
-      <rect width="36" height="36" fill="#D9D9D9"/>
-    </mask>
-    <g mask="url(#mask0_44_89)">
-      <path d="M4.5 27V24H24V27H4.5ZM29.4 25.5L21.9 18L29.4 10.5L31.5 12.6L26.1 18L31.5 23.4L29.4 25.5ZM4.5 19.5V16.5H19.5V19.5H4.5ZM4.5 12V9H24V12H4.5Z" fill="white"/>
-    </g>
-  </svg>
+  <button aria-controls="primary-navigation" aria-expanded="false" class="w-8 aspect-square bg-menu-icon-toggle bg-no-repeat z-50">
+    <span class="sr-only" style="display:none">Menu</span>
+  </button>
   <!-- Menu que abre após clicar no ícone -- TODO: -->
   <section class="menu_open hidden peer-hover:flex flex-col items-start gap-[5px] p-2.5 w-[232px] bg-white rounded-2xl">
     <div class="close flex justify-end items-center self-stretch">
