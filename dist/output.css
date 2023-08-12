@@ -544,8 +544,17 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-\[10rem\] {
   height: 10rem;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .h-full {
@@ -562,6 +571,10 @@ video {
 
 .w-\[10rem\] {
   width: 10rem;
+}
+
+.w-\[232px\] {
+  width: 232px;
 }
 
 .w-full {
@@ -588,8 +601,16 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .gap-1 {
@@ -624,8 +645,16 @@ video {
   gap: 0.9375rem;
 }
 
+.gap-\[5px\] {
+  gap: 5px;
+}
+
 .self-stretch {
   align-self: stretch;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .border-b {
@@ -657,6 +686,14 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-2\.5 {
+  padding: 0.625rem;
+}
+
 .p-5 {
   padding: 1.25rem;
 }
@@ -673,6 +710,21 @@ video {
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 
 .align-super {
@@ -705,6 +757,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -715,6 +772,10 @@ video {
 
 .font-normal {
   font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .leading-10 {
@@ -751,6 +812,43 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.no-underline {
+  text-decoration-line: none;
+}
+
+.group:hover .group-hover\:flex {
+  display: flex;
+}
+
+.peer:hover ~ .peer-hover\:flex {
+  display: flex;
+}
+
+@media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
+  }
+
+  .sm\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .sm\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .sm\:py-2\.5 {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
 }
 
 @media (min-width: 1024px) {

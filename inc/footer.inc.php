@@ -71,13 +71,17 @@
   </section>
 
   <!-- SOBRE FINAL BG VERMELHO -->
-  <section class="container_footer2 flex flex-col px-8 py-16 justify-center items-center gap-6 bg-vermelho">
+  <section class="container_footer2 flex flex-col px-8 py-16 justify-center items-center gap-6 bg-vermelho font-poppins">
     <header aria-labelledby="company_name" class="flex flex-col justify-center items-start gap-2.5 self-stretch">
       <h1 id="company_name" class="text-white font-poppins text-4xl font-bold leading-9">Senas Tech</h1>
       <p class="text-white font-poppins text-xl font-normal leading-5">
         Somos uma empresa de <b>tecnologia</b> localizada em Joinville, Santa Catarina, utilizamos de nossos <b>conhecimentos</b> e <b>ferramentas</b> para trazer aplicações <b>confiáveis</b> e <b>velozes</b> para o usuário final.
       </p>
     </header>
+    <hr width="100%">
+    <p class="font-poppins">Termos de uso e privacidade</p>
+    <hr width="100%">
+    <p class="font-poppins">Copyright, 2023</p>
   </section>
 
 </footer>
