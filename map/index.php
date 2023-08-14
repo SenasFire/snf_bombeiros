@@ -22,3 +22,7 @@
 </body>
 
 </html>
+
+<button aria-controls="primary-navigation" aria-expanded="false" class="absolute aspect-square w-8 bg-menu-icon-toggle bg-no-repeat border-0">
+        <span class="sr-only" style="display:none">Menu</span>
+      </button>
