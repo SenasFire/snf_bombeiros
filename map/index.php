@@ -13,16 +13,25 @@
 </head>
 
 <body>
-  <main class="flex flex-col lg:flex-row w-full h-screen">
-    <div class="w-full h-full bg-slate-600"></div>
-    <div class="w-full h-full bg-slate-600"></div>
-    <div class="w-full h-full bg-slate-600"></div>
-    <div class="w-full h-full bg-slate-600"></div>
-  </main>
+  <?php include("header.inc.php"); ?>
+  <img src="corpo.jpg" alt="Corpo" usemap="#corpo">
+  <map class="hover:cursor-pointer" name="corpo" id="imagemap">
+    <area class="hover:cursor-pointer" shape="circle" coords="485,520,20" alt="Pênis" title="Pênis">
+    <area class="hover:cursor-pointer" shape="circle" coords="410,585,30" alt="Femoral" title="Quadríceps Femoral">
+    <area class="hover:cursor-pointer" shape="poly" coords="456,96,484,80,515,100,520,132,512,165,485,176,456,165,450,138" alt="Crânio" title="Crânio">
+  </map>
 </body>
+<script>
+  // Capturar o evento de clique no mapa
+  document.getElementById('imagemap').addEventListener('click', function(event) {
+    // Obter as coordenadas do ponto clicado
+    var x = event.offsetX;
+    var y = event.offsetY;
 
+    // Exibir as coordenadas
+    console.log('Coordenadas: x=' + x + ', y=' + y);
+
+    window.open("process.php"+x,y"_self")
+  });
+</script>
 </html>
-
-<button aria-controls="primary-navigation" aria-expanded="false" class="absolute aspect-square w-8 bg-menu-icon-toggle bg-no-repeat border-0">
-        <span class="sr-only" style="display:none">Menu</span>
-      </button>
