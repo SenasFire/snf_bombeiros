@@ -31,7 +31,7 @@
     // Exibir as coordenadas
     console.log('Coordenadas: x=' + x + ', y=' + y);
 
-    window.open("process.php"+x,y"_self")
+    window.open("process.?cordX"+x,y"_self")
   });
 </script>
 </html>

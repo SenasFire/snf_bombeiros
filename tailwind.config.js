@@ -52,6 +52,11 @@ module.exports = {
       },
       aspectRatio: {
         '1': '1 / 1',
+      },
+      screens: {
+        'desktop': '1680px',
+        'laptop': '1024px',
+        'tablet': '768px'
       }
     },
   },
