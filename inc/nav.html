@@ -14,22 +14,15 @@
     </div>
   </header>
   <!-- MENU ICON / Criar uma imagem depois para não bugar o estado -->
-  <button aria-controls="primary-navigation" aria-expanded="false" class="desktop:hidden w-8 h-8 bg-menu-icon-toggle bg-no-repeat z-50">
+  <button id="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" class="desktop:hidden w-8 h-8 bg-menu-icon-toggle bg-no-repeat z-50">
     <span class="sr-only" style="display:none">Menu</span>
   </button>
   <!-- Menu que abre após clicar no ícone -- TODO: -->
-  <section class="menu_open hidden peer-hover:flex flex-col items-start gap-[5px] p-2.5 w-[232px] bg-white rounded-2xl">
+  <section id="primary-navigation" class="menu_open hidden peer-active:flex flex-col items-start gap-[5px] p-2.5 w-[232px] bg-white rounded-2xl">
     <div class="close flex justify-end items-center self-stretch">
-      <a href="" class="no-underline text-vermelho font-poppins">Fechar</a>
       <!-- ICON FECHAR: -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <mask id="mask0_44_102" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-          <rect width="24" height="24" fill="#D9D9D9"/>
-        </mask>
-        <g mask="url(#mask0_44_102)">
-          <path d="M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z" fill="#C7402D"/>
-        </g>
-      </svg>
+      <button id="nav-close" class="bg-close w-8 h-8 bg-no-repeat bg-center">
+      </button>
     </div>
     <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
       <li><a>Perfil</a></li>
@@ -48,3 +41,20 @@
     <li><img src="../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class=""></li>
   </ul>
 </nav>
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navigationMenu = document.getElementById('primary-navigation');
+  const navToggle = document.getElementById('nav-close');
+
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    menuToggle.classList.add('hidden');
+    navigationMenu.classList.toggle('hidden', expanded);
+  });
+
+  navToggle.addEventListener('click', () => {
+    navigationMenu.classList.toggle('hidden');
+    menuToggle.classList.remove('hidden');
+  })
+</script>

@@ -49,6 +49,7 @@ module.exports = {
       },
       backgroundImage: {
         'menu-icon-toggle': "url('/public/images/menu-icon-toggle.svg')",
+        'close': "url('/public/images/close.svg')"
       },
       aspectRatio: {
         '1': '1 / 1',
