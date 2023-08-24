@@ -6,12 +6,9 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
-    "./dist/**.{html,js}",
-    "./map/**.{html,js,php}",
-    "./draft/**.{html,js,php}",
-    "./inc/**/*.{php,inc}",
-    "**.",
-    "./src/**."
+    './inc/**/*.{html, js, php}',
+    './draft/**/*.{html, js, php}',
+    './map/**/*.{html, js, php}'
   ],
   theme: {
     extend: {
@@ -51,7 +48,7 @@ module.exports = {
         'menu-icon-toggle': "url('/public/images/menu-icon-toggle.svg')",
         'close': "url('/public/images/close.svg')",
         'logo-noar': "url('/public/images/logo-noar.png')",
-        'bg-mobile': "url('/public/images/bg-mobile.svg')"
+        'bg-mobile': "url('../public/images/bg-mobile.svg')",
       },
       aspectRatio: {
         '1': '1 / 1',
