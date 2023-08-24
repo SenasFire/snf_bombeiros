@@ -49,7 +49,9 @@ module.exports = {
       },
       backgroundImage: {
         'menu-icon-toggle': "url('/public/images/menu-icon-toggle.svg')",
-        'close': "url('/public/images/close.svg')"
+        'close': "url('/public/images/close.svg')",
+        'logo-noar': "url('/public/images/logo-noar.png')",
+        'bg-mobile': "url('/public/images/bg-mobile.svg')"
       },
       aspectRatio: {
         '1': '1 / 1',

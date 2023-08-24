@@ -17,9 +17,12 @@
     <span class="sr-only" style="display:none">Menu</span>
   </button>
   <!-- Menu que abre após clicar no ícone -- TODO: -->
-  <section id="primary-navigation" class="menu_open hidden peer-active:flex flex-col items-start gap-[5px] p-2.5 w-[232px] bg-white rounded-2xl">
+  <section id="primary-navigation" class="menu_open hidden absolute top-0 right-0 border flex-col items-start gap-[5px] p-4 w-[232px] bg-white
+    transition-transform
+  ">
     <div class="close flex justify-end items-center self-stretch">
       <!-- ICON FECHAR: -->
+      <p onclick="retrairMenu()" class="self-center text-vermelho font-poppins cursor-pointer">Fechar</p>
       <button onclick="retrairMenu()" id="nav-close" class="bg-close w-8 h-8 bg-no-repeat bg-center">
       </button>
     </div>
@@ -29,6 +32,7 @@
       <li><a>Histórico de Ocorrências</a></li>
       <li><a>Nova Ocorrência</a></li>
       <li><a>Ajuda</a></li>
+      <li><a>Acessibilidade</a></li>
     </ul>
   </section>
   <ul class="navlinks hidden desktop:flex flex-row text-white gap-12 items-center text-xl font-poppins">
