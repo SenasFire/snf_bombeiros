@@ -47,6 +47,8 @@ height: {
 }
 ```
 
+O tailwind css verifica mudanças em arquivos que utilizam suas classes, estes arquivos são definidos em glob pattern no arquivo de configuração do tailwind. Quando o tailwind está sendo construído, ele identifica as classes utilizadas e as adiciona ao arquivo -o output (-o = output -i = input), visando otimizar espaço.
+
 A ideia é utilizar um `image map` HTML com a tag `<map>`, uma imagem com *áreas* clicáveis, estas definidas por uma ou mais tags `<area>`.
 
 # Exemplo W3C:
