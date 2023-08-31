@@ -1,5 +1,5 @@
 <!-- Formulário -->
-<section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5" title="Form Container">
+<section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-fit" title="Form Container">
   <header class="flex flex-col items-center">
     <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
     <p class="text-sm text-cinza">Insira suas informações para cadastro</p>
