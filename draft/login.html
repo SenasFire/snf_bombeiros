@@ -12,8 +12,9 @@
   <title>Index</title>
 </head>
 
-<body class="bg-bg-mobile bg-no-repeat">
-  <main class="flex flex-col items-center w-full h-screen p-5 gap-5 font-poppins">
+<body class="bg-bg-mobile bg-no-repeat md:bg-none">
+  <!-- MOBILE: -->
+  <main class="flex flex-col items-center w-full h-screen p-5 gap-5 font-poppins md:hidden">
     <!-- Texto placeholder -->
     <div class="placeholder flex flex-row justify-center align-super gap-1.5 self-stretch text-white">
       <p>Release 0.1</p>
@@ -31,6 +32,45 @@
         <p class="text-sm text-cinza">Insira suas informações para cadastro</p>
       </header>
       
+      <form class="flex flex-col gap-2.5" action="" method="" id="form_cadastro">
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+          <label for="nome">N° Fibra:</label>
+          <input type="text" class="border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 4200" id="n_fibra">
+        </div>
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+          <label for="nome">Senha:</label>
+          <input type="password" class="border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="***" id="senha">
+        </div>
+        <div class="checkbox flex items-center gap-2.5">
+          <input type="checkbox" class="w-4 h-4 border border-input_placeholder rounded-none"><p class="text-cinza"><b>Lembrar</b> de mim</p>
+        </div>
+        <button type="submit" onclick="event.preventDefault()" class="px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+          transition ease-in-out hover:scale-105">Entrar</button>
+        <a href="#" onclick="event.preventDefault()" class="underline text-sm font-normal text-cinza"><b>Clique aqui</b> caso não tenha cadastro</a>
+      </form>
+    </section>
+  </main>
+  <!-- DESKTOP: -->
+  <main class="hidden desktop:flex justify-center items-center h-screen">
+    <aside class="flex flex-col justify-center items-center gap-5 self-stretch w-1/2 h-full bg-ambulance bg-no-repeat">
+      <!-- Header -->
+      <header class="noar_logo flex flex-col items-center justify-center gap-5 font-poppins w-1/2">
+        <div class="flex">
+          <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[176px] h-[176px]">
+          <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[176px] h-[176px]">
+        </div>
+        <h1 class="font-extrabold text-5xl text-white">SOS Bombeiros</h1>
+        <p class="text-center font-poppins text-2xl text-white w-full font-light"><b class="font-bold">Registro</b> e <b class="font-bold">Acompanhamento</b> de Ocorrências Médicas, Facilitando a <b class="font-bold">Cooperação</b> entre <b class="font-bold">Bombeiros</b> e <b class="font-bold">Médicos</b></p>
+      </header>
+    </aside>
+    <!-- Formulário -->
+    <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-1/2" title="Form Container">
+      <header class="flex flex-col items-center">
+        <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
+        <p class="text-sm text-cinza">Insira suas informações para cadastro</p>
+      </header>
       <form class="flex flex-col gap-2.5" action="" method="" id="form_cadastro">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome">N° Fibra:</label>

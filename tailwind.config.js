@@ -49,6 +49,7 @@ module.exports = {
         'close': "url('/public/images/close.svg')",
         'logo-noar': "url('/public/images/logo-noar.png')",
         'bg-mobile': "url('../public/images/bg-mobile.svg')",
+        'ambulance': "url('../public/images/ambulance.png')",
       },
       aspectRatio: {
         '1': '1 / 1',
