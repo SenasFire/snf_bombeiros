@@ -1,6 +1,6 @@
-const menuToggle = document.getElementById('menu-toggle');
-const navigationMenu = document.getElementById('primary-navigation');
-const navToggle = document.getElementById('nav-close');
+const menuToggle = document.getElementById("menu-toggle");
+const navigationMenu = document.getElementById("primary-navigation");
+const navToggle = document.getElementById("nav-close");
 
 function expandirMenu() {
   menuToggle.classList.add('hidden');
