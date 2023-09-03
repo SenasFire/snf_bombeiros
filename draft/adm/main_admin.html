@@ -48,12 +48,12 @@
   </section>
 
   <ul class="navlinks hidden desktop:flex flex-row text-white gap-12 items-center text-xl font-poppins h-full">
-    <li><a class="cursor-pointer">Perfil</a></li>
-    <li><a class="cursor-pointer">Página Principal</a></li>
+    <li><a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Perfil</a></li>
+    <li><a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a></li>
     <li class="group flex flex-col items-center">
       <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">Novo Cadastro<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a>
       <!-- Menu que abre após clicar no visualizar -- TODO: -->
-      <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center
+      <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
         transition-[max-height] duration-300 ease-out
         group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
       ">
@@ -75,7 +75,7 @@
     <li class="group flex flex-col items-center">
       <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">Visualizar<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a>
       <!-- Menu que abre após clicar no visualizar -- TODO: -->
-      <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center
+      <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
         transition-[max-height] duration-300 ease-out
         group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
       ">
@@ -94,23 +94,54 @@
         </ul>
       </section>
     </li>
-    <li><a class="cursor-pointer">Ajuda</a></li>
+    <li><a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Ajuda</a></li>
     <li><img src="../../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class="cursor-pointer"></li>
   </ul>
 
 </nav>
 
+<main class="flex flex-col px-16 py-8 gap-8 self-stretch items-center justify-center">
+  <section aria-labelledby="title_noticias" title="Alertas e notícias" class="flex flex-col items-start gap-2.5 w-full">
+    <header>
+      <h1 class="text-preto font-poppins font-semibold text-4xl">Alertas e Notícias</h1>
+    </header>
+    <section aria-label="Notícias" class="flex flex-row justify-start items-start gap-10 self-stretch w-full">
+      <div class="bg-[#B9E4C5] w-full h-[180px] drop-shadow-lg"></div>
+      <div class="bg-[#9EDEF2] w-full h-[180px] drop-shadow-lg"></div>
+      <div class="bg-[#F0ACAC] w-full h-[180px] drop-shadow-lg"></div>
+      <div class="bg-[#F5EC95] w-full h-[180px] drop-shadow-lg"></div>
+      <div class="bg-[#f595dd] w-full h-[180px] drop-shadow-lg"></div>
+    </section>
+  </section>
+
+  <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex justify-center items-start gap-10 self-stretch">
+    <section aria-labelledby="title_socorristas" class="socorristas" title="Socorristas Cadastrados">
+      <header>
+        <h1 id="title_socorristas" class="font-poppins font-semibold text-4xl">Bombeiros Cadastrados</h1>
+      </header>
+      <!-- Table aqui: -->
+    </section>
+
+    <section aria-labelledby="title_medicos" class="medicos" title="Médicos Cadastrados">
+      <header>
+        <h1 id="title_medicos" class="font-poppins font-semibold text-4xl">Médicos Cadastrados</h1>
+      </header>
+      <!-- Table aqui: -->
+    </section>
+  </section>
+</main>
+
 <!-- Importar este arquivo include para toda página que desejar exibir o footer com PHP -->
 <footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
-  desktop:flex-col desktop:items-start desktop:px-16
+  desktop:flex-col desktop:items-start
 ">
 
   <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
     desktop:justify-between desktop:items-center desktop:flex-row
   ">
     <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
-      <img src="../public/images/logo-noar.png" alt="Logo Noar">
-      <img src="../public/images/ambulancia.png" alt="Logo Ambulância">
+      <img src="../../public/images/logo-noar.png" alt="Logo Noar">
+      <img src="../../public/images/ambulancia.png" alt="Logo Ambulância">
       <header aria-labelledby="footer_title" class="header hidden desktop:flex flex-col justify-center items-start gap-2.5 self-stretch">
         <h1 id="footer_title" class="text-4xl font-poppins font-bold leading-9 text-preto">SOS Bombeiros</h1>
         <p class="self-stretch text-cinza font-poppins text-xl font-normal leading-5 w-96">
