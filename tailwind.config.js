@@ -49,6 +49,7 @@ module.exports = {
         'close': "url('/public/images/close.svg')",
         'logo-noar': "url('/public/images/logo-noar.png')",
         'bg-mobile': "url('../public/images/bg-mobile.svg')",
+        'bg-tablet': "url('../public/images/bg-tablet.svg')",
         'ambulance': "url('../public/images/ambulance.png')",
       },
       aspectRatio: {
@@ -61,6 +62,7 @@ module.exports = {
       }
     },
   },
+  jit: true,
   plugins: [],
 }
 
