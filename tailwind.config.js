@@ -35,7 +35,9 @@ module.exports = {
         cinza: '#595959',
         preto: '#252525',
         input_color: '#EDEDED',
-        input_placeholder: 'rgba(89,89,89,0.75)'
+        input_placeholder: 'rgba(89,89,89,0.75)',
+        error_bg: 'rgba(199, 64, 45, 0.10)',
+        border_error: 'rgba(199, 64, 45, 0.60)'
       },
       width: {
         imagem_placeholder: '192px'

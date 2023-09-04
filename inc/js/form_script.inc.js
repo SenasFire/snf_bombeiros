@@ -2,34 +2,32 @@ const inputNome = document.getElementById("input_name");
 const inputFibra = document.getElementById("num_fibra");
 const inputSenha = document.getElementById("input_senha");
 
-const alertMessageNome = document.getElementById("error_nome");
-const alertMessageFibra = document.getElementById("error_fibra");
-const alertMessageSenha = document.getElementById("error_senha");
+const alertMessage = document.getElementById("error");
 
 const botaoEnviar = document.getElementById("cadastrar");
 
 inputNome.addEventListener("blur", () => {
-  validateInput(inputNome, alertMessageNome);
+  validateInput(inputNome, alertMessage);
 });
 
 inputNome.addEventListener("input", () => {
-  hideAlert(alertMessageNome);
+  hideAlert(alertMessage);
 });
 
 inputFibra.addEventListener("blur", () => {
-  validateInput(inputFibra, alertMessageFibra);
+  validateInput(inputFibra, alertMessage);
 });
 
 inputFibra.addEventListener("input", () => {
-  hideAlert(alertMessageFibra);
+  hideAlert(alertMessage);
 });
 
 inputSenha.addEventListener("blur", () => {
-  validateInput(inputSenha, alertMessageSenha);
+  validateInput(inputSenha, alertMessage);
 });
 
 inputSenha.addEventListener("input", () => {
-  hideAlert(alertMessageSenha);
+  hideAlert(alertMessage);
 });
 
 function validateInput(inputElement, alertElement) {
