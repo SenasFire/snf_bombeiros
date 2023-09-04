@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
+  <script src="../inc/js/form_script.inc.js" defer></script>
   <title>Index</title>
 </head>
 
@@ -39,6 +40,15 @@
       </header>
       
       <form class="flex flex-col gap-2.5" action="" method="" id="form_cadastro">
+        <div id="error_nome" class="error_message hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] border-[rgba(199, 64, 45, 0.60)] items-center self-stretch" title="Alerta" aria-label="Alerta">
+          <img src="../public/images/alert-icon.svg" alt="Alerta">
+          <p class="text-sm text-vermelho font-poppins">Por favor, insira um nome</p>
+        </div>
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+          <label for="nome">Nome:</label>
+          <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
+        </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome">N° Fibra:</label>
           <input type="text" class="border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
@@ -62,26 +72,31 @@
     </section>
   </main>
   <!-- DESKTOP: -->
-  <main class="hidden desktop:flex justify-center items-center h-screen">
-    <aside class="flex flex-col justify-center items-center gap-5 p-32 self-stretch w-1/2 h-full bg-ambulance bg-no-repeat bg-center bg-cover">
+  <main class="hidden lg:flex desktop:flex justify-center items-center h-screen bg-none">
+    <aside class="flex flex-col justify-center items-center gap-5 p-32 self-stretch w-1/2 lg:w-4/6 h-full bg-ambulance bg-no-repeat bg-center bg-cover">
       <!-- Header -->
       <header class="noar_logo flex flex-col items-center m-auto justify-center gap-5 font-poppins w-1/2 text-center">
         <div class="flex">
-          <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[176px] h-[176px]">
-          <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[176px] h-[176px]">
+          <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[176px] h-[176px] lg:w-[132px] lg:h-[132px]">
+          <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[176px] h-[176px] lg:w-[132px] lg:h-[132px]">
         </div>
-        <h1 class="font-extrabold text-5xl text-white">SOS Bombeiros</h1>
-        <p class="text-center font-poppins text-2xl text-white w-full font-light"><b class="font-bold">Registro</b> e <b class="font-bold">Acompanhamento</b> de Ocorrências Médicas, Facilitando a <b class="font-bold">Cooperação</b> entre <b class="font-bold">Bombeiros</b> e <b class="font-bold">Médicos</b></p>
+        <h1 class="font-extrabold text-5xl lg:text-3xl text-white">SOS Bombeiros</h1>
+        <p class="text-center font-poppins text-2xl text-white w-full font-light lg:text-xl"><b class="font-bold">Registro</b> e <b class="font-bold">Acompanhamento</b> de Ocorrências Médicas, Facilitando a <b class="font-bold">Cooperação</b> entre <b class="font-bold">Bombeiros</b> e <b class="font-bold">Médicos</b></p>
       </header>
     </aside>
     <!-- Formulário -->
     <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-1/2" title="Cadastre-se">
       <div class="header_form_container flex flex-col justify-center items-center gap-5 w-1/2">
         <header class="flex flex-col items-center w-full">
-          <h1 class="font-bold text-preto text-6xl font-poppins text-center"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
-          <p class="text-xl text-cinza font-poppins">Insira suas informações para cadastro</p>
+          <h1 class="font-bold text-preto text-6xl lg:text-[2rem] font-poppins text-center"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
+          <p class="text-xl lg:text-sm text-cinza font-poppins text-center">Insira suas informações para cadastro</p>
         </header>
         <form class="flex flex-col gap-2.5 w-full font-poppins" action="" method="">
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Nome:</label>
+            <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
+          </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome">N° Fibra:</label>
             <input type="text" class="border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
@@ -90,12 +105,12 @@
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome">Senha:</label>
             <input type="password" class="border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="***" id="senha">
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******" id="senha">
           </div>
           <div class="checkbox flex items-center gap-2.5">
             <input type="checkbox" class="border border-input_placeholder rounded-none appearance-none checked:bg-vermelho w-5 h-5"><p class="text-cinza"><b>Lembrar</b> de mim</p>
           </div>
-          <button type="submit" onclick="event.preventDefault()" class="px-6 py-4 gap-2.5 text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          <button type="submit" onclick="event.preventDefault()" class="px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:scale-105 focus:scale-105">Cadastre-se<img src="../public/images/caret.svg" alt=""></button>
           <a href="#" onclick="event.preventDefault()" class="underline text-sm font-normal text-cinza focus:outline-vermelho"><b>Clique aqui</b> caso não tenha cadastro</a>
         </form>

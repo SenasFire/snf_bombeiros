@@ -580,30 +580,6 @@ video {
   margin: auto;
 }
 
-.mt-96 {
-  margin-top: 24rem;
-}
-
-.mt-80 {
-  margin-top: 20rem;
-}
-
-.mt-\[70\%\] {
-  margin-top: 70%;
-}
-
-.mt-\[50\%\] {
-  margin-top: 50%;
-}
-
-.mt-\[30\%\] {
-  margin-top: 30%;
-}
-
-.mt-\[40\%\] {
-  margin-top: 40%;
-}
-
 .mt-\[35\%\] {
   margin-top: 35%;
 }
@@ -644,6 +620,10 @@ video {
   height: 180px;
 }
 
+.h-\[192px\] {
+  height: 192px;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -659,10 +639,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[192px\] {
-  height: 192px;
 }
 
 .max-h-0 {
@@ -701,6 +677,10 @@ video {
   width: 176px;
 }
 
+.w-\[192px\] {
+  width: 192px;
+}
+
 .w-\[232px\] {
   width: 232px;
 }
@@ -715,10 +695,6 @@ video {
 }
 
 .w-imagem_placeholder {
-  width: 192px;
-}
-
-.w-\[192px\] {
   width: 192px;
 }
 
@@ -738,10 +714,6 @@ video {
 
 .flex-col {
   flex-direction: column;
-}
-
-.content-center {
-  align-content: center;
 }
 
 .items-start {
@@ -836,6 +808,10 @@ video {
   border-radius: 0px;
 }
 
+.rounded-\[30px\] {
+  border-radius: 30px;
+}
+
 .border {
   border-width: 1px;
 }
@@ -918,16 +894,16 @@ video {
   background-image: url('/public/images/menu-icon-toggle.svg');
 }
 
+.bg-none {
+  background-image: none;
+}
+
 .bg-contain {
   background-size: contain;
 }
 
 .bg-cover {
   background-size: cover;
-}
-
-.bg-fixed {
-  background-attachment: fixed;
 }
 
 .bg-local {
@@ -960,6 +936,14 @@ video {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-2\.5 {
+  padding: 0.625rem;
 }
 
 .px-16 {
@@ -1246,10 +1230,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:h-32 {
     height: 8rem;
   }
@@ -1260,14 +1240,6 @@ video {
 
   .md\:justify-start {
     justify-content: flex-start;
-  }
-
-  .md\:bg-none {
-    background-image: none;
-  }
-
-  .md\:bg-bg-tablet {
-    background-image: url('../public/images/bg-tablet.svg');
   }
 
   .md\:text-4xl {
@@ -1307,24 +1279,12 @@ video {
     align-items: flex-start;
   }
 
-  .tablet\:items-center {
-    align-items: center;
-  }
-
   .tablet\:justify-start {
     justify-content: flex-start;
   }
 
   .tablet\:gap-5 {
     gap: 1.25rem;
-  }
-
-  .tablet\:gap-4 {
-    gap: 1rem;
-  }
-
-  .tablet\:gap-3 {
-    gap: 0.75rem;
   }
 
   .tablet\:bg-bg-tablet {
@@ -1335,59 +1295,26 @@ video {
     background-size: cover;
   }
 
-  .tablet\:bg-fixed {
-    background-attachment: fixed;
-  }
-
   .tablet\:bg-local {
     background-attachment: local;
-  }
-
-  .tablet\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  .tablet\:pt-8 {
-    padding-top: 2rem;
   }
 
   .tablet\:pt-10 {
     padding-top: 2.5rem;
   }
 
-  .tablet\:pt-12 {
-    padding-top: 3rem;
-  }
-
-  .tablet\:pt-14 {
-    padding-top: 3.5rem;
-  }
-
-  .tablet\:pt-16 {
-    padding-top: 4rem;
-  }
-
-  .tablet\:pt-20 {
-    padding-top: 5rem;
-  }
-
   .tablet\:text-left {
     text-align: left;
-  }
-
-  .tablet\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .tablet\:text-sm {
-    font-size: 1rem;
   }
 
   .tablet\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .tablet\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .tablet\:text-5xl {
@@ -1397,8 +1324,32 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:h-\[132px\] {
+    height: 132px;
+  }
+
+  .lg\:w-\[132px\] {
+    width: 132px;
+  }
+
+  .lg\:w-4\/5 {
+    width: 80%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .lg\:w-4\/6 {
+    width: 66.666667%;
   }
 
   .lg\:flex-row {
@@ -1407,6 +1358,38 @@ video {
 
   .lg\:bg-none {
     background-image: none;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .lg\:text-sm {
+    font-size: 1rem;
+  }
+
+  .lg\:text-\[3\.5rem\] {
+    font-size: 3.5rem;
+  }
+
+  .lg\:text-\[2rem\] {
+    font-size: 2rem;
   }
 
   .laptop\:block {
