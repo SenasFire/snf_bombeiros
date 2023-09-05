@@ -1,63 +1,48 @@
-const inputNome = document.getElementById("input_name");
-const inputFibra = document.getElementById("num_fibra");
-const inputSenha = document.getElementById("input_senha");
+const inputElement = document.querySelectorAll(".input");
+const botaoEnviar = document.querySelector(".button");
+const alertElement = document.querySelector(".error");
 
-const alertMessage = document.getElementById("error");
+inputElement.forEach((inputElement) => {
+  inputElement.addEventListener("blur", () => {
+    validateInput(inputElement, alertElement);
+  });
 
-const botaoEnviar = document.getElementById("cadastrar");
-
-inputNome.addEventListener("blur", () => {
-  validateInput(inputNome, alertMessage);
+  inputElement.addEventListener("input", () => {
+    hideAlert(alertElement);
+  });
 });
 
-inputNome.addEventListener("input", () => {
-  hideAlert(alertMessage);
-});
-
-inputFibra.addEventListener("blur", () => {
-  validateInput(inputFibra, alertMessage);
-});
-
-inputFibra.addEventListener("input", () => {
-  hideAlert(alertMessage);
-});
-
-inputSenha.addEventListener("blur", () => {
-  validateInput(inputSenha, alertMessage);
-});
-
-inputSenha.addEventListener("input", () => {
-  hideAlert(alertMessage);
+botaoEnviar.addEventListener("click", (event) => {
+  event.preventDefault();
 });
 
 function validateInput(inputElement, alertElement) {
   const inputValue = inputElement.value.trim();
   const isInvalid = inputValue === "" || inputValue.length > 150;
-  
+
   if (isInvalid) {
     showAlert(alertElement);
   } else {
     hideAlert(alertElement);
   }
-  
+
   verificarBotao();
 }
 
-function showAlert(element) {
-  element.classList.remove("hidden");
-  element.classList.add("flex");
+function showAlert(alertElement) {
+  alertElement.classList.remove("hidden");
+  alertElement.classList.add("flex");
 }
 
-function hideAlert(element) {
-  element.classList.add("hidden");
-  element.classList.remove("flex");
+function hideAlert(alertElement) {
+  alertElement.classList.add("hidden");
+  alertElement.classList.remove("flex");
 }
 
 function verificarBotao() {
-  const isAnyFieldInvalid =
-    isInputInvalid(inputNome) ||
-    isInputInvalid(inputFibra) ||
-    isInputInvalid(inputSenha);
+  const isAnyFieldInvalid = Array.from(inputElements).some((inputElement) =>
+    isInputInvalid(inputElement)
+  );
 
   botaoEnviar.disabled = isAnyFieldInvalid;
 }
