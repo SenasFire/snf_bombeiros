@@ -1,0 +1,126 @@
+<<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/output.css">
+  <script src="../inc/js/form_script.inc.js" defer></script>
+  <title>Index</title>
+</head>
+
+<body class="bg-bg-mobile bg-no-repeat">
+  <main class="flex flex-col items-center w-full h-screen p-5 gap-5 font-poppins">
+    <!-- Texto placeholder -->
+    <div class="placeholder flex flex-row justify-center align-super gap-1.5 self-stretch text-white">
+      <p>Release 0.1</p>
+    </div>
+    <!-- Header -->
+    <header class="noar_logo flex flex-col items-center justify-center gap-1 font-poppins">
+      <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-imagem_placeholder h-imagem_placeholder">
+      <!--<div class="w-imagem_placeholder h-imagem_placeholder bg-logo-noar bg-no-repeat bg-center bg-cover"></div>-->
+      <h1 class="font-extrabold text-2xl"><span class="text-vermelho font-extrabold">SOS</span> Bombeiros</h1>
+    </header>
+    <!-- Formulário -->
+    <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-fit" title="Form Container">
+      <header class="flex flex-col items-center">
+        <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Cabeçalho da</span> Ocorrência</h1>
+      </header>
+      
+      <form class="flex flex-col gap-2.5" action="" method="" id="form_cadastro">
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+          <label for="nome">Nome do Paciente:</label>
+          <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: Henrique Osmar Adelino" required>
+        </div>
+    
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+          <label for="data">Data</label>
+          <input id="data" type="date" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 4200" required>
+        </div>
+
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+          <label for="nome">Sexo:</label>
+          <select name="" id="">
+            <option value="" disabled selected>Selecione: Masculino / Feminino</option>
+            <option value="">Masculino</option>
+            <option value="">Feminino</option>
+          </select>
+        </div>
+
+        <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Nome do Hospital:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: Hospital Dona Helena" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">RG/CPF do Paciente:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho"placeholder="Ex: 123.456.789-01" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Idade do Paciente:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 56 anos" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Acompanhante:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho"placeholder="Ex: (47) 9002-8922" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Idade do Acompanhante:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: Paulo César" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Local da Ocorrência:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: Rua Petrópolis 1940" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">N° USB:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 123" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">N° da Ocorrência:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 456789" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">DESP:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 190" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">H.CH:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: xxx" required>
+          </div>
+
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">KM Final:</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: xxx" required>
+          </div>
+
+
+      </form>
+    </section>
+  </main>
+ 
