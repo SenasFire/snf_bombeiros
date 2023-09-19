@@ -580,14 +580,6 @@ video {
   margin: auto;
 }
 
-.mt-\[35\%\] {
-  margin-top: 35%;
-}
-
-.mt-\[10\%\] {
-  margin-top: 10%;
-}
-
 .flex {
   display: flex;
 }
@@ -616,6 +608,10 @@ video {
   height: 2rem;
 }
 
+.h-\[126px\] {
+  height: 126px;
+}
+
 .h-\[176px\] {
   height: 176px;
 }
@@ -639,10 +635,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[126px\] {
-  height: 126px;
 }
 
 .max-h-0 {
@@ -677,6 +669,10 @@ video {
   width: 24rem;
 }
 
+.w-\[126px\] {
+  width: 126px;
+}
+
 .w-\[176px\] {
   width: 176px;
 }
@@ -689,17 +685,13 @@ video {
   width: 232px;
 }
 
-.w-full {
-  width: 100%;
-}
-
-.w-\[126px\] {
-  width: 126px;
-}
-
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .cursor-pointer {
@@ -826,10 +818,6 @@ video {
 
 .border-b-2 {
   border-bottom-width: 2px;
-}
-
-.border-t-\[16px\] {
-  border-top-width: 16px;
 }
 
 .border-\[\#595959\] {
@@ -1240,12 +1228,6 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
-@media (min-width: 640px) {
-  .sm\:border-none {
-    border-style: none;
-  }
-}
-
 @media (min-width: 768px) {
   .md\:h-32 {
     height: 8rem;
@@ -1257,10 +1239,6 @@ video {
 
   .md\:justify-start {
     justify-content: flex-start;
-  }
-
-  .md\:border-none {
-    border-style: none;
   }
 
   .md\:text-4xl {
@@ -1308,34 +1286,8 @@ video {
     gap: 1.25rem;
   }
 
-  .tablet\:bg-white {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
-
-  .tablet\:bg-vermelho {
-    --tw-bg-opacity: 1;
-    background-color: rgb(199 64 45 / var(--tw-bg-opacity));
-  }
-
-  .tablet\:bg-bg-tablet {
-    background-image: url('../public/images/bg-tablet.svg');
-  }
-
   .tablet\:bg-none {
     background-image: none;
-  }
-
-  .tablet\:bg-cover {
-    background-size: cover;
-  }
-
-  .tablet\:bg-local {
-    background-attachment: local;
-  }
-
-  .tablet\:bg-top {
-    background-position: top;
   }
 
   .tablet\:pt-10 {
@@ -1359,11 +1311,6 @@ video {
   .tablet\:text-5xl {
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .tablet\:text-vermelho {
-    --tw-text-opacity: 1;
-    color: rgb(199 64 45 / var(--tw-text-opacity));
   }
 
   .tablet\:text-preto {

@@ -44,20 +44,27 @@
           <img src="../public/images/alert-icon.svg" alt="Alerta">
           <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
         </div>
-        <div class="input_box flex flex-col g-2.5" title="Input Box">
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
           <label for="nome">Nome:</label>
           <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
         </div>
-        <div class="input_box flex flex-col g-2.5" title="Input Box">
-          <label for="nome">N° Fibra:</label>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="num_fibra">N° Fibra:</label>
           <input id="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
         </div>
-        <div class="input_box flex flex-col g-2.5" title="Input Box">
-          <label for="nome">Senha:</label>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="input_senha">Senha:</label>
           <input id="input_senha" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="***">
+        </div>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="admin">Administrador</label>
+          <div classs="container_radio flex flex-row">
+            <input type="radio">Sim
+            <input type="radio">Não
+          </div>
         </div>
         <div class="checkbox flex items-center gap-2.5">
           <input type="checkbox" class="w-4 h-4 border border-input_placeholder rounded-none"><p class="text-cinza"><b>Lembrar</b> de mim</p>
