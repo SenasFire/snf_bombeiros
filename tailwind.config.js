@@ -35,7 +35,9 @@ module.exports = {
         cinza: '#595959',
         preto: '#252525',
         input_color: '#EDEDED',
-        input_placeholder: 'rgba(89,89,89,0.75)'
+        input_placeholder: 'rgba(89,89,89,0.75)',
+        error_bg: 'rgba(199, 64, 45, 0.10)',
+        border_error: 'rgba(199, 64, 45, 0.60)'
       },
       width: {
         imagem_placeholder: '192px'
@@ -49,17 +51,21 @@ module.exports = {
         'close': "url('/public/images/close.svg')",
         'logo-noar': "url('/public/images/logo-noar.png')",
         'bg-mobile': "url('../public/images/bg-mobile.svg')",
+        'bg-tablet': "url('../public/images/bg-tablet.svg')",
+        'ambulance': "url('../public/images/ambulance.png')",
       },
       aspectRatio: {
         '1': '1 / 1',
       },
       screens: {
         'desktop': '1680px',
+        'lg': '1300px',
         'laptop': '1024px',
-        'tablet': '768px'
+        'tablet': '604px'
       }
     },
   },
+  jit: true,
   plugins: [],
 }
 

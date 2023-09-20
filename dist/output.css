@@ -534,6 +534,16 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+::-moz-selection {
+  background-color: #C7402D;
+  color: white;
+}
+
+::selection {
+  background-color: #C7402D;
+  color: white;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -602,6 +612,10 @@ video {
   height: 126px;
 }
 
+.h-\[170px\] {
+  height: 170px;
+}
+
 .h-\[176px\] {
   height: 176px;
 }
@@ -665,6 +679,10 @@ video {
 
 .w-\[126px\] {
   width: 126px;
+}
+
+.w-\[170px\] {
+  width: 170px;
 }
 
 .w-\[176px\] {
@@ -827,6 +845,10 @@ video {
   border-color: rgb(89 89 89 / var(--tw-border-opacity));
 }
 
+.border-border_error {
+  border-color: rgba(199, 64, 45, 0.60);
+}
+
 .border-input_placeholder {
   border-color: rgba(89,89,89,0.75);
 }
@@ -861,6 +883,10 @@ video {
   background-color: rgb(245 149 221 / var(--tw-bg-opacity));
 }
 
+.bg-error_bg {
+  background-color: rgba(199, 64, 45, 0.10);
+}
+
 .bg-input_color {
   --tw-bg-opacity: 1;
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
@@ -874,6 +900,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-ambulance {
+  background-image: url('../public/images/ambulance.png');
 }
 
 .bg-bg-mobile {
@@ -969,11 +999,6 @@ video {
   padding-right: 2rem;
 }
 
-.py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -1032,6 +1057,11 @@ video {
 
 .text-5xl {
   font-size: 3rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
 
@@ -1115,6 +1145,10 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.outline-vermelho {
+  outline-color: #C7402D;
 }
 
 .drop-shadow-lg {
@@ -1227,24 +1261,7 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
-@media (min-width: 768px) {
-  .md\:h-32 {
-    height: 8rem;
-  }
-
-  .md\:w-32 {
-    width: 8rem;
-  }
-
-  .md\:justify-start {
-    justify-content: flex-start;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
+@media (min-width: 604px) {
   .tablet\:mt-auto {
     margin-top: auto;
   }
@@ -1318,7 +1335,32 @@ video {
   }
 }
 
+@media (min-width: 768px) {
+  .md\:h-32 {
+    height: 8rem;
+  }
+
+  .md\:w-32 {
+    width: 8rem;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 @media (min-width: 1024px) {
+  .laptop\:block {
+    display: block;
+  }
+}
+
+@media (min-width: 1300px) {
   .lg\:flex {
     display: flex;
   }
@@ -1352,6 +1394,15 @@ video {
     line-height: 2rem;
   }
 
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .lg\:text-\[2rem\] {
+    font-size: 2rem;
+  }
+
   .lg\:text-sm {
     font-size: 1rem;
   }
@@ -1361,8 +1412,18 @@ video {
     line-height: 1.75rem;
   }
 
-  .laptop\:block {
-    display: block;
+  .lg\:text-\[3rem\] {
+    font-size: 3rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
@@ -1405,6 +1466,10 @@ video {
 
   .desktop\:self-stretch {
     align-self: stretch;
+  }
+
+  .desktop\:border-t-\[16px\] {
+    border-top-width: 16px;
   }
 
   .desktop\:border-t-\[4px\] {
