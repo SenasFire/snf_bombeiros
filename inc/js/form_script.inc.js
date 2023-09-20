@@ -52,7 +52,7 @@ function isInputInvalid(inputElement) {
   return inputValue === "" || inputValue.length > 150;
 }
 
-// Código para exibir o registro do comandante:
+// Código para exibir o registro do comandante (desktop):
 // Selecione o botão de rádio "Sim" e o campo "Registro de Comandante"
 const radioSim = document.getElementById('adm_sim_desktop');
 const containerAdmin = document.getElementById('adm_code_container');
@@ -66,3 +66,16 @@ document.addEventListener('change', function() {
     containerAdmin.classList.add("hidden");
   }
 });
+
+// Exibir registro do comandante (mobile):
+const radioSimMobile = document.getElementById("adm_sim");
+const containerAdmMobile = document.getElementById("adm_container_mobile");
+
+document.addEventListener("change", function () {
+  if(radioSimMobile.checked) {
+    containerAdmMobile.classList.remove("hidden");
+    containerAdmMobile.classList.add("flex");
+  } else {
+    containerAdmMobile.classList.add("hidden");
+  }
+})
