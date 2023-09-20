@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="Website Icon" type="png" href="../public/images/logo-noar.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
   <script src="../inc/js/form_script.inc.js" defer></script>
-  <title>Index</title>
+  <title>Fazer Cadastro</title>
 </head>
 
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
@@ -36,7 +39,7 @@
         <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins tablet:text-4xl">
           <span class="font-bold text-vermelho">Cadastre-se</span> no app
         </h1>
-        <p class="text-sm text-cinza text-center">Insira suas informações para cadastro</p>
+        <p class="text-sm text-cinza">Insira suas informações para cadastro</p>
       </header>
       
       <form class="flex flex-col gap-2.5" action="" method="" id="form_cadastro">
@@ -44,23 +47,31 @@
           <img src="../public/images/alert-icon.svg" alt="Alerta">
           <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
         </div>
-        <div class="input_box flex flex-col g-2.5" title="Input Box">
-          <label for="nome">Nome:</label>
-          <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="input_name">Nome:</label>
+          <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
         </div>
-        <div class="input_box flex flex-col g-2.5" title="Input Box">
-          <label for="nome">N° Fibra:</label>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="num_fibra">N° Fibra:</label>
           <input id="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
         </div>
-        <div class="input_box flex flex-col g-2.5" title="Input Box">
-          <label for="nome">Senha:</label>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="input_senha">Senha:</label>
           <input id="input_senha" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******">
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="***">
         </div>
-        <div class="checkbox flex items-center gap-2.5">
-          <input type="checkbox" class="w-4 h-4 border border-input_placeholder rounded-none"><p class="text-cinza"><b>Lembrar</b> de mim</p>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="admin">Administrador:</label>
+          <div class="container_radio flex flex-row items-center gap-10">
+            <div class="flex items-center gap-2.5">
+              <input type="radio" id="adm_sim" name="escolha" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <input type="radio" id="adm_nao" name="escolha" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+            </div>
+          </div>
         </div>
         <button id="cadastrar" type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
           transition ease-in-out hover:scale-105 tablet:text-3xl">Cadastre-se</button>
@@ -81,7 +92,7 @@
           <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[176px] h-[176px] lg:w-[132px] lg:h-[132px]">
           <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[176px] h-[176px] lg:w-[132px] lg:h-[132px]">
         </div>
-        <h1 class="font-extrabold text-5xl lg:text-3xl text-white">SOS Bombeiros</h1>
+        <h1 class="font-extrabold text-5xl text-white">SOS Bombeiros</h1>
         <p class="text-center font-poppins text-2xl text-white w-full font-light lg:text-xl"><b class="font-bold">Registro</b> e <b class="font-bold">Acompanhamento</b> de Ocorrências Médicas, Facilitando a <b class="font-bold">Cooperação</b> entre <b class="font-bold">Bombeiros</b> e <b class="font-bold">Médicos</b></p>
       </header>
     </aside>
@@ -89,31 +100,46 @@
     <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-1/2" title="Cadastre-se">
       <div class="header_form_container flex flex-col justify-center items-center gap-5 w-1/2">
         <header class="flex flex-col items-center w-full">
-          <h1 class="font-bold text-preto text-6xl lg:text-[2rem] font-poppins text-center"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
+          <h1 class="font-bold text-preto text-5xl font-poppins text-center"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
           <p class="text-xl lg:text-sm text-cinza font-poppins text-center">Insira suas informações para cadastro</p>
         </header>
-        <div id="error" class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
+        <div class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
           <img src="../public/images/alert-icon.svg" alt="Alerta">
           <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
         </div>
         <form class="flex flex-col gap-2.5 w-full font-poppins" action="" method="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
-            <label for="nome">Nome:</label>
-            <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <label for="nome_desktop">Nome:</label>
+            <input id="nome_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
-            <label for="nome">N° Fibra:</label>
-            <input type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200" id="n_fibra">
+            <label for="num_fibra_desktop">N° Fibra:</label>
+            <input id="num_fibra_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
-            <label for="nome">Senha:</label>
-            <input type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******" id="senha">
+            <label for="password_desktop">Senha:</label>
+            <input id="password_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******">
           </div>
-          <div class="checkbox flex items-center gap-2.5">
-            <input type="checkbox" class="input border border-input_placeholder rounded-none appearance-none checked:bg-vermelho w-5 h-5"><p class="text-cinza"><b>Lembrar</b> de mim</p>
+          <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="admin">Administrador:</label>
+            <div id="admin" class="container_radio flex flex-row items-center gap-10">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" id="adm_sim_desktop" name="escolha" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+                <label for="adm_sim_desktop">Sim</label>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <input type="radio" id="adm_nao_desktop" name="escolha" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+                <label for="adm_nao_desktop">Não</label>
+              </div>
+            </div>
+          </div>
+          <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
+            <label for="adm_code_desktop">Registro de Comandante:</label>
+            <input id="adm_code_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
           </div>
           <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">Cadastre-se<img src="../public/images/caret.svg" alt=""></button>
@@ -123,7 +149,7 @@
     </section>
   </main>
   <footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
-    desktop:flex-col desktop:items-start desktop:border-t-[16px] desktop:border-vermelho
+    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho
   ">
     <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
       desktop:justify-between desktop:items-center desktop:flex-row
@@ -147,26 +173,26 @@
       <section aria-labelledby="navegar_title" class="group_1 flex flex-col items-start gap-2.5 self-stretch text-left">
         <h1 id="navegar_title" class="font-poppins font-bold leading-10 text-4xl text-preto">Navegar</h1>
         <ul class="flex flex-col text-cinza font-poppins font-normal text-xl leading-5 w-full">
-          <li>Principal</li>
-          <li>Login</li>
-          <li>Ocorrências</li>
-          <li>Dados</li>
+          <li class="hover:text-black"><a href="">Principal</a></li>
+          <li class="hover:text-black"><a href="">Login</a></li>
+          <li class="hover:text-black"><a href="">Ocorrências</a></li>
+          <li class="hover:text-black"><a href="">Dados</a></li>
         </ul>
       </section>
       <section aria-labelledby="contato_title" class="contato flex flex-col items-start gap-2.5 self-stretch text-left">
         <h1 id="contato_title" class="font-poppins font-bold leading-10 text-4xl text-preto text-left">Contato</h1>
         <ul class="flex flex-col text-cinza font-poppins font-normal text-xl leading-5 w-full">
           <div class="text flex flex-row gap-2.5">
-            <a href="">Av. Procópio Gomes, 244</a>
+            <a href="" class="hover:text-black">Av. Procópio Gomes, 244</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="">+55 (47) 99735-5556</a>
+            <a href="" class="hover:text-black">+55 (47) 99735-5556</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="">paulo@email.com</a>
+            <a href="" class="hover:text-black">paulo@email.com</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="">@plxulo</a>
+            <a href="" class="hover:text-black">@plxulo</a>
           </div>
         </ul>
       </section>

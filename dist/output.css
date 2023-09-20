@@ -556,6 +556,10 @@ video {
   border-width: 0;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
 }
@@ -637,6 +641,10 @@ video {
   height: 100vh;
 }
 
+.h-\[28px\] {
+  height: 28px;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -692,6 +700,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[28px\] {
+  width: 28px;
 }
 
 .cursor-pointer {
@@ -806,6 +818,14 @@ video {
 
 .rounded-none {
   border-radius: 0px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .border {
@@ -1177,6 +1197,11 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .hover\:text-indigo-300:hover {
   --tw-text-opacity: 1;
   color: rgb(165 180 252 / var(--tw-text-opacity));
@@ -1228,24 +1253,7 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
-@media (min-width: 768px) {
-  .md\:h-32 {
-    height: 8rem;
-  }
-
-  .md\:w-32 {
-    width: 8rem;
-  }
-
-  .md\:justify-start {
-    justify-content: flex-start;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
+@media (min-width: 604px) {
   .tablet\:mt-auto {
     margin-top: auto;
   }
@@ -1319,7 +1327,32 @@ video {
   }
 }
 
+@media (min-width: 768px) {
+  .md\:h-32 {
+    height: 8rem;
+  }
+
+  .md\:w-32 {
+    width: 8rem;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 @media (min-width: 1024px) {
+  .laptop\:block {
+    display: block;
+  }
+}
+
+@media (min-width: 1300px) {
   .lg\:flex {
     display: flex;
   }
@@ -1370,10 +1403,6 @@ video {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-
-  .laptop\:block {
-    display: block;
-  }
 }
 
 @media (min-width: 1680px) {
@@ -1419,6 +1448,10 @@ video {
 
   .desktop\:border-t-\[16px\] {
     border-top-width: 16px;
+  }
+
+  .desktop\:border-t-\[4px\] {
+    border-top-width: 4px;
   }
 
   .desktop\:border-vermelho {

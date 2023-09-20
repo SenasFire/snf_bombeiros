@@ -51,3 +51,18 @@ function isInputInvalid(inputElement) {
   const inputValue = inputElement.value.trim();
   return inputValue === "" || inputValue.length > 150;
 }
+
+// Código para exibir o registro do comandante:
+// Selecione o botão de rádio "Sim" e o campo "Registro de Comandante"
+const radioSim = document.getElementById('adm_sim_desktop');
+const containerAdmin = document.getElementById('adm_code_container');
+
+// Adicione um ouvinte de eventos para detectar quando o estado do botão "Sim" muda
+document.addEventListener('change', function() {
+  if (radioSim.checked) {
+    containerAdmin.classList.remove("hidden");
+    containerAdmin.classList.add("flex");
+  } else {
+    containerAdmin.classList.add("hidden");
+  }
+});

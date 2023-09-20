@@ -59,8 +59,9 @@ module.exports = {
       },
       screens: {
         'desktop': '1680px',
+        'lg': '1300px',
         'laptop': '1024px',
-        'tablet': '768px'
+        'tablet': '604px'
       }
     },
   },
