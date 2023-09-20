@@ -639,18 +639,24 @@ video {
 
 .h-screen {
   height: 100vh;
+<<<<<<< HEAD
 }
 
 .h-\[28px\] {
   height: 28px;
+=======
+>>>>>>> lana-add-cab-inputs
 }
 
 .max-h-0 {
   max-height: 0px;
+<<<<<<< HEAD
 }
 
 .w-1\/2 {
   width: 50%;
+=======
+>>>>>>> lana-add-cab-inputs
 }
 
 .w-10 {
@@ -1201,11 +1207,14 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+<<<<<<< HEAD
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+=======
+>>>>>>> lana-add-cab-inputs
 .hover\:text-indigo-300:hover {
   --tw-text-opacity: 1;
   color: rgb(165 180 252 / var(--tw-text-opacity));
@@ -1255,6 +1264,7 @@ video {
 
 .group:hover .group-hover\:ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+<<<<<<< HEAD
 }
 
 @media (min-width: 604px) {
@@ -1329,6 +1339,8 @@ video {
     --tw-text-opacity: 1;
     color: rgb(37 37 37 / var(--tw-text-opacity));
   }
+=======
+>>>>>>> lana-add-cab-inputs
 }
 
 @media (min-width: 768px) {
