@@ -1,65 +1,48 @@
-const inputNome = document.getElementById("input_name");
-const inputFibra = document.getElementById("num_fibra");
-const inputSenha = document.getElementById("input_senha");
+const inputElement = document.querySelectorAll(".input");
+const botaoEnviar = document.querySelector(".button");
+const alertElement = document.querySelector(".error");
 
-const alertMessageNome = document.getElementById("error_nome");
-const alertMessageFibra = document.getElementById("error_fibra");
-const alertMessageSenha = document.getElementById("error_senha");
+inputElement.forEach((inputElement) => {
+  inputElement.addEventListener("blur", () => {
+    validateInput(inputElement, alertElement);
+  });
 
-const botaoEnviar = document.getElementById("cadastrar");
-
-inputNome.addEventListener("blur", () => {
-  validateInput(inputNome, alertMessageNome);
+  inputElement.addEventListener("input", () => {
+    hideAlert(alertElement);
+  });
 });
 
-inputNome.addEventListener("input", () => {
-  hideAlert(alertMessageNome);
-});
-
-inputFibra.addEventListener("blur", () => {
-  validateInput(inputFibra, alertMessageFibra);
-});
-
-inputFibra.addEventListener("input", () => {
-  hideAlert(alertMessageFibra);
-});
-
-inputSenha.addEventListener("blur", () => {
-  validateInput(inputSenha, alertMessageSenha);
-});
-
-inputSenha.addEventListener("input", () => {
-  hideAlert(alertMessageSenha);
+botaoEnviar.addEventListener("click", (event) => {
+  event.preventDefault();
 });
 
 function validateInput(inputElement, alertElement) {
   const inputValue = inputElement.value.trim();
   const isInvalid = inputValue === "" || inputValue.length > 150;
-  
+
   if (isInvalid) {
     showAlert(alertElement);
   } else {
     hideAlert(alertElement);
   }
-  
+
   verificarBotao();
 }
 
-function showAlert(element) {
-  element.classList.remove("hidden");
-  element.classList.add("flex");
+function showAlert(alertElement) {
+  alertElement.classList.remove("hidden");
+  alertElement.classList.add("flex");
 }
 
-function hideAlert(element) {
-  element.classList.add("hidden");
-  element.classList.remove("flex");
+function hideAlert(alertElement) {
+  alertElement.classList.add("hidden");
+  alertElement.classList.remove("flex");
 }
 
 function verificarBotao() {
-  const isAnyFieldInvalid =
-    isInputInvalid(inputNome) ||
-    isInputInvalid(inputFibra) ||
-    isInputInvalid(inputSenha);
+  const isAnyFieldInvalid = Array.from(inputElements).some((inputElement) =>
+    isInputInvalid(inputElement)
+  );
 
   botaoEnviar.disabled = isAnyFieldInvalid;
 }
@@ -68,3 +51,31 @@ function isInputInvalid(inputElement) {
   const inputValue = inputElement.value.trim();
   return inputValue === "" || inputValue.length > 150;
 }
+
+// Código para exibir o registro do comandante (desktop):
+// Selecione o botão de rádio "Sim" e o campo "Registro de Comandante"
+const radioSim = document.getElementById('adm_sim_desktop');
+const containerAdmin = document.getElementById('adm_code_container');
+
+// Adicione um ouvinte de eventos para detectar quando o estado do botão "Sim" muda
+document.addEventListener('change', function() {
+  if (radioSim.checked) {
+    containerAdmin.classList.remove("hidden");
+    containerAdmin.classList.add("flex");
+  } else {
+    containerAdmin.classList.add("hidden");
+  }
+});
+
+// Exibir registro do comandante (mobile):
+const radioSimMobile = document.getElementById("adm_sim");
+const containerAdmMobile = document.getElementById("adm_container_mobile");
+
+document.addEventListener("change", function () {
+  if(radioSimMobile.checked) {
+    containerAdmMobile.classList.remove("hidden");
+    containerAdmMobile.classList.add("flex");
+  } else {
+    containerAdmMobile.classList.add("hidden");
+  }
+})
