@@ -17,14 +17,9 @@
 </head>
 
 <body>
-  <main class="flex flex-col items-center w-full h-fit p-5 gap-5 font-poppins bg-bg-mobile bg-no-repeat">
-    <?php
-      include("../inc/header.inc.php");
-      include("../inc/form-cadastro.inc.php");
-    ?>
-  </main>
   <?php
     include("../inc/form-cadastro.inc.php");
+    include("../inc/cadastro-desktop.inc.php");
     include("../inc/footer.inc.php");
   ?>
 </body>
