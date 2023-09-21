@@ -6,7 +6,7 @@
         <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[176px] h-[176px] lg:w-[132px] lg:h-[132px]">
         <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[176px] h-[176px] lg:w-[132px] lg:h-[132px]">
       </div>
-      <h1 class="font-extrabold text-5xl text-5xl text-white">SOS Bombeiros</h1>
+      <h1 class="font-extrabold text-5xl text-white">SOS Bombeiros</h1>
       <p class="text-center font-poppins text-2xl text-white w-full font-light lg:text-xl"><b class="font-bold">Registro</b> e <b class="font-bold">Acompanhamento</b> de Ocorrências Médicas, Facilitando a <b class="font-bold">Cooperação</b> entre <b class="font-bold">Bombeiros</b> e <b class="font-bold">Médicos</b></p>
     </header>
   </aside>
@@ -14,7 +14,7 @@
   <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-1/2" title="Fazer Login">
     <div class="header_form_container flex flex-col justify-center items-center gap-5 w-1/2">
       <header class="flex flex-col items-center w-full">
-        <h1 class="font-bold text-preto text-6xl lg:text-[3rem] font-poppins text-center"><span class="font-bold text-vermelho">Entrar</span> no app</h1>
+        <h1 class="font-bold text-preto text-4xl font-poppins text-center"><span class="font-bold text-vermelho">Entrar</span> no app</h1>
         <p class="text-xl lg:text-sm text-cinza font-poppins text-center">Insira suas informações para entrar</p>
       </header>
       <div id="error" class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
