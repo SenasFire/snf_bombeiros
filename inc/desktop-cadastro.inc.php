@@ -58,7 +58,7 @@
         </div>
         <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
           transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">Cadastre-se<img src="../public/images/caret.svg" alt=""></button>
-        <a href="#" onclick="event.preventDefault()" class="underline text-sm font-normal text-cinza focus:outline-vermelho"><b>Clique aqui</b> caso já tenha cadastro</a>
+        <a href="login.php" class="underline text-sm font-normal text-cinza focus:outline-vermelho"><b>Clique aqui</b> caso já tenha cadastro</a>
       </form>
     </div>
   </section>
