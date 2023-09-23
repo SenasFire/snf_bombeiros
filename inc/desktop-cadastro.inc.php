@@ -25,35 +25,35 @@
       <form class="flex flex-col gap-2.5 w-full font-poppins" action="" method="">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome_desktop">Nome:</label>
-          <input id="nome_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input id="nome_desktop" name="username" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="num_fibra_desktop">N° Fibra:</label>
-          <input id="num_fibra_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input id="num_fibra_desktop" name="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="password_desktop">Senha:</label>
-          <input id="password_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input id="password_desktop" name="pwd" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******">
         </div>
         <div class="input_box flex flex-col gap-2.5" title="Input Box">
           <label for="admin">Administrador:</label>
           <div id="admin" class="container_radio flex flex-row items-center gap-10">
             <div class="flex items-center gap-2.5">
-              <input type="radio" id="adm_sim_desktop" name="escolha" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+              <input type="radio" id="adm_sim_desktop" name="escolha_adm" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
               <label for="adm_sim_desktop">Sim</label>
             </div>
             <div class="flex items-center gap-2.5">
-              <input type="radio" id="adm_nao_desktop" name="escolha" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+              <input type="radio" id="adm_nao_desktop" name="escolha_adm" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
               <label for="adm_nao_desktop">Não</label>
             </div>
           </div>
         </div>
         <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
           <label for="adm_code_desktop">Registro de Comandante:</label>
-          <input id="adm_code_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input id="adm_code_desktop" name="cmdt_registro" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
         </div>
         <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
