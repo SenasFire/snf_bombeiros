@@ -1,6 +1,6 @@
 <body>
     <?php
-        include 'test.class.php';
+        include 'class-autoloader.inc.php';
         $testObj = new Test();
         $testObj->getUser();
     ?>

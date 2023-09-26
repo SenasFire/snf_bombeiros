@@ -22,7 +22,7 @@
         <img src="../public/images/alert-icon.svg" alt="Alerta">
         <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
       </div>
-      <form class="flex flex-col gap-2.5 w-full font-poppins" action="" method="">
+      <form action="../inc/form-handler.inc.php" method="post" class="flex flex-col gap-2.5 w-full font-poppins">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome_desktop">Nome:</label>
           <input id="nome_desktop" name="username" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
@@ -56,7 +56,7 @@
           <input id="adm_code_desktop" name="cmdt_registro" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
         </div>
-        <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+        <button type="submit" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
           transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">Cadastre-se<img src="../public/images/caret.svg" alt=""></button>
         <a href="login.php" class="underline text-sm font-normal text-cinza focus:outline-vermelho"><b>Clique aqui</b> caso já tenha cadastro</a>
       </form>

@@ -1,3 +1,5 @@
+// ESTE SCRIPT BUGA A VALIDAÇÃO PHP (NÃO SEI PQ)
+
 const inputElement = document.querySelectorAll(".input");
 const botaoEnviar = document.querySelector(".button");
 const alertElement = document.querySelector(".error");
