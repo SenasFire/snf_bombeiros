@@ -1,4 +1,5 @@
-// ESTE SCRIPT BUGA A VALIDAÇÃO PHP (NÃO SEI PQ)
+/*
+ ESTE SCRIPT BUGA A VALIDAÇÃO PHP (NÃO SEI PQ)
 
 const inputElement = document.querySelectorAll(".input");
 const botaoEnviar = document.querySelector(".button");
@@ -54,6 +55,7 @@ function isInputInvalid(inputElement) {
   return inputValue === "" || inputValue.length > 150;
 }
 
+*/
 // Código para exibir o registro do comandante (desktop):
 // Selecione o botão de rádio "Sim" e o campo "Registro de Comandante"
 const radioSim = document.getElementById('adm_sim_desktop');

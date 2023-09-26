@@ -1,15 +1,18 @@
 <?php
 
-spl_autoload_register('autoLoader');
+  // =============================================================================== //
+  // ======================= CARREGAR CLASSE AUTOMATICAMENTE ======================= //
 
-function autoLoader($class) {
-  $path = "class/";
-  $ext = ".class.php";
-  $fpth = $path . $class . $ext;
+  spl_autoload_register('autoLoader');
 
-  if (!file_exists($fpth)) {
-    return false;
+  function autoLoader($class) {
+    $path = "class/";
+    $ext = ".class.php";
+    $fpth = $path . $class . $ext;
+
+    if (!file_exists($fpth)) {
+      return false;
+    }
+
+    include_once $fpth;
   }
-
-  include_once $fpth;
-}

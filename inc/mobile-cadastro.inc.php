@@ -54,16 +54,16 @@
         <label for="admin">Administrador:</label>
         <div class="container_radio flex flex-row items-center gap-10">
           <div class="flex items-center gap-2.5">
-            <input type="radio" id="adm_sim" name="escolha" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="cmdt_radio" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-center gap-2.5">
-            <input type="radio" id="adm_nao" name="escolha" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="cmdt_radio" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>
       <div id="adm_container_mobile" class="input_box hidden flex-col g-2.5" title="Input Box">
         <label for="adm_code_mobile">Registro de Comandante:</label>
-        <input id="adm_code_mobile" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+        <input id="adm_code_mobile" name="cmdt_code" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
         transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
       </div>
       <button type="submit" class="button px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
