@@ -1,4 +1,7 @@
 <?php
+  // =============================================================================== //
+  // ===================== GERENCIAR FORMULÁRIOS COM SEGURANÇA ===================== //
+
   // Não acessar a página pela estrutura de pastas, se isso acontecer manda pro else
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Converter dados em entidades HTML por exemplo:
@@ -12,6 +15,8 @@
     exit();
   }
 
+  // ============================================================== //
+  // Se os inputs estiverem vazios alterar estado para exibir erro: //
   if (empty($username) || empty($num_fibra) || empty($pwd)) {
     header("Location: ../dist/cadastro.php?submit_state=empty_input");
     exit();
