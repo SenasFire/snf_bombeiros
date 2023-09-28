@@ -26,6 +26,8 @@ class signupController extends Dbh {
     return $result;
   }
 
+  // =============================================================================== //
+  // ======== Verificar se o número fibra já foi utilizado para não repetir ======== //
   public function isCodeTaken($username, $num_fibra, $pwd, $cmdt_radio, $cmdt_code) {
     $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_num_fibra = :num_fibra";
     $stmt = $pdo->prepare($sql);
