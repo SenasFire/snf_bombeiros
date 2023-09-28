@@ -1,6 +1,6 @@
 <?php
 
-class signupController extends Dbh {
+class signupController extends Signup {
   private $username;
   private $num_fibra;
   private $pwd;
@@ -15,25 +15,44 @@ class signupController extends Dbh {
     $this->cmdt_code  = $cmdt_code;
   }
 
+  public function signupUser() {
+
+    if ($this->isInputEmpty() == true) {
+      // Input vazio!
+      header("Location: ../dist/cadastro.php?error=empty_input");
+      exit();
+    }
+    if ($this->CodeTaken($this->num_fibra, $this->cmdt_code) == true) {
+      // Código já tomado!
+      header("Location: ../dist/cadastro.php?error=empty_input");
+      exit();
+    }
+
+    $this->setUser($this->username, $this->num_fibra, $this->pwd, $this->cmdt_radio, $this->cmdt_code);
+  }
+
   // =============================================================================== //
   // ======== Se os inputs estiverem vazios alterar estado para exibir erro ======== //
-  public function isInputEmpty() {
+  private function isInputEmpty() {
+
     if (empty($this->username) || empty($this->num_fibra) || empty($this->pwd) || (!isset($this->cmdt_radio)) || $this->cmdt_radio === "sim" && empty($this->cmdt_code)) {
-      $result = false;
-    } else {
       $result = true;
+    } else {  
+      $result = false;
     }
     return $result;
   }
 
   // =============================================================================== //
-  // ======== Verificar se o número fibra já foi utilizado para não repetir ======== //
-  public function isCodeTaken($username, $num_fibra, $pwd, $cmdt_radio, $cmdt_code) {
-    $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_num_fibra = :num_fibra";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(:num_fibra, $num_fibra);
-    $stmt = $this->connect()->query($stmt)
+  // ========= Verificar se o código número fibra é repetido, já foi usado ========= //
+  private function codeTaken() {
+    
+    if ($this->isCodeTaken($this->num_fibra, $this->cmdt_code)) {
+      $result = true;
+    } else {
+      $result = false;
+    }
+    return $result;
   }
-}
 
-// te amo paulo
+}
