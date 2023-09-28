@@ -1,6 +1,6 @@
 <?php
 
-class signupController {
+class signupController extends Dbh {
   private $username;
   private $num_fibra;
   private $pwd;
@@ -24,6 +24,13 @@ class signupController {
       $result = true;
     }
     return $result;
+  }
+
+  public function isCodeTaken($username, $num_fibra, $pwd, $cmdt_radio, $cmdt_code) {
+    $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_num_fibra = :num_fibra";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(:num_fibra, $num_fibra);
+    $stmt = $this->connect()->query($stmt)
   }
 }
 
