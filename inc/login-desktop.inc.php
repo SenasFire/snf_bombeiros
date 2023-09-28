@@ -21,7 +21,7 @@
         <img src="../public/images/alert-icon.svg" alt="Alerta">
         <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
       </div>
-      <form class="flex flex-col gap-2.5 w-full font-poppins" action="" method="">
+      <form class="flex flex-col gap-2.5 w-full font-poppins" action="form-login-handler.inc.php" method="">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome">N° Fibra:</label>
           <input type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
