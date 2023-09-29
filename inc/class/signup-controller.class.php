@@ -19,12 +19,12 @@ class signupController extends Signup {
 
     if ($this->isInputEmpty() == true) {
       // Input vazio!
-      header("Location: ../dist/cadastro.php?error=empty_input");
+      header("Location: ../dist/cadastro.php?error=empty-input");
       exit();
     }
-    if ($this->CodeTaken($this->num_fibra, $this->cmdt_code) == true) {
+    if ($this->checkNumFibra($this->num_fibra, $this->cmdt_code) == true) {
       // Código já tomado!
-      header("Location: ../dist/cadastro.php?error=empty_input");
+      header("Location: ../dist/cadastro.php?error=num-fibra-taken");
       exit();
     }
 
@@ -45,8 +45,8 @@ class signupController extends Signup {
 
   // =============================================================================== //
   // ========= Verificar se o código número fibra é repetido, já foi usado ========= //
-  private function codeTaken() {
-    
+  private function checkNumFibra() {
+
     if ($this->isCodeTaken($this->num_fibra, $this->cmdt_code)) {
       $result = true;
     } else {

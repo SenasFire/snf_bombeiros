@@ -30,7 +30,7 @@
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="num_fibra_desktop">N° Fibra:</label>
-          <input id="num_fibra_desktop" name="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input id="num_fibra_desktop" name="num_fibra" type="number" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
@@ -53,7 +53,7 @@
         </div>
         <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
           <label for="adm_code_desktop">Registro de Comandante:</label>
-          <input id="adm_code_desktop" name="cmdt_code" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input id="adm_code_desktop" name="cmdt_code" type="number" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
         </div>
         <button type="submit" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white

@@ -8,12 +8,12 @@ class Signup extends Dbh {
     $sql = "INSERT INTO usuarios_socorristas 
             (usuarios_username, usuarios_pwd, usuarios_num_fibra, usuarios_e_cmdt, usuarios_cmdt_cod)
             VALUES (?, ?, ?, ?, ?)";
-    $hashPwd = password_hash($pwd, PASSWORD_BCRYPT);
+    $hashPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
     try {
       $stmt = $this->connect()->prepare($sql);
 
-      if(!$stmt->execute(array($username, $num_fibra, $hashPwd, $cmdt_radio, $cmdt_code))) {
+      if(!$stmt->execute(array($username, $hashPwd, $num_fibra, $cmdt_radio, $cmdt_code))) {
         $stmt = null;
         header("Location: ../dist/cadastro.php?error=stmt-failed");
         exit();

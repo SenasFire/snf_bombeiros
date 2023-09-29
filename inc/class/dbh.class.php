@@ -24,5 +24,32 @@ class Dbh {
     }
     return $pdo;
   }
+
+  protected function getConnectionDetails() {
+    $dsn = "mysql:host=localhost;dbname=snf_bombeiros;charset=utf8";
+    $pdo = new PDO($dsn, $this->username, $this->pwd, $this->options);
+
+    $connectionDetails = [
+        'Host' => $pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS),
+        'Database' => $pdo->query('SELECT DATABASE()')->fetchColumn(),
+        'Driver' => $pdo->getAttribute(PDO::ATTR_DRIVER_NAME),
+        'Server Info' => $pdo->getAttribute(PDO::ATTR_SERVER_INFO),
+    ];
+
+    echo '<pre>';
+      print_r($connectionDetails);
+    echo '</pre>';
+  }
 }
+
+// Exibir os dados da conexão:
+class getConnection extends Dbh {
+  public function getConnection() {
+    $this->getConnectionDetails();
+  }
+}
+
+$dbh = new getConnection();
+$dbh->getConnection();
+
 ?>
