@@ -22,7 +22,7 @@
       <p class="text-sm text-cinza text-center">Insira suas informações para entrar</p>
     </header>
     
-    <form class="flex flex-col gap-2.5" action="" method="" id="form_cadastro">
+    <form class="flex flex-col gap-2.5" action="../inc/login.inc.php" method="POST" id="form_cadastro">
       <div id="error" class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
         <img src="../public/images/alert-icon.svg" alt="Alerta">
         <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
@@ -40,7 +40,7 @@
       <div class="checkbox flex items-center gap-2.5">
         <input type="checkbox" class="w-4 h-4 border border-input_placeholder rounded-none"><p class="text-cinza"><b>Lembrar</b> de mim</p>
       </div>
-      <button id="cadastrar" type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+      <button id="cadastrar" type="submit" name="botao_login" class="button px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
         transition ease-in-out hover:scale-105 tablet:text-3xl">Entrar</button>
       <a href="cadastro.php" class="underline text-sm font-normal text-cinza"><b>Clique aqui</b> caso não tenha cadastro</a>
     </form>
