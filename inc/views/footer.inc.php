@@ -5,8 +5,8 @@
     desktop:justify-between desktop:items-center desktop:flex-row
   ">
     <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
-      <img src="../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
-      <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
+      <img src="../../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
+      <img src="../../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
       <header aria-labelledby="footer_title" class="header hidden desktop:flex flex-col justify-center items-start gap-2.5 self-stretch">
         <h1 id="footer_title" class="text-4xl font-poppins font-bold leading-9 text-preto">SOS Bombeiros</h1>
         <p class="self-stretch text-cinza font-poppins text-xl font-normal leading-5 w-96">

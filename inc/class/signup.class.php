@@ -18,6 +18,8 @@ class Signup extends Dbh {
         $stmt = null;
         header("Location: ../dist/cadastro.php?error=stmt-failed");
         exit();
+      } else {
+        
       }
     } catch (PDOException $erro) {
       $stmt = null;

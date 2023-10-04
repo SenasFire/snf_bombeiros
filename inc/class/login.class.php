@@ -15,17 +15,17 @@ class Login extends Dbh {
 
       if(!$stmt->execute(array($num_fibra))) {
         $stmt = null;
-        header("Location: ../dist/index.php?error=stmt-failed");
+        header("Location: ../dist/login.php?error=stmt-failed");
         exit();
       }
 
       if($stmt->rowCount() == 0) {
         $stmt = null;
-        header("Location: ../dist/index.php?error=user-not-found");
+        header("Location: ../dist/login.php?error=user-not-found");
         exit();
       }
 
-      $pwdHash = $stmt->fetch();
+      $pwdHash = $stmt->fetch(PDO::FETCH_ASSOC);
       $checkPwd = password_verify($pwd, $pwdHash["usuarios_pwd"]);
 
     } catch (PDOException $erro) {
@@ -35,7 +35,7 @@ class Login extends Dbh {
 
     if($checkPwd == false) {
       $stmt= null;
-      header("Location: ../dist/index.php?error=senha-incorreta");
+      header("Location: ../dist/login.php?error=senha-incorreta");
       exit();
     } 
     elseif($checkPwd == true) {
@@ -46,13 +46,13 @@ class Login extends Dbh {
 
         if(!$stmt->execute(array($num_fibra))) {
           $stmt = null;
-          header("Location: ../dist/index.php?error=stmt-failed");
+          header("Location: ../dist/login.php?error=stmt-failed");
           exit();
         }
 
         if($stmt->rowCount() == 0) {
           $stmt = null;
-          header("Location: ../dist/index.php?error=user-not-found");
+          header("Location: ../dist/login.php?error=user-not-found");
           exit();
         }
       } catch (PDOException $erro) {
@@ -66,7 +66,12 @@ class Login extends Dbh {
       $_SESSION['usuario_id'] = $user[0]["usuarios_id"];
       $_SESSION['usuario_username'] = $user[0]["usuarios_username"];
 
-      header("Location: ../dist/index.php?sucess=login-completo");
+      if($user[0]["usuarios_e_cmdt"] == "sim") {
+        header("Location: ../dist/adm/main_admin.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]);
+        exit();
+      } else {
+        header("Location: ../dist/adm/main_socorrista.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]);
+      }
     }
   }
 }
