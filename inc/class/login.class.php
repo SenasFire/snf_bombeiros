@@ -24,15 +24,14 @@ class Login extends Dbh {
         header("Location: ../dist/index.php?error=user-not-found");
         exit();
       }
+
+      $pwdHash = $stmt->fetch();
+      $checkPwd = password_verify($pwd, $pwdHash["usuarios_pwd"]);
+
     } catch (PDOException $erro) {
       $stmt = null;
       exit("Erro na conexão:<br>".$erro->getMessage());
     }
-
-    $pwdHash = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($pwdHash);
-    $checkPwd = password_verify($pwd, $pwdHash[0]["usuarios_pwd"]);
-    return $checkPwd;
 
     if($checkPwd == false) {
       $stmt= null;
@@ -40,12 +39,12 @@ class Login extends Dbh {
       exit();
     } 
     elseif($checkPwd == true) {
-      $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_id = ?
-              OR usuarios_num_fibra = ? AND usuarios_pwd = ?";
+      $sql = "SELECT * FROM usuarios_socorristas WHERE
+              usuarios_num_fibra = ?";
       try {
         $stmt = $this->connect()->prepare($sql);
 
-        if(!$stmt->execute(array($num_fibra, $pwd))) {
+        if(!$stmt->execute(array($num_fibra))) {
           $stmt = null;
           header("Location: ../dist/index.php?error=stmt-failed");
           exit();
@@ -66,6 +65,8 @@ class Login extends Dbh {
 
       $_SESSION['usuario_id'] = $user[0]["usuarios_id"];
       $_SESSION['usuario_username'] = $user[0]["usuarios_username"];
+
+      header("Location: ../dist/index.php?sucess=login-completo");
     }
   }
 }
