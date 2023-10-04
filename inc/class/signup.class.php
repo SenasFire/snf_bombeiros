@@ -13,6 +13,7 @@ class Signup extends Dbh {
     try {
       $stmt = $this->connect()->prepare($sql);
 
+      // Se o execute retornar falso o código dentro do IF será executado --------- :
       if(!$stmt->execute(array($username, $hashPwd, $num_fibra, $cmdt_radio, $cmdt_code))) {
         $stmt = null;
         header("Location: ../dist/cadastro.php?error=stmt-failed");
@@ -23,6 +24,9 @@ class Signup extends Dbh {
       exit("Erro na conexão:<br>".$erro->getMessage());
     }
   }
+
+  // OBS: método acima não precisa de bindParam pois estou passando os valores diretamente
+  // Na mesma ordem da consulta SQL ______________________________________________________
 
   // =============================================================================== //
   // ======== Verificar se o número fibra já foi utilizado para não repetir ======== //
