@@ -18,9 +18,9 @@
 
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
   <?php
-    include("../inc/mobile-cadastro.inc.php");
-    include("../inc/desktop-cadastro.inc.php");
-    include("../inc/footer.inc.php");
+    include("../inc/views/mobile-cadastro.inc.php");
+    include("../inc/views/desktop-cadastro.inc.php");
+    include("../inc/views/footer.inc.php");
   ?>
 </body>
 

@@ -17,9 +17,9 @@
 
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
   <?php
-    include("../inc/login-mobile.inc.php");
-    include("../inc/login-desktop.inc.php");
-    include("../inc/footer.inc.php");
+    include("../inc/views/login-mobile.inc.php");
+    include("../inc/views/login-desktop.inc.php");
+    include("../inc/views/footer.inc.php");
   ?>
 </body>
 
