@@ -17,7 +17,6 @@ class Dbh {
 
     try {
       $pdo = new PDO($dsn, $this->username, $this->pwd, $this->options);
-      echo("Conexão sucedida <br>");
     }
     catch (PDOException $erro) {
       exit("Erro na conexão:<br>".$erro->getMessage());
@@ -48,8 +47,5 @@ class getConnection extends Dbh {
     $this->getConnectionDetails();
   }
 }
-
-$dbh = new getConnection();
-$dbh->getConnection();
 
 ?>

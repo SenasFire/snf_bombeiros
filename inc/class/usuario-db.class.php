@@ -16,7 +16,7 @@ class Usuario {
   }
 
   public function getNome() {
-    return $this->nome;
+    return $this->username;
   }
 
   public function getFibra() {
@@ -54,7 +54,7 @@ class UsuarioDB extends Dbh {
     $usuarios = [];
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $usuario = new Usuario($row['usuarios_username'], $row['usuarios_num_fibra'], $row['usuario_e_cmdt'], $row['usuario_cmdt_code']);
+      $usuario = new Usuario($row['usuarios_username'], $row['usuarios_num_fibra'], $row['usuarios_e_cmdt'], $row['usuarios_cmdt_cod']);
       $usuarios[] = $usuario;
     }
 

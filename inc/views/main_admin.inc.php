@@ -142,10 +142,28 @@
       <header>
         <h1 id="title_socorristas" class="font-poppins font-semibold text-4xl">Bombeiros Cadastrados</h1>
       </header>
+
       <!-- Table aqui: -->
-      <?php
-        
-      ?>
+      <table class="min-w-full border-collapse border border-gray-300 font-poppins">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 py-2 px-4">Nome</th>
+                <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
+                <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
+                <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($usuarios as $usuario): ?>
+            <tr class="hover:bg-gray-100">
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+      </table>
     </section>
 
     <section aria-labelledby="title_medicos" class="medicos" title="Médicos Cadastrados">
@@ -153,6 +171,26 @@
         <h1 id="title_medicos" class="font-poppins font-semibold text-4xl">Médicos Cadastrados</h1>
       </header>
       <!-- Table aqui: -->
+      <table class="min-w-full border-collapse border border-gray-300 font-poppins">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 py-2 px-4">Nome</th>
+                <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
+                <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
+                <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($usuarios as $usuario): ?>
+            <tr class="hover:bg-gray-100">
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
+                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+      </table>
     </section>
   </section>
 </main>

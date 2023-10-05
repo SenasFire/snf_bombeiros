@@ -54,10 +54,10 @@
         <label for="admin">Administrador:</label>
         <div class="container_radio flex flex-row items-center gap-10">
           <div class="flex items-center gap-2.5">
-            <input type="radio" id="adm_sim" name="cmdt_radio" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="cmdt_radio" value="Ssim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-center gap-2.5">
-            <input type="radio" id="adm_nao" name="cmdt_radio" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="cmdt_radio" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>

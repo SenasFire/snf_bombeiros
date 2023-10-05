@@ -8,7 +8,8 @@ module.exports = {
   content: [
     './inc/**.{html, js, php, inc}',
     './draft/**/**.{html, js, php, inc}',
-    './map/**/*.{html, js, php}'
+    './map/**/*.{html, js, php}',
+    './dist/**/*.{html,js,php}'
   ],
   theme: {
     extend: {
