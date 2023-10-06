@@ -861,6 +861,11 @@ video {
   border-color: rgba(199, 64, 45, 0.60);
 }
 
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
 .border-input_placeholder {
   border-color: rgba(89,89,89,0.75);
 }
@@ -868,11 +873,6 @@ video {
 .border-vermelho {
   --tw-border-opacity: 1;
   border-color: rgb(199 64 45 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .bg-\[\#9EDEF2\] {
@@ -904,6 +904,11 @@ video {
   background-color: rgba(199, 64, 45, 0.10);
 }
 
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
 .bg-input_color {
   --tw-bg-opacity: 1;
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
@@ -919,11 +924,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
 .bg-ambulance {
   background-image: url('../public/images/ambulance.png');
 }
@@ -933,7 +933,7 @@ video {
 }
 
 .bg-close {
-  background-image: url('/public/images/close.svg');
+  background-image: url('../public/images/close.svg');
 }
 
 .bg-logo-noar {
@@ -941,7 +941,7 @@ video {
 }
 
 .bg-menu-icon-toggle {
-  background-image: url('/public/images/menu-icon-toggle.svg');
+  background-image: url('../public/images/menu-icon-toggle.svg');
 }
 
 .bg-none {
@@ -1006,6 +1006,11 @@ video {
   padding-right: 0.75rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -1044,11 +1049,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .text-left {

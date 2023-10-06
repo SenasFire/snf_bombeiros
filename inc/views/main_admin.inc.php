@@ -1,5 +1,4 @@
 <?php
-  include("../../inc/class/dbh.class.php");
   include("../../inc/class/usuario-db.class.php");
   include("../../inc/class/login.class.php");
 
@@ -9,7 +8,7 @@
   $usuarios = $acessoDados->listarUsuarios(); // Obter usuários
 ?>
 
-<nav class="navbar flex px-5 py-2.5 lg:flex-row justify-between items-center w-full bg-vermelho">
+<nav class="navbar flex py-2.5 px-16 lg:flex-row justify-between items-center w-full bg-vermelho">
 
   <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
     <img src="../../public/images/logo-noar.png" alt="">
@@ -33,7 +32,6 @@
     transition-transform
   ">
     <div class="close flex justify-end items-center self-stretch">
-      <!-- ICON FECHAR: -->
       <p onclick="retrairMenu()" class="self-center text-vermelho font-poppins cursor-pointer">Fechar</p>
       <button onclick="retrairMenu()" id="nav-close" class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
       </button>
@@ -97,7 +95,6 @@
 
     <li class="group flex flex-col items-center">
       <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">Visualizar<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a>
-      <!-- Menu que abre após clicar no visualizar -- TODO: -->
       <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
         transition-[max-height] duration-300 ease-out
         group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
@@ -140,55 +137,67 @@
   <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex justify-center items-start gap-10 self-stretch">
     <section aria-labelledby="title_socorristas" class="socorristas" title="Socorristas Cadastrados">
       <header>
-        <h1 id="title_socorristas" class="font-poppins font-semibold text-4xl">Bombeiros Cadastrados</h1>
+        <h1 id="title_socorristas" class="font-poppins font-semibold text-3xl">Bombeiros Cadastrados</h1>
       </header>
 
       <!-- Table aqui: -->
       <table class="min-w-full border-collapse border border-gray-300 font-poppins">
         <thead>
             <tr class="bg-gray-200">
-                <th class="border border-gray-300 py-2 px-4">Nome</th>
-                <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
-                <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
-                <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+              <th class="border border-gray-300 py-2 px-4">Nome</th>
+              <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
+              <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
+              <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+              <th class="border border-gray-300 py-2 px-4">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($usuarios as $usuario): ?>
+          <?php foreach ($usuarios as $usuario): ?>
             <tr class="hover:bg-gray-100">
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
+              <td class="border border-gray-300 py-2 px-4">
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Deletar(<?php$usuario->getId();?>)">Excluir</a>
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Alterar(<?php$usuario->getId();?>)">Alterar</a>
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php$usuario->getId();?>)">Visualizar</a>
+              </td>
             </tr>
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </section>
 
     <section aria-labelledby="title_medicos" class="medicos" title="Médicos Cadastrados">
       <header>
-        <h1 id="title_medicos" class="font-poppins font-semibold text-4xl">Médicos Cadastrados</h1>
+        <h1 id="title_medicos" class="font-poppins font-semibold text-3xl">Médicos Cadastrados</h1>
       </header>
       <!-- Table aqui: -->
       <table class="min-w-full border-collapse border border-gray-300 font-poppins">
         <thead>
             <tr class="bg-gray-200">
-                <th class="border border-gray-300 py-2 px-4">Nome</th>
-                <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
-                <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
-                <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+              <th class="border border-gray-300 py-2 px-4">Nome</th>
+              <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
+              <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
+              <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+              <th class="border border-gray-300 py-2 px-4">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($usuarios as $usuario): ?>
+          <?php foreach ($usuarios as $usuario): ?>
             <tr class="hover:bg-gray-100">
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
-                <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
+              <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
+              <td class="border border-gray-300 py-2 px-4">
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Deletar(<?php$usuario->getId();?>)">Excluir</a>
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Alterar(<?php$usuario->getId();?>)">Alterar</a>
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php$usuario->getId();?>)">Visualizar</a>
+              </td>
             </tr>
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </section>

@@ -3,16 +3,22 @@
 require_once "dbh.class.php";
 
 class Usuario {
+  private $id;
   private $username;
   private $num_fibra;
   private $cmdt_radio;
   private $cmdt_code;
 
-  public function __construct($username, $num_fibra, $cmdt_radio, $cmdt_code) {
+  public function __construct($id, $username, $num_fibra, $cmdt_radio, $cmdt_code) {
+    $this->id   = $id;
     $this->username   = $username;
     $this->num_fibra  = $num_fibra;
     $this->cmdt_radio = $cmdt_radio;
     $this->cmdt_code  = $cmdt_code;
+  }
+
+  public function getId() {
+    return $this->id;
   }
 
   public function getNome() {
@@ -54,7 +60,7 @@ class UsuarioDB extends Dbh {
     $usuarios = [];
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $usuario = new Usuario($row['usuarios_username'], $row['usuarios_num_fibra'], $row['usuarios_e_cmdt'], $row['usuarios_cmdt_cod']);
+      $usuario = new Usuario($row['usuarios_id'], $row['usuarios_username'], $row['usuarios_num_fibra'], $row['usuarios_e_cmdt'], $row['usuarios_cmdt_cod']);
       $usuarios[] = $usuario;
     }
 

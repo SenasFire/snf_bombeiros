@@ -2,7 +2,7 @@
   desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho
 ">
   <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
-    desktop:justify-between desktop:items-center desktop:flex-row
+    desktop:justify-between desktop:items-center desktop:flex-row desktop:px-16
   ">
     <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
       <img src="../../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
