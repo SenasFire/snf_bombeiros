@@ -649,11 +649,6 @@ video {
   height: 100vh;
 }
 
-.h-max {
-  height: -moz-max-content;
-  height: max-content;
-}
-
 .max-h-0 {
   max-height: 0px;
 }
@@ -817,12 +812,12 @@ video {
   gap: 0.625rem;
 }
 
-.gap-\[5px\] {
-  gap: 5px;
-}
-
 .gap-\[1\.875rem\] {
   gap: 1.875rem;
+}
+
+.gap-\[5px\] {
+  gap: 5px;
 }
 
 .self-center {
@@ -837,6 +832,10 @@ video {
   overflow: hidden;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-\[30px\] {
   border-radius: 30px;
 }
@@ -847,10 +846,6 @@ video {
 
 .rounded-none {
   border-radius: 0px;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
 
 .border {
@@ -1125,6 +1120,10 @@ video {
   font-size: 1px;
 }
 
+.text-\[2rem\] {
+  font-size: 2rem;
+}
+
 .text-sm {
   font-size: 1rem;
 }
@@ -1137,15 +1136,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[2rem\] {
-  font-size: 2rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -1170,6 +1160,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-regular {
+  font-weight: 400;
 }
 
 .leading-10 {
@@ -1210,12 +1204,6 @@ video {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-lg {
@@ -1263,6 +1251,10 @@ video {
   transition-duration: 300ms;
 }
 
+.duration-500 {
+  transition-duration: 500ms;
+}
+
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1290,10 +1282,6 @@ video {
 .hover\:bg-vermelho:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(199 64 45 / var(--tw-bg-opacity));
-}
-
-.hover\:stroke-white:hover {
-  stroke: #fff;
 }
 
 .hover\:text-black:hover {
@@ -1343,31 +1331,8 @@ video {
   max-height: 1000px;
 }
 
-.group:hover .group-hover\:bg-vermelho {
-  --tw-bg-opacity: 1;
-  background-color: rgb(199 64 45 / var(--tw-bg-opacity));
-}
-
-.group\/options:hover .group-hover\/options\:bg-vermelho {
-  --tw-bg-opacity: 1;
-  background-color: rgb(199 64 45 / var(--tw-bg-opacity));
-}
-
-.group\/options:hover .group-hover\/options\:stroke-white {
-  stroke: #fff;
-}
-
-.group:hover .group-hover\:stroke-white {
-  stroke: #fff;
-}
-
 .group:hover .group-hover\:stroke-\[\#FFF\] {
   stroke: #FFF;
-}
-
-.group\/options:hover .group-hover\/options\:text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:transition-\[max-height\] {
