@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="Website Icon" type="png" href="../public/images/logo-noar.png" />
+  <link rel="Website Icon" type="png" href="../../public/images/logo-noar.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,41 +171,49 @@
       </section>
     </section>
 
-    <section class="flex flex-col justify-center items-start p-[1.25rem] gap-2 bg-white shadow-lg w-full h-full">
-      <header class="font-poppins text-[2rem] font-semibold">
-        <h1>Acesso Rápido</h1>
+    <section class="flex flex-col justify-center items-start p-[1.25rem] gap-2 bg-white shadow-lg w-full h-3/4">
+      <header class="flex flex-row font-poppins gap-2.5 items-center">
+        <h1 class="text-[2rem] font-semibold">Ação Selecionada</h1>
+        <p>Novo Socorrista</p>
       </header>
       <section class="flex flex-col actions gap-2 w-full">
-        <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
-          <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <button>
-            <p>Nova Equipe</p>
-          </button>
-        </div>
-        <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
-          <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <button>
-            <p>Novo Socorrista</p>
-          </button>
-        </div>
-        <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
-          <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <button>
-            <p>Novo Médico</p>
-          </button>
-        </div>
-        <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
-          <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <button>
-            <p>Nova USB</p>
-          </button>
-        </div>
-        <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
-          <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <button>
-            <p>Novo DESP</p>
-          </button>
-        </div>
+        <form class="flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome_desktop" class="text-xl">Nome:</label>
+            <input id="nome_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
+          </div>
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="num_fibra_desktop" class="text-xl">N° Fibra:</label>
+            <input id="num_fibra_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
+          </div>
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="password_desktop" class="text-xl">Senha:</label>
+            <input id="password_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******">
+          </div>
+          <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="admin" class="text-xl">Administrador:</label>
+            <div id="admin" class="container_radio flex flex-row items-center gap-10">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" id="adm_sim_desktop" name="escolha" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+                <label for="adm_sim_desktop" class="text-xl">Sim</label>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <input type="radio" id="adm_nao_desktop" name="escolha" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+                <label for="adm_nao_desktop" class="text-xl">Não</label>
+              </div>
+            </div>
+          </div>
+          <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
+            <label for="adm_code_desktop" class="text-xl">Registro de Comandante:</label>
+            <input id="adm_code_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
+          </div>
+          <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Usuário<img src="../public/images/caret.svg" alt=""></button>
+        </form>
       </section>
     </section>
 
@@ -219,8 +227,8 @@
       </header>
       <div class="input_box flex flex-row items-center gap-2.5 w-full" title="Input Box">
         <label for="buscar">Pesquisar</label>
-        <input id="buscar" type="password" class="input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
+        <input id="buscar" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+        transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
       </div>
       <!-- Table aqui: -->
       <table class="min-w-full border-collapse border border-gray-300 font-poppins">
@@ -254,8 +262,8 @@
       </header>
       <div class="input_box flex flex-row items-center gap-2.5 w-full" title="Input Box">
         <label for="buscar">Pesquisar</label>
-        <input id="buscar" type="password" class="input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
+        <input id="buscar" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+        transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
       </div>
       <!-- Table aqui: -->
       <table class="min-w-full border-collapse border border-gray-300 font-poppins">
