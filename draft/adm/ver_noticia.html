@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="Website Icon" type="png" href="../../public/images/logo-noar.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../dist/output.css">
+  <script src="../../inc/js/nav_script.inc.js" defer></script>
+
+  <title>Admin</title>
+</head>
+
+<nav class="navbar flex py-2.5 px-16 lg:flex-row justify-between items-center w-full bg-vermelho">
+
+  <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
+    <img src="../../public/images/logo-noar.png" alt="">
+    <div aria-label="Título" class="flex flex-col">
+      <h1 id="nav_title" class="font-poppins text-4xl font-semibold text-white">NOAR</h1>
+      <p class="hidden laptop:block 
+        font-poppins text-2xl font-medium text-white">Núcleo de Operações Aéreas e Resgate</p>
+    </div>
+  </header>
+
+  <button class="desktop:hidden w-8 h-8 z-50
+                bg-menu-icon-toggle bg-no-repeat" onclick="expandirMenu()" id="menu-toggle"
+    aria-controls="primary-navigation">
+    <span class="sr-only" style="display:none">Menu</span>
+  </button>
+
+  <section id="primary-navigation" class="menu_open hidden z-10 absolute top-0 right-0 gap-[5px] p-4 w-[232px]
+    flex-col items-start 
+    bg-white drop-shadow-lg
+    transition-transform
+  ">
+    <div class="close flex justify-end items-center self-stretch">
+      <!-- ICON FECHAR: -->
+      <p onclick="retrairMenu()" class="self-center text-vermelho font-poppins cursor-pointer">Fechar</p>
+      <button onclick="retrairMenu()" id="nav-close" class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
+      </button>
+    </div>
+    <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
+      <li><a class="cursor-pointer">Perfil</a></li>
+      <li><a class="cursor-pointer">Página Principal</a></li>
+      <li><a onclick="abrirCadastro();" class="flex flex-row gap-2.5 justify-center items-center">Novo Cadastro<img
+            src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
+      <li><a onclick="abrirVisualizar();" class="flex flex-row gap-2.5 justify-center items-center">Visualizar<img
+            src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
+      <li><a class="cursor-pointer">Ajuda</a></li>
+      <li><a class="cursor-pointer">Acessibilidade</a></li>
+    </ul>
+  </section>
+
+  <ul class="navlinks hidden desktop:flex flex-row text-white gap-12 items-center text-xl font-poppins h-full">
+    <li>
+      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Perfil</a>
+    </li>
+    <li>
+      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a>
+    </li>
+
+    <!-- Lista Dropdown: -->
+    <li class="group flex flex-col items-center">
+      <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">
+        Novo Cadastro<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo">
+      </a>
+      <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
+        transition-[max-height] duration-300 ease-out
+        group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
+      ">
+        <div class="close flex justify-center items-start self-stretch gap-1 p-4 cursor-pointer">
+          <p class="self-center text-vermelho font-poppins cursor-pointer">Novo Cadastro</p>
+          <button class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
+          </button>
+        </div>
+        <hr class="border-vermelho self-center border-y-1" width="90%">
+        <ul
+          class="navlinks flex flex-col justify-center items-start gap-2.5 p-4 self-stretch text-vermelho font-poppins">
+          <li>
+            <a class="cursor-pointer flex flex-row gap-2.5
+                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Nova
+              Equipe</a>
+          </li>
+          <li>
+            <a class="cursor-pointer flex flex-row gap-2.5
+                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo
+              Socorrista</a>
+          </li>
+          <li>
+            <a class="cursor-pointer flex flex-row gap-2.5 
+                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo
+              Médico</a>
+          </li>
+          <li>
+            <a class="cursor-pointer flex flex-row gap-2.5
+                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Nova
+              USB</a>
+          </li>
+          <li>
+            <a class="cursor-pointer flex flex-row gap-2.5
+                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo
+              DESP</a>
+          </li>
+        </ul>
+      </section>
+    </li>
+
+    <li class="group flex flex-col items-center">
+      <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">Visualizar<img
+          src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a>
+      <!-- Menu que abre após clicar no visualizar -- TODO: -->
+      <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
+        transition-[max-height] duration-300 ease-out
+        group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
+      ">
+        <div class="close flex justify-center self-stretch p-4 gap-1 cursor-pointer">
+          <p class="self-stretch text-vermelho font-poppins cursor-pointer">Visualizar</p>
+          <button class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
+          </button>
+        </div>
+        <hr class="border-vermelho self-center border-y-1" width="90%">
+        <ul
+          class="navlinks flex flex-col justify-center items-start gap-2.5 p-4 self-stretch text-vermelho font-poppins">
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Equipes</a></li>
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Socorristas</a></li>
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Médicos<img
+                src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">USBs<img
+                src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">DESPs</a></li>
+        </ul>
+      </section>
+    </li>
+    <li><a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Ajuda</a></li>
+    <li><img src="../../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class="cursor-pointer"></li>
+  </ul>
+
+</nav>
+
+<main class="flex flex-col px-16 py-8 gap-8 self-stretch items-center justify-center w-full font-poppins">
+  <section title="nome_noticia" aria-labelledby="titulo_noticia" class="flex flex-col w-full">
+    <header>
+      <h1 id="titulo_noticia" class="font-semibold text-4xl">Notícia Título</h1>
+    </header>
+    <div class="w-full h-[343px] bg-vermelho">
+      <img src="" alt="">
+    </div>
+    <p>Por: admin, em alertas 16/10/2023</p>
+  </section>
+  <section>
+    <p>
+      Hoje, a empresa fictícia "TechSolutions Ltd." anunciou uma emocionante atualização para o seu popular sistema de gestão empresarial, "SistemaX". Esta nova versão traz uma série de recursos avançados projetados para aumentar a eficiência, melhorar a usabilidade e fornecer insights mais aprofundados para os clientes.
+      Uma das principais inovações dessa atualização é o novo módulo de análise de dados, que permite aos usuários acompanhar e analisar métricas críticas em tempo real. Com uma interface intuitiva e painéis personalizáveis, os gestores agora podem tomar decisões mais informadas para impulsionar o crescimento de seus negócios.
+      Além disso, o "SistemaX" agora oferece uma integração aprimorada com sistemas de terceiros, simplificando ainda mais a colaboração e a coleta de informações. Essa funcionalidade se destina a aumentar a conectividade e a produtividade, permitindo que as empresas trabalhem de forma mais eficaz em todo o ecossistema digital.
+      A segurança também é uma prioridade nesta atualização, com a implementação de novos recursos de autenticação de dois fatores e criptografia avançada para proteger os dados dos clientes contra ameaças cibernéticas.
+      "Estamos empolgados em apresentar esta atualização do 'SistemaX'", disse [Nome do CEO da TechSolutions Ltd.], CEO da TechSolutions Ltd. "Nossa equipe trabalhou incansavelmente para aprimorar a experiência do usuário e fornecer ferramentas mais poderosas para ajudar nossos clientes a alcançar o sucesso."
+      Os clientes atuais do "SistemaX" receberão automaticamente a atualização, enquanto novos clientes poderão aproveitar os benefícios desses recursos inovadores ao adquirir o sistema. Esta atualização representa um passo significativo na constante evolução da TechSolutions Ltd. para atender às crescentes demandas do mercado.
+      Para obter mais informações sobre a atualização e suas funcionalidades, os interessados podem visitar o site oficial da TechSolutions Ltd. ou entrar em contato com a equipe de suporte ao cliente. A TechSolutions Ltd. continua comprometida em fornecer soluções de ponta que impulsionem o sucesso empresarial de seus clientes.
+    </p>
+  </section>
+</main>
+
+<!-- Importar este arquivo include para toda página que desejar exibir o footer com PHP -->
+<footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
+  desktop:flex-col desktop:items-start
+">
+
+  <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
+    desktop:justify-between desktop:items-center desktop:flex-row
+  ">
+    <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
+      <img src="../../public/images/logo-noar.png" alt="Logo Noar">
+      <img src="../../public/images/ambulancia.png" alt="Logo Ambulância">
+      <header aria-labelledby="footer_title"
+        class="header hidden desktop:flex flex-col justify-center items-start gap-2.5 self-stretch">
+        <h1 id="footer_title" class="text-4xl font-poppins font-bold leading-9 text-preto">SOS Bombeiros</h1>
+        <p class="self-stretch text-cinza font-poppins text-xl font-normal leading-5 w-96">
+          Fazendo uso da <b>tecnologia</b> para <b>otimizar</b> o atendimento de ocorrências e facilitar a
+          <b>comunicação</b> entre bombeiros e médicos
+        </p>
+      </header>
+    </section>
+
+    <header aria-labelledby="footer_title_mobile"
+      class="header flex desktop:hidden flex-col justify-center items-start gap-2.5 self-stretch">
+      <h1 id="footer_title_mobile" class="text-4xl font-poppins font-bold leading-9 text-preto">SOS Bombeiros</h1>
+      <p class="self-stretch text-cinza font-poppins text-xl font-normal leading-5 w-fill">
+        Fazendo uso da <b>tecnologia</b> para <b>otimizar</b> o atendimento de ocorrências e facilitar a
+        <b>comunicação</b> entre bombeiros e médicos
+      </p>
+    </header>
+
+    <section aria-labelledby="navegar_title" class="group_1 flex flex-col items-start gap-2.5 self-stretch text-left">
+      <h1 id="navegar_title" class="font-poppins font-bold leading-10 text-4xl text-preto">Navegar</h1>
+      <ul class="flex flex-col text-cinza font-poppins font-normal text-xl leading-5 w-full">
+        <li>Principal</li>
+        <li>Login</li>
+        <li>Ocorrências</li>
+        <li>Dados</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="contato_title" class="contato flex flex-col items-start gap-2.5 self-stretch text-left">
+      <!-- Arrumar SVGs -->
+      <h1 id="contato_title" class="font-poppins font-bold leading-10 text-4xl text-preto text-left">Contato</h1>
+      <ul class="flex flex-col text-cinza font-poppins font-normal text-xl leading-5 w-full">
+        <div class="text flex flex-row gap-2.5">
+          <a href="">Av. Procópio Gomes, 244</a>
+        </div>
+        <div class="text flex flex-row gap-2.5">
+          <a href="">+55 (47) 99735-5556</a>
+        </div>
+        <div class="text flex flex-row gap-2.5">
+          <a href="">paulo@email.com</a>
+        </div>
+        <div class="text flex flex-row gap-2.5">
+          <a href="">@plxulo</a>
+        </div>
+      </ul>
+
+    </section>
+  </section>
+
+  <section class="container_footer2 flex flex-col px-8 py-16 w-full justify-center items-center gap-6 bg-vermelho font-poppins
+    desktop:flex-row desktop:justify-between desktop:p-16 desktop:self-stretch desktop:text-center
+  ">
+    <header aria-labelledby="company_name" class="flex flex-col justify-center items-start gap-2.5 text-left">
+      <h1 id="company_name" class="text-white font-poppins text-4xl font-bold leading-9">Senas Tech</h1>
+      <p class="text-white font-poppins text-xl font-normal leading-5">
+        Somos uma empresa de <b>tecnologia</b> localizada em Joinville, Santa Catarina, utilizamos de nossos
+        <b>conhecimentos</b> e <b>ferramentas</b> para trazer aplicações <b>confiáveis</b> e <b>velozes</b> para o
+        usuário final.
+      </p>
+    </header>
+    <hr class="desktop:hidden" width="100%">
+    <p class="font-poppins text-white w-full">Termos de uso e privacidade</p>
+    <hr class="desktop:hidden" width="100%">
+    <p class="font-poppins text-white w-full">Copyright, 2023</p>
+  </section>
+
+</footer>
+
+</html>
