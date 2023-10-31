@@ -22,11 +22,7 @@
       <p class="text-sm text-cinza text-center">Insira suas informações para entrar</p>
     </header>
     
-<<<<<<< HEAD:inc/views/login-mobile.inc.php
     <form class="flex flex-col gap-2.5" action="../inc/login.inc.php" method="POST" id="form_cadastro">
-=======
-    <form class="flex flex-col gap-2.5" action="form-login-handler.inc.php" method="POST" id="form_cadastro">
->>>>>>> tela-tela:inc/login-mobile.inc.php
       <div id="error" class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
         <img src="../public/images/alert-icon.svg" alt="Alerta">
         <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
