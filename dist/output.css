@@ -661,13 +661,21 @@ video {
   height: 192px;
 }
 
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
 .h-screen {
   height: 100vh;
 }
 
-.h-max {
-  height: -moz-max-content;
-  height: max-content;
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .max-h-0 {
@@ -891,6 +899,10 @@ video {
   border-radius: 1rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .rounded-\[30px\] {
   border-radius: 30px;
 }
@@ -901,10 +913,6 @@ video {
 
 .rounded-none {
   border-radius: 0px;
-}
-
-.rounded-3xl {
-  border-radius: 1.5rem;
 }
 
 .border {
@@ -959,6 +967,11 @@ video {
 .bg-\[\#F0ACAC\] {
   --tw-bg-opacity: 1;
   background-color: rgb(240 172 172 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#F2F2F2\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 242 242 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#F5EC95\] {
@@ -1075,10 +1088,6 @@ video {
   padding: 1.25rem;
 }
 
-.p-16 {
-  padding: 4rem;
-}
-
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
@@ -1107,6 +1116,11 @@ video {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-16 {
@@ -1332,6 +1346,45 @@ video {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+.first\:pt-5:first-child {
+  padding-top: 1.25rem;
+}
+
+.first\:pt-40:first-child {
+  padding-top: 10rem;
+}
+
+.first\:pt-10:first-child {
+  padding-top: 2.5rem;
+}
+
+.first\:pt-16:first-child {
+  padding-top: 4rem;
+}
+
+.last\:border-b-2:last-child {
+  border-bottom-width: 2px;
+}
+
+.last\:border-\[\#595959\]:last-child {
+  --tw-border-opacity: 1;
+  border-color: rgb(89 89 89 / var(--tw-border-opacity));
+}
+
+.last\:pb-2:last-child {
+  padding-bottom: 0.5rem;
+}
+
+.odd\:bg-white:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.even\:bg-\[\#F2F2F2\]:nth-child(even) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 242 242 / var(--tw-bg-opacity));
+}
+
 .checked\:bg-vermelho:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(199 64 45 / var(--tw-bg-opacity));
@@ -1508,6 +1561,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-32 {
     height: 8rem;
   }
@@ -1516,8 +1573,20 @@ video {
     width: 8rem;
   }
 
+  .md\:w-full {
+    width: 100%;
+  }
+
   .md\:justify-start {
     justify-content: flex-start;
+  }
+
+  .md\:gap-6 {
+    gap: 1.5rem;
+  }
+
+  .md\:gap-8 {
+    gap: 2rem;
   }
 
   .md\:text-4xl {
