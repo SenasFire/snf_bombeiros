@@ -596,6 +596,10 @@ video {
   height: 2.5rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-24 {
   height: 6rem;
 }
@@ -661,29 +665,13 @@ video {
   height: 192px;
 }
 
-<<<<<<< HEAD
 .h-max {
   height: -moz-max-content;
   height: max-content;
 }
 
-=======
->>>>>>> lana-nova-tela
 .h-screen {
   height: 100vh;
-}
-
-<<<<<<< HEAD
-.h-1\/2 {
-  height: 50%;
-}
-
-.h-20 {
-  height: 5rem;
-=======
-.h-7 {
-  height: 1.75rem;
->>>>>>> lana-nova-tela
 }
 
 .max-h-0 {
@@ -763,17 +751,12 @@ video {
   width: 192px;
 }
 
-<<<<<<< HEAD
 .min-w-full {
   min-width: 100%;
 }
 
 .border-collapse {
   border-collapse: collapse;
-=======
-.w-7 {
-  width: 1.75rem;
->>>>>>> lana-nova-tela
 }
 
 .cursor-pointer {
@@ -878,42 +861,12 @@ video {
   gap: 5px;
 }
 
-<<<<<<< HEAD
-=======
-.gap-3 {
-  gap: 0.75rem;
-}
-
-.gap-3\.5 {
-  gap: 0.875rem;
-}
-
-.gap-9 {
-  gap: 2.25rem;
-}
-
->>>>>>> lana-nova-tela
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-<<<<<<< HEAD
-=======
-.space-x-0 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0px * var(--tw-space-x-reverse));
-  margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
->>>>>>> lana-nova-tela
 .self-center {
   align-self: center;
 }
@@ -926,7 +879,6 @@ video {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -935,13 +887,10 @@ video {
   overflow-y: scroll;
 }
 
-=======
->>>>>>> lana-nova-tela
 .rounded {
   border-radius: 0.25rem;
 }
 
-<<<<<<< HEAD
 .rounded-2xl {
   border-radius: 1rem;
 }
@@ -950,8 +899,6 @@ video {
   border-radius: 1.5rem;
 }
 
-=======
->>>>>>> lana-nova-tela
 .rounded-\[30px\] {
   border-radius: 30px;
 }
@@ -1057,11 +1004,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-yellow-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 240 138 / var(--tw-bg-opacity));
-}
-
 .bg-ambulance {
   background-image: url('../public/images/ambulance.png');
 }
@@ -1072,10 +1014,6 @@ video {
 
 .bg-close {
   background-image: url('../public/images/close.svg');
-}
-
-.bg-logo-noar {
-  background-image: url('/public/images/logo-noar.png');
 }
 
 .bg-logo-noar {
@@ -1142,13 +1080,8 @@ video {
   padding: 2rem;
 }
 
-<<<<<<< HEAD
 .p-\[1\.25rem\] {
   padding: 1.25rem;
-=======
-.p-0 {
-  padding: 0px;
->>>>>>> lana-nova-tela
 }
 
 .px-16 {
@@ -1260,13 +1193,10 @@ video {
   font-size: 1px;
 }
 
-<<<<<<< HEAD
 .text-\[2rem\] {
   font-size: 2rem;
 }
 
-=======
->>>>>>> lana-nova-tela
 .text-sm {
   font-size: 1rem;
 }
@@ -1355,24 +1285,16 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
 .underline {
   text-decoration-line: underline;
 }
 
-<<<<<<< HEAD
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-=======
->>>>>>> lana-nova-tela
 .outline-vermelho {
   outline-color: #C7402D;
 }
@@ -1418,18 +1340,6 @@ video {
 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.first\:pt-5:first-child {
-  padding-top: 1.25rem;
-}
-
-.first\:pt-40:first-child {
-  padding-top: 10rem;
-}
-
-.first\:pt-10:first-child {
-  padding-top: 2.5rem;
 }
 
 .first\:pt-16:first-child {
@@ -1530,14 +1440,6 @@ video {
   --tw-ring-color: rgb(96 165 250 / var(--tw-ring-opacity));
 }
 
-<<<<<<< HEAD
-=======
-.focus\:ring-pink-400:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(244 114 182 / var(--tw-ring-opacity));
-}
-
->>>>>>> lana-nova-tela
 .disabled\:opacity-75:disabled {
   opacity: 0.75;
 }
@@ -1661,10 +1563,6 @@ video {
 
   .md\:justify-start {
     justify-content: flex-start;
-  }
-
-  .md\:gap-6 {
-    gap: 1.5rem;
   }
 
   .md\:gap-8 {

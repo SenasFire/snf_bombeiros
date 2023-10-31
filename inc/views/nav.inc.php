@@ -4,9 +4,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <script src="nav_script.inc.js" defer></script>
-<nav class="navbar_cellphone flex py-2.5 lg:flex-row justify-between items-center w-full h-fit bg-vermelho">
+<nav class="navbar_cellphone flex py-2.5 px-8 lg:flex-row justify-between items-center w-full h-fit bg-vermelho">
   <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
-    <img src="../public/images/logo-noar.png" alt="">
+  <img src="../public/images/logo-noar.png" alt="" class="w-10 h-10 md:h-32 md:w-32">
     <div aria-label="Título" class="flex flex-col">
       <h1 id="nav_title" class="font-poppins font-semibold text-white text-4xl">NOAR</h1>
       <p class="hidden laptop:block font-poppins text-2xl text-white font-medium">Núcleo de Operações Aéreas e Resgate</p>
@@ -27,8 +27,8 @@
       </button>
     </div>
     <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
-      <li><a>Perfil</a></li>
-      <li><a>Página Principal</a></li>
+      <li><a href="perfil.html">Perfil</a></li>
+      <li><a href="main.html">Página Principal</a></li>
       <li><a>Histórico de Ocorrências</a></li>
       <li><a>Nova Ocorrência</a></li>
       <li><a>Ajuda</a></li>
