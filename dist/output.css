@@ -1476,10 +1476,6 @@ video {
     display: flex;
   }
 
-  .tablet\:hidden {
-    display: none;
-  }
-
   .tablet\:h-\[236px\] {
     height: 236px;
   }
@@ -1554,6 +1550,10 @@ video {
     height: 8rem;
   }
 
+  .md\:w-3\/4 {
+    width: 75%;
+  }
+
   .md\:w-32 {
     width: 8rem;
   }
@@ -1562,8 +1562,8 @@ video {
     width: 100%;
   }
 
-  .md\:w-3\/4 {
-    width: 75%;
+  .md\:items-start {
+    align-items: flex-start;
   }
 
   .md\:justify-start {
@@ -1574,14 +1574,24 @@ video {
     gap: 2rem;
   }
 
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+  .md\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .md\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .md\:text-sm {
@@ -1648,10 +1658,6 @@ video {
     margin-top: 2rem;
   }
 
-  .desktop\:mt-3 {
-    margin-top: 0.75rem;
-  }
-
   .desktop\:flex {
     display: flex;
   }
@@ -1684,6 +1690,10 @@ video {
     align-items: center;
   }
 
+  .desktop\:justify-start {
+    justify-content: flex-start;
+  }
+
   .desktop\:justify-between {
     justify-content: space-between;
   }
@@ -1709,13 +1719,14 @@ video {
     padding: 4rem;
   }
 
-  .desktop\:p-8 {
-    padding: 2rem;
-  }
-
   .desktop\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .desktop\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .desktop\:text-center {
