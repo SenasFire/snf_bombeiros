@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
+  <script src="../draft/javascript.js" defer></script>
   <script src="../inc/js/form_script.inc.js" defer></script>
   <script src="../inc/js/nav_script.inc.js" defer></script>
   <title>Materiais Utilizados</title>
@@ -88,12 +89,12 @@
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
           <label for="id1">Base do Estabilizador</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn1" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra1" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn1" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
@@ -107,23 +108,23 @@
             <option value="P">P</option>
           </select>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn2" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra2" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn2" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
           <label for="id1">Coxins</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn3" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra3" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn3" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
@@ -135,23 +136,23 @@
             <option value="Infantil">Infantil</option>
           </select>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn4" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra4" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn4" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
           <label for="id1">Maca Rígida</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn5" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra5" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn5" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
@@ -163,56 +164,56 @@
             <option value="Infantil">Infantil</option>
           </select>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn6" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra6" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn6" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
           <label for="id1">Tirante Aranha</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn7" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra7" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn7" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
           <label for="id1">Tirante de Cabeça</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn8" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra8" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn8" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
           <label for="id1">Cânula</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn9" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra9" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn9" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
           <label for="id1">Base do Estabilizador</label>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+            <button id="minusBtn10" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra10" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn10" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <div class="input-box flex flex-row justify-center items-start px-8 py-4 w-full gap-5" title="Outro material">
@@ -221,13 +222,13 @@
             <textarea name="" id="" cols="30" rows="10" class="text-center input border-b-2 border-[#595959] w-full bg-input_color text-input_placeholder text-sm
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite aqui..."></textarea>
           </div>
-          <div class="flex flex-col justify-end w-1/2 h-max">
-            <button type="submit" onclick="event.preventDefault()" class="button gap-2.5 lg:text-2xl text-2xl flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-full h-20 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button gap-2.5 lg:text-2xl text-2xl flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          <div class="flex flex-row justify-end w-1/2">
+            <button id="minusBtn11" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra11" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+              transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button id="plusBtn11" type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+              transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
         <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
