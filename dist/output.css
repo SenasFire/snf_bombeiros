@@ -1562,10 +1562,6 @@ video {
     width: 100%;
   }
 
-  .md\:items-start {
-    align-items: flex-start;
-  }
-
   .md\:justify-start {
     justify-content: flex-start;
   }
@@ -1690,10 +1686,6 @@ video {
     align-items: center;
   }
 
-  .desktop\:justify-start {
-    justify-content: flex-start;
-  }
-
   .desktop\:justify-between {
     justify-content: space-between;
   }
@@ -1722,11 +1714,6 @@ video {
   .desktop\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
-  }
-
-  .desktop\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
   }
 
   .desktop\:text-center {
