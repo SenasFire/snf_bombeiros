@@ -121,17 +121,23 @@ CREATE TABLE ocorrencia (
     ocorrencia_id INT PRIMARY KEY AUTO_INCREMENT,
     fotos_ocorrencia MEDIUMBLOB,
     ocorrencia_paciente INT,
-    FOREIGN KEY (ocorrencia_paciente) REFERENCES paciente_atendido(paciente_id)
+    ocorrencia_cabecalho INT,
+    ocorrencia_tipo INT,
+    ocorrencia_prob_sus INT,
+    FOREIGN KEY (ocorrencia_paciente) REFERENCES paciente_atendido(paciente_id),
+    FOREIGN KEY (ocorrencia_cabecalho) REFERENCES cabecalho_ocorrencia(cabecalho_id),
 );
 
-CREATE TABLE cabecalho_ocorrencia (
+-- PARTES DA OCORRÊNCIA:
 
+CREATE TABLE cabecalho_ocorrencia (
+    cabecalho_id INT PRIMARY KEY AUTO_INCREMENT
 );
 
 CREATE TABLE tipo_ocorrencia (
-
+    tp_ocorrencia_id INT PRIMARY KEY AUTO_INCREMENT
 );
 
 CREATE TABLE problemas_sus_ocorrencia (
-
+    prob_sus_id INT PRIMARY KEY AUTO_INCREMENT
 );
