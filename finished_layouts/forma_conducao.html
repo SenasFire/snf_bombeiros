@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <link rel="Website Icon" type="png" href="../public/images/logo-noar.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
   <script src="../inc/js/form_script.inc.js" defer></script>
-  <script src="../inc/js/nav_script.inc.js" defer></script>
-  <title>Opções Ocorrência</title>
+  <title>Forma de Condução</title>
 </head>
 
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
@@ -73,31 +72,102 @@
         <h1 class="hidden tablet:flex font-bold text-3xl text-white tablet:text-preto">Bombeiros Voluntários</h1>
       </div>
     </header>
-  
-    <section aria-labelledby="title_main" class="flex flex-col px-6 justify-center items-center gap-10
-      md:w-3/4 self-center">
-      <header class="flex flex-col justify-center items-center gap-1 self-stretch text-center">
-        <h1 id="title_main" class="font-bold text-xl md:text-2xl"><span class="text-vermelho">Selecione</span> o que você deseja visualizar na ocorrência</h1>
-        <p id="subtitle" class="text-cinza text-xs text-center md:text-sm">Selecione uma das opções abaixo de acordo com a sua <b>necessidade</b></p>
+    <!-- Formulário -->
+    <section aria-labelledby="title_main" class="flex flex-col px-8 justify-center items-center gap-10 self-stretch">
+      <header class="flex flex-col justify-center items-center gap-3 self-stretch text-center last:pb-2 last:border-b-2 last:border-[#595959]">
+        <h1 id="title_main"  class="font-bold text-3xl">Forma de Condução<span class="text-vermelho"> da vítima</span></h1>
+        <p id="subtitle"     class="text-cinza text-sm text-center">Selecione as opções abaixo de acordo com a sua <b>necessidade.</b></p>
+        <p id="instructions" class="text-cinza text-sm text-center">Você pode <b>marcar</b> clicando nos caixas de seleção, ou <b>adicionar diretamente</b> digitando na caixa de texto.</p>
       </header>
-      <section aria-label="Botões" class="flex flex-col items-center justify-center gap-4 w-full">
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Cabeçalho</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Tipo da Ocorrência</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Problemas Suspeitos</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Fotos da Ocorrência</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Revisar Ocorrência</button>
-      </section>
+    </section>
+    <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-fit" title="Form Container">
+      <header class="flex flex-col ">
+        <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Forma de </span> Condução </h1>
+      </header>
+      <form class="flex flex-col gap-2.5" action="" method="" id="form_conducao">
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <div id="admin" class="container_radio flex flex-col gap-5">
+            <div class="flex items-center gap-2.5">
+              <input type="radio" id="adm_sim_desktop" name="escolha" value="sim" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
+              <label for="adm_sim_desktop">Deitada</label>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <input type="radio" id="adm_nao_desktop" name="escolha" value="nao" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
+              <label for="adm_nao_desktop">Sentada</label>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <input type="radio" id="adm_nao_desktop" name="escolha" value="nao" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
+              <label for="adm_nao_desktop">Semi-deitada</label>
+            </div>
+          </div>
+        </div>
+
+        <header class="flex flex-col">
+          <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Vítima</span> era</h1>
+        </header>
+
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Ciclista </span>
+          </div>
+        
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Condutor moto </span>
+          </div>
+        </div>
+        
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Gestante </span>
+          </div>
+        
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Passageiro do banco da frente </span>
+          </div>
+        
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Passageiro moto </span>
+          </div>
+
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Condutor carro </span>
+          </div>
+      
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Clínico </span>
+          </div>
+      
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Trauma </span>
+          </div>
+      
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Passageiro do banco de trás </span>
+          </div>
+
+          <div class="flex items-center gap-2 ">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Pedestre </span>
+          </div>
+        <button type="submit" class="text-[1px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+          transition ease-in-out hover:scale-105">Registrar dados</button>
+        <p class="text-cinza text-sm text-center">Os dados serão salvos na sua <b>ocorrência.</b></p>
+      </form>
     </section>
   </main>
   <footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
-    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho desktop:mt-8">
-    <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch first:pt-16 
-      desktop:justify-between desktop:items-center desktop:flex-row">
+    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho
+  ">
+    <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
+      desktop:justify-between desktop:items-center desktop:flex-row
+    ">
       <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
         <img src="../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
         <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
@@ -157,5 +227,5 @@
     </section>
   </footer>
 </body>
-
 </html>
+      

@@ -13,8 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
   <script src="../inc/js/form_script.inc.js" defer></script>
-  <script src="../inc/js/nav_script.inc.js" defer></script>
-  <title>Opções Ocorrência</title>
+  <title>Equipe de Atendimento</title>
 </head>
 
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
@@ -73,31 +72,71 @@
         <h1 class="hidden tablet:flex font-bold text-3xl text-white tablet:text-preto">Bombeiros Voluntários</h1>
       </div>
     </header>
-  
-    <section aria-labelledby="title_main" class="flex flex-col px-6 justify-center items-center gap-10
-      md:w-3/4 self-center">
-      <header class="flex flex-col justify-center items-center gap-1 self-stretch text-center">
-        <h1 id="title_main" class="font-bold text-xl md:text-2xl"><span class="text-vermelho">Selecione</span> o que você deseja visualizar na ocorrência</h1>
-        <p id="subtitle" class="text-cinza text-xs text-center md:text-sm">Selecione uma das opções abaixo de acordo com a sua <b>necessidade</b></p>
+    <section aria-labelledby="title_main" class="flex flex-col px-8 justify-center items-center gap-10 self-stretch">
+      <header class="flex flex-col justify-center items-center gap-3 self-stretch text-center last:pb-2 last:border-b-2 last:border-[#595959]">
+        <h1 id="title_main"  class="font-bold text-3xl">Equipe de Atendimento<span class="text-vermelho"> da ocorrência</span></h1>
+        <p id="subtitle"     class="text-cinza text-sm text-center">Selecione as opções abaixo de acordo com a sua <b>necessidade.</b></p>
+        <p id="instructions" class="text-cinza text-sm text-center">Você pode <b>marcar</b> clicando nos caixas de seleção, ou <b>adicionar diretamente</b> digitando na caixa de texto.</p>
       </header>
-      <section aria-label="Botões" class="flex flex-col items-center justify-center gap-4 w-full">
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Cabeçalho</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Tipo da Ocorrência</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Problemas Suspeitos</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Fotos da Ocorrência</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Revisar Ocorrência</button>
-      </section>
+    </section>
+    <!-- Formulário -->
+    <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-fit" title="Form Container">
+      <header class="flex flex-col items-center tablet:items-start">
+        <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins tablet:text-4xl">
+          <span class="font-bold text-vermelho">Equipe</span> de atendimento
+        </h1>
+      </header>
+      
+      <form class="flex flex-col gap-2.5" action="" method="" id="form_equipe_atendimento">
+        <div id="error" class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
+          <img src="../public/images/alert-icon.svg" alt="Alerta">
+          <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
+        </div>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="input_name">Motorista</label>
+          <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white laptop:focus:scale-100" placeholder="Ex: Paulo do Amarante" required>
+        </div>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+          <label for="prim_socorr">Primeiro Socorrista</label>
+          <input id="prim_socorr" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white laptop:focus:scale-100" placeholder="Ex: Jonatas Rocha">
+        </div>
+        <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="seg_socorr">Segundo Socorrista</label>
+            <input id="seg_socorr" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white laptop:focus:scale-100" placeholder="Ex: Henrique Osmar">
+          </div>
+          <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="terc_socorr">Terceiro Socorrista</label>
+            <input id="terc_socorr" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white laptop:focus:scale-100" placeholder="Ex: Otávio Santana">
+          </div>
+          <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="demandante_name">Demandante</label>
+            <input id="demandante_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white laptop:focus:scale-100" placeholder="Ex: Maicol Peterson">
+          </div>
+          <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="equipe_name">Nome da Equipe</label>
+            <input id="equipe_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white laptop:focus:scale-100" placeholder="Ex: Equipe X">
+          </div>
+          <br>
+          <button type="submit" class="text-[1px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+          transition ease-in-out hover:scale-105">Registrar dados</button>
+          <p class="text-cinza text-sm text-center">Os dados serão salvos na sua <b>ocorrência.</b></p>
+      </form>
+      <div class="content hidden tablet:flex flex-row justify-center items-end self-stretch h-full">
+      </div>
     </section>
   </main>
   <footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
-    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho desktop:mt-8">
-    <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch first:pt-16 
-      desktop:justify-between desktop:items-center desktop:flex-row">
+    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho
+  ">
+    <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
+      desktop:justify-between desktop:items-center desktop:flex-row
+    ">
       <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
         <img src="../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
         <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
