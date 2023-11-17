@@ -38,6 +38,26 @@ CREATE TABLE usuarios_socorristas (
     usuarios_foto_perfil MEDIUMBLOB
 );
 
+-- EQUIPES:
+
+CREATE TABLE equipes (
+    equipe_id INT PRIMARY KEY AUTO_INCREMENT,
+    equipe_nome VARCHAR(90) NOT NULL
+    equipe_motorista VARCHAR(90) NOT NULL,
+    equipe_primeiro_socorrista VARCHAR(90) NOT NULL,
+    equipe_segundo_socorrista VARCHAR(90) NOT NULL,
+    equipe_terceiro_socorrista VARCHAR(90) NOT NULL,
+    equipe_demandante VARCHAR(90) NOT NULL
+);
+
+CREATE TABLE equipes_usuarios (
+    equipe_id INT,
+    usuario_id INT,
+    PRIMARY KEY (equipe_id, usuario_id),
+    FOREIGN KEY (equipe_id) REFERENCES equipes(equipe_id),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios_socorristas(usuarios_id)
+);
+
 /*
 == TABELA DE NOTÍCIAS:
 
