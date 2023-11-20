@@ -22,9 +22,25 @@
       require_once "class/signup.class.php";
       require_once "class/usuario-db.class.php";
       $signup = new SignupAdm($username, $num_fibra, $pwd, $cmdt_radio, $cmdt_code);
-
-      // Inserir usuário / gerenciar erros
       $signup->signupUser();
+
+      $usuarioDB = new UsuarioDB();
+      $usuarios = $usuarioDB->listarUsuarios();
+  
+      $dadosUsuarios = [];
+  
+      foreach ($usuarios as $usuario):
+        $dadosUsuario = [
+          'nome' => $usuario->getNome(),
+          'fibra' => $usuario->getFibra(),
+          'cmdt' => $usuario->getCmdt(),
+          'cmdtCode' => $usuario->getCmdtCode(),
+        ];
+        $dadosUsuarios[] = $dadosUsuario;
+      endforeach;
+  
+      $json_texto = json_encode(["dadosUsuarios" => $dadosUsuarios]);
+      echo($json_texto);
     }
     else {
       $doc_name   = htmlspecialchars($_POST["doc_name"]);
@@ -39,6 +55,24 @@
 
       $doc_signup = new SignupMedic($doc_name, $doc_cpf, $doc_pwd, $doc_email);
       $doc_signup->signupMedic();
+
+      $medico = new UsuarioDB();
+      $doc_list = $medico->listarMedicos();
+      
+      $dados_medicos = [];
+
+      foreach ($doc_list as $medico):
+        $dados_medico = [
+          'id' => $medico->getId(),
+          'nome' => $medico->getNome(),
+          'cpf' => $medico->getCpf(),
+          'email' => $medico->getMail()
+        ];
+        $dados_medicos[] = $dados_medico;
+      endforeach;
+  
+      $json_medicos = json_encode(["dados_medicos" => $dados_medicos]);
+      echo($json_medicos);
     }
   } 
   else {

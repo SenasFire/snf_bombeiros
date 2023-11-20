@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () =>  {
-  hideAll();
   loadUsers();
   loadDoctor();
   showForm('btn', 'form_new_team');
@@ -42,6 +41,8 @@ function loadUsers() {
   const userTable = document.getElementById("userTable");
   userTable.innerHTML = "";
 
+  var selectUsers = document.getElementsByClassName('select')[0];
+
   $.ajax({
     type: "GET",
     url: "../../inc/class/usuario-db.class.php?action=listarUsuarios",
@@ -58,6 +59,7 @@ function loadUsers() {
         const cell2 = row.insertCell(1);
         const cell3 = row.insertCell(2);
         const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
 
         cell1.textContent = lista[x].nome;
         cell2.textContent = lista[x].fibra;
@@ -65,6 +67,33 @@ function loadUsers() {
         cell4.textContent = lista[x].cmdtCode || "-";
         
         cell1.classList.add("p-6");
+
+        const linkEditar = document.createElement("a");
+        linkEditar.textContent = "Editar";
+        linkEditar.href = "#"; // Adicione a URL de edição aqui
+        linkEditar.addEventListener("click", function(event) {
+          event.preventDefault();
+          // Lógica para editar o usuário
+          alert("Editar usuário: " + lista[x].nome);
+        });
+
+        const linkExcluir = document.createElement("a");
+        linkExcluir.textContent = "Excluir";
+        linkExcluir.href = "#"; // Adicione a URL de exclusão aqui
+        linkExcluir.addEventListener("click", function(event) {
+          event.preventDefault();
+          // Lógica para excluir o usuário
+          alert("Excluir usuário: " + lista[x].nome);
+        });
+
+        cell5.appendChild(linkEditar);
+        cell5.appendChild(linkExcluir);
+
+        var option = document.createElement('option');
+        option.classList.add("text-xs")
+        option.value = lista[x].valor; // Substitua 'valor' pelo nome real do campo
+        option.textContent = lista[x].nome; // Substitua 'nome' pelo nome real do campo
+        selectUsers.appendChild(option);
       }
     },
     error: function(xhr, status, error) {
@@ -95,16 +124,12 @@ function loadDoctor() {
       
       for(x=0;x<lista.length;x++)
       {
-        console.log(lista[x].id);
-        console.log(lista[x].nome);
-        console.log(lista[x].cpf);
-        console.log(lista[x].email);
-
         const row = doc_table.insertRow();
         const cell1 = row.insertCell(0);
         const cell2 = row.insertCell(1);
         const cell3 = row.insertCell(2);
         const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
 
         cell1.textContent = lista[x].id;
         cell2.textContent = lista[x].nome;
@@ -112,6 +137,27 @@ function loadDoctor() {
         cell4.textContent = lista[x].email;
         
         cell1.classList.add("p-6");
+
+        const linkEditar = document.createElement("a");
+        linkEditar.textContent = "Editar";
+        linkEditar.href = "#"; // Adicione a URL de edição aqui
+        linkEditar.addEventListener("click", function(event) {
+          event.preventDefault();
+          // Lógica para editar o usuário
+          alert("Editar usuário: " + lista[x].nome);
+        });
+
+        const linkExcluir = document.createElement("a");
+        linkExcluir.textContent = "Excluir";
+        linkExcluir.href = "#"; // Adicione a URL de exclusão aqui
+        linkExcluir.addEventListener("click", function(event) {
+          event.preventDefault();
+          // Lógica para excluir o usuário
+          alert("Excluir usuário: " + lista[x].nome);
+        });
+
+        cell5.appendChild(linkEditar);
+        cell5.appendChild(linkExcluir);
       }
     },
     error: function(xhr, status, error) {
@@ -146,6 +192,7 @@ function addContent() {
         console.log(lista[x].cmdt);
         console.log(lista[x].cmdtCode);
       }
+      loadUsers();
     },
     error: function(xhr, status, error) {
       alert("Há campos inválidos...");
@@ -171,11 +218,15 @@ function addDoctor() {
 
     success: function(retorno) {
       var valores = retorno;
-      var lista = valores.dadosUsuarios
+      var lista = valores.dados_medicos
 
       for(x=0;x<lista.length;x++) {
-
+        console.log(lista[x].id);
+        console.log(lista[x].nome);
+        console.log(lista[x].cpf);
+        console.log(lista[x].email);
       }
+      loadDoctor();
     },
     error: function(xhr, status, error) {
       alert("Há campos inválidos...");

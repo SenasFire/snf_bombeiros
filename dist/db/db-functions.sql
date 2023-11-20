@@ -42,6 +42,7 @@ CREATE TABLE usuarios_medicos (
     medicos_id INT PRIMARY KEY AUTO_INCREMENT,
     medicos_nome VARCHAR(90) NOT NULL,
     medicos_cpf VARCHAR(14) NOT NULL,
+    medicos_pwd LONGTEXT NOT NULL,
     medicos_email VARCHAR(90) NOT NULL
 );
 

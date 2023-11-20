@@ -69,7 +69,7 @@
         </header>
 
         <!-- Novo socorrista: -->
-        <form id="form_new_rescuer" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
+        <form id="form_new_rescuer" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome_desktop" class="text-xl">Nome:</label>
             <input name="username" id="nome_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
@@ -103,7 +103,7 @@
             <input name="cmdt_code" id="adm_code_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
           </div>
-          <button onclick="addContent()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          <button onclick="addContent(); event.preventDefault(); loadDoctor();" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Usuário<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 
@@ -111,8 +111,12 @@
         <form id="form_new_team" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome_motorista" class="text-xl">Motorista:</label>
-            <input id="nome_motorista" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui..." required>
+            <select name="" id="motorista" class="select text-xl border-2 border-[#595959]">
+              <option class="text-xs" value="None" disabled selected>Selecione:</option>
+              <?php
+
+              ?>
+            </select>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="primeiro_socorrista" class="text-xl">Primeiro Socorrista:</label>
@@ -144,7 +148,7 @@
         </form>
 
         <!-- Adicionar novo médico: -->
-        <form id="form_new_doctor" method="POST" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
+        <form id="form_new_doctor" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="medico_nome" class="text-xl">Nome do médico:</label>
             <input name="doc_name" id="medico_nome" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
@@ -165,7 +169,7 @@
             <input name="doc_email" id="medico_email" type="email" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o email aqui...">
           </div>
-          <button type="submit" onclick="addDoctor()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          <button type="submit" onclick="addDoctor(); event.preventDefault(); loadDoctor();" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Médico<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 
@@ -223,6 +227,7 @@
                   <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
                   <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
                   <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
+                  <th class="border border-gray-300 py-2 px-4">Ações</th>
               </tr>
           </thead>
           <tbody id="userTable">
@@ -247,7 +252,8 @@
                   <th class="border border-gray-300 py-2 px-4">Nome</th>
                   <th class="border border-gray-300 py-2 px-4">CPF</th>
                   <th class="border border-gray-300 py-2 px-4">Email</th>
-              </tr>
+                  <th class="border border-gray-300 py-2 px-4">Ações</th>
+                </tr>
           </thead>
           <tbody id="doc_table">
 
