@@ -1,5 +1,5 @@
 <?php
-
+  
   // =============================================================================== //
   // ===================== GERENCIAR FORMULÁRIOS COM SEGURANÇA ===================== //
 
@@ -41,6 +41,7 @@
   
       $json_texto = json_encode(["dadosUsuarios" => $dadosUsuarios]);
       echo($json_texto);
+      exit();
     }
     else {
       $doc_name   = htmlspecialchars($_POST["doc_name"]);
@@ -73,9 +74,9 @@
   
       $json_medicos = json_encode(["dados_medicos" => $dados_medicos]);
       echo($json_medicos);
+      exit();
     }
-  } 
-  else {
+  } else {
     $json_texto = json_encode(["error" => "Algo deu errado..."]);
     header('Content-Type: application/json'); // Definir o cabeçalho como JSON
     echo $json_texto;

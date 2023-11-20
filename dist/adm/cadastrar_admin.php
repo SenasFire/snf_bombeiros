@@ -103,7 +103,7 @@
             <input name="cmdt_code" id="adm_code_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 12665">
           </div>
-          <button onclick="addContent(); event.preventDefault(); loadDoctor();" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          <button onclick="addUser(); event.preventDefault(); loadDoctor();" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Usuário<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 

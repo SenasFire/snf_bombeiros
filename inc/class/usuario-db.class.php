@@ -228,6 +228,37 @@ class SignupMedic extends Signup {
 
 }
 
+class DBoperations extends Dbh {
+  private $id;
+
+  public function __construct($id)
+  {
+    $this->id = $id;
+  }
+
+  public function deletarUsuario() {
+    $sql = "DELETE FROM usuarios_socorristas WHERE usuarios_id = :id";
+
+    try {
+      $pdo = $this->connect();
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+      $stmt->execute();
+
+      // Verifique se a exclusão foi bem-sucedida
+      $rowCount = $stmt->rowCount();
+
+      if ($rowCount > 0) {
+        return ['success' => true];
+      } else {
+        return ['success' => false, 'error' => 'Nenhum usuário encontrado para excluir.'];
+      }
+    } catch (PDOException $e) {
+      return ['success' => false, 'error' => 'Erro durante a exclusão: ' . $e->getMessage()];
+    }
+  }
+}
+
 if (isset($_GET['action'])) {
   if($_GET['action'] === 'listarUsuarios')
   {
@@ -238,6 +269,7 @@ if (isset($_GET['action'])) {
 
     foreach ($usuarios as $usuario):
       $dadosUsuario = [
+        'id' => $usuario->getId(),
         'nome' => $usuario->getNome(),
         'fibra' => $usuario->getFibra(),
         'cmdt' => $usuario->getCmdt(),
@@ -268,5 +300,17 @@ if (isset($_GET['action'])) {
 
     $json_medicos = json_encode(["dados_medicos" => $dados_medicos]);
     echo($json_medicos);
+  } else if ($_GET['action'] === 'excluir') {
+    $id = $_GET["id"];
+
+    $excluir = new DBoperations($id);
+    $excluir->deletarUsuario();
+
+    $response = ["success" => true];
+    echo json_encode($response);
+  } else {
+    // Comando inválido
+    $response = ["error" => "Comando inválido"];
+    echo json_encode($response);
   }
 }

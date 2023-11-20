@@ -37,6 +37,29 @@ function showForm(buttonId, formId) {
   document.getElementById(formId).classList.add('flex');
 }
 
+function Executar(elemento, acao) {
+  if (acao === 'excluir') {
+      // Obter o ID associado ao link clicado
+      var id = elemento.getAttribute('data-id');
+
+      // Enviar dados via AJAX
+      $.ajax({
+          type: 'POST',
+          url: '../../inc/class/usuario-db.class.php?action=excluir&id='+id,  // Substitua pelo caminho correto para o seu arquivo PHP no servidor
+          data: id,
+          dataType: 'json',
+          success: function(retorno) {
+            loadDoctor();
+            loadUsers();
+          },
+          error: function(xhr, status, error) {
+            // Lógica para lidar com erros de requisição AJAX
+            alert('Erro ao deletar: ' + error);
+          }
+      });
+  }
+}
+
 function loadUsers() {
   const userTable = document.getElementById("userTable");
   userTable.innerHTML = "";
@@ -52,6 +75,13 @@ function loadUsers() {
       var valores = retorno;          
       var lista = valores.dadosUsuarios;
       
+      if(lista.length<=0) {
+        const row = userTable.insertRow();
+        const cell1 = row.insertCell(0);
+
+        cell1.innerHTML = "<p>Nenhum cadastro no momento...</p>"
+      }
+
       for(x=0;x<lista.length;x++)
       {
         const row = userTable.insertRow();
@@ -65,29 +95,9 @@ function loadUsers() {
         cell2.textContent = lista[x].fibra;
         cell3.textContent = lista[x].cmdt;
         cell4.textContent = lista[x].cmdtCode || "-";
-        
+        cell5.innerHTML = `<a href="#" data-id="${lista[x].id}" onclick="Executar(this,'excluir')">Excluir</a>`;
+
         cell1.classList.add("p-6");
-
-        const linkEditar = document.createElement("a");
-        linkEditar.textContent = "Editar";
-        linkEditar.href = "#"; // Adicione a URL de edição aqui
-        linkEditar.addEventListener("click", function(event) {
-          event.preventDefault();
-          // Lógica para editar o usuário
-          alert("Editar usuário: " + lista[x].nome);
-        });
-
-        const linkExcluir = document.createElement("a");
-        linkExcluir.textContent = "Excluir";
-        linkExcluir.href = "#"; // Adicione a URL de exclusão aqui
-        linkExcluir.addEventListener("click", function(event) {
-          event.preventDefault();
-          // Lógica para excluir o usuário
-          alert("Excluir usuário: " + lista[x].nome);
-        });
-
-        cell5.appendChild(linkEditar);
-        cell5.appendChild(linkExcluir);
 
         var option = document.createElement('option');
         option.classList.add("text-xs")
@@ -129,39 +139,18 @@ function loadDoctor() {
         const cell2 = row.insertCell(1);
         const cell3 = row.insertCell(2);
         const cell4 = row.insertCell(3);
-        const cell5 = row.insertCell(4);
 
         cell1.textContent = lista[x].id;
         cell2.textContent = lista[x].nome;
         cell3.textContent = lista[x].cpf;
         cell4.textContent = lista[x].email;
-        
+
         cell1.classList.add("p-6");
 
-        const linkEditar = document.createElement("a");
-        linkEditar.textContent = "Editar";
-        linkEditar.href = "#"; // Adicione a URL de edição aqui
-        linkEditar.addEventListener("click", function(event) {
-          event.preventDefault();
-          // Lógica para editar o usuário
-          alert("Editar usuário: " + lista[x].nome);
-        });
-
-        const linkExcluir = document.createElement("a");
-        linkExcluir.textContent = "Excluir";
-        linkExcluir.href = "#"; // Adicione a URL de exclusão aqui
-        linkExcluir.addEventListener("click", function(event) {
-          event.preventDefault();
-          // Lógica para excluir o usuário
-          alert("Excluir usuário: " + lista[x].nome);
-        });
-
-        cell5.appendChild(linkEditar);
-        cell5.appendChild(linkExcluir);
       }
     },
     error: function(xhr, status, error) {
-      alert("Erro inesperado:" + error);
+      alert("Erro ao carregar médicos:" + error);
     },
     beforeSend: function(xhr) {
       console.log("Operação sendo realizada");
@@ -173,7 +162,7 @@ function loadDoctor() {
   })
 }
 
-function addContent() {
+function addUser() {
   var dadosForm = $('#form_new_rescuer').serialize();
 
   $.ajax({
@@ -195,7 +184,7 @@ function addContent() {
       loadUsers();
     },
     error: function(xhr, status, error) {
-      alert("Há campos inválidos...");
+      alert("Há campos inválidos..." + error);
     },
     beforeSend: function(xhr) {
       console.log("Operação sendo realizada");
