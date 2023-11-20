@@ -1,4 +1,6 @@
 <?php
+require_once "dbh.class.php";
+
 class Signup extends Dbh {
 
   // =============================================================================== //
@@ -16,15 +18,43 @@ class Signup extends Dbh {
       // Se o execute retornar falso o código dentro do IF será executado --------- :
       if(!$stmt->execute(array($username, $hashPwd, $num_fibra, $cmdt_radio, $cmdt_code))) {
         $stmt = null;
+        $result = false;
         header("Location: ../dist/cadastro.php?error=stmt-failed");
         exit();
       } else {
-        header("Location: ../dist/cadastro.php?succes=usuario-cadastrado");
+        $result = true;
       }
     } catch (PDOException $erro) {
       $stmt = null;
       exit("Erro na conexão:<br>".$erro->getMessage());
     }
+
+    return $result;
+  }
+
+  protected function setDoctor($doc_name, $doc_cpf, $doc_pwd, $doc_email) {
+    $sql = "INSERT INTO usuarios_medicos (medicos_nome, medicos_cpf, medicos_pwd, medicos_email)
+            VALUES (?, ?, ?, ?)";
+    $hashPwd = password_hash($doc_pwd, PASSWORD_DEFAULT);
+
+    try {
+      $stmt = $this->connect()->prepare($sql);
+
+      // Se o execute retornar falso o código dentro do IF será executado --------- :
+      if(!$stmt->execute(array($doc_name, $doc_cpf, $hashPwd, $doc_email))) {
+        $stmt = null;
+        $result = false;
+        header("Location: ../dist/cadastrar_admin.php?error=stmt-failed");
+        exit();
+      } else {
+        $result = true;
+      }
+    } catch (PDOException $erro) {
+      $stmt = null;
+      exit("Erro na conexão:<br>".$erro->getMessage());
+    }
+
+    return $result;
   }
 
   // OBS: método acima não precisa de bindParam pois estou passando os valores diretamente
@@ -35,29 +65,23 @@ class Signup extends Dbh {
   protected function isCodeTaken($num_fibra, $cmdt_code) {
     
     $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_num_fibra = :num_fibra OR usuarios_cmdt_cod = :cmdt_code";
+    
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->bindParam(':num_fibra', $num_fibra);
+    $stmt->bindParam(':cmdt_code', $cmdt_code);
+    $stmt->execute();
 
-    try {
-      $stmt = $this->connect()->prepare($sql);
-      $stmt->bindParam(":num_fibra", $num_fibra);
-      $stmt->bindParam(":cmdt_code", $cmdt_code);
-      $stmt->execute();
-
-      if ($stmt->rowCount() > 0) {
-        $result = true;
-        $stmt = null;
-      } 
-      else {
-        $result = false;
-        $stmt = null;
-      }
-
-      return $result; 
-    }
-    catch (PDOException $erro) {
+    if ($stmt->rowCount() > 0) {
+      $result = true;
       $stmt = null;
-      header("Location: ../dist/cadastro.php?erro=stmt-failed");
-      exit("Erro na conexão:<br>".$erro->getMessage());
+    } 
+    else {
+      $result = false;
+      $stmt = null;
     }
+
+    return $result; 
+
   }
 
 }

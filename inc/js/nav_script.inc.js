@@ -13,3 +13,7 @@ function retrairMenu() {
   navigationMenu.classList.add('hidden');
   menuToggle.classList.remove('hidden');
 }
+
+function abrirCadastro() {
+  window.open("../../dist/adm/cadastar_admin.php");
+}

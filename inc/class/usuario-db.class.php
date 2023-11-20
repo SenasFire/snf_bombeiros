@@ -1,6 +1,9 @@
 <?php
 
+// Instanciar as classes e banco de dados
 require_once "dbh.class.php";
+require_once "signup.class.php";
+require_once "usuario-db.class.php";
 
 class Usuario {
   private $id;
@@ -36,8 +39,10 @@ class Usuario {
   public function getCmdtCode() {
     return $this->cmdt_code;
   }
-
 }
+
+// =============================================================================== //
+// ======== Somente pode ser acessado por administradores já cadastrados: ======== //
 
 class UsuarioDB extends Dbh {
 
@@ -50,7 +55,7 @@ class UsuarioDB extends Dbh {
       // Se o execute retornar falso o código dentro do IF será executado --------- :
       if(!$stmt->execute()) {
         $stmt = null;
-        header("Location: ../dist/cadastro.php?error=stmt-failed");
+        header("Location: ../dist/main_admin.php?error=stmt-failed");
         exit();
       }
     } catch (PDOException $erro) {
@@ -67,4 +72,201 @@ class UsuarioDB extends Dbh {
     return $usuarios;
   }
 
+  // =========================== LISTAR OS MÉDICOS:
+  public function listarMedicos() {
+    $sql = "SELECT * FROM usuarios_medicos";
+
+    try {
+      $stmt = $this->connect()->prepare($sql);
+
+      // Se o execute retornar falso o código dentro do IF será executado --------- :
+      if(!$stmt->execute()) {
+        $stmt = null;
+        header("Location: ../dist/main_admin.php?error=stmt-failed");
+        exit();
+      }
+    } catch (PDOException $erro) {
+      $stmt = null;
+      exit("Erro na conexão:<br>".$erro->getMessage());
+    }
+    $medicos = [];
+
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      $medico = new Medico($row['medicos_id'], $row['medicos_nome'], $row['medicos_cpf'], $row['medicos_pwd'], $row['medicos_email']);
+      $medicos[] = $medico;
+    }
+
+    return $medicos;
+  }
+}
+
+class SignupAdm extends Signup {
+  private $username;
+  private $num_fibra;
+  private $pwd;
+  private $cmdt_radio;
+  private $cmdt_code;
+
+  public function __construct($username, $num_fibra, $pwd, $cmdt_radio, $cmdt_code) {
+    $this->username   = $username;
+    $this->num_fibra  = $num_fibra;
+    $this->pwd        = $pwd;
+    $this->cmdt_radio = $cmdt_radio;
+    $this->cmdt_code  = $cmdt_code;
+  }
+
+  public function signupUser() {
+
+    if ($this->isInputEmpty() == true) {
+      // Input vazio!
+      header("Location: ../dist/adm/cadastrar_admin.php?error=empty-input");
+      exit();
+    }
+    if ($this->checkNumFibra() == true) {
+      // Input vazio!
+      header("Location: ../dist/adm/cadastrar_admin.php?error=code-taken");
+      exit();
+    }
+
+    $this->setUser($this->username, $this->num_fibra, $this->pwd, $this->cmdt_radio, $this->cmdt_code);
+  }
+
+  // =============================================================================== //
+  // ======== Se os inputs estiverem vazios alterar estado para exibir erro ======== //
+  private function isInputEmpty() {
+
+    if (empty($this->username) || empty($this->num_fibra) || empty($this->pwd) || (!isset($this->cmdt_radio)) || $this->cmdt_radio === "sim" && empty($this->cmdt_code)) {
+      $result = true;
+    } else {  
+      $result = false;
+    }
+    return $result;
+  }
+
+  // =============================================================================== //
+  // ========= Verificar se o código número fibra é repetido, já foi usado ========= //
+  private function checkNumFibra() {
+
+    if ($this->isCodeTaken($this->num_fibra, $this->cmdt_code)) {
+      $result = true;
+    } else {
+      $result = false;
+    }
+    return $result;
+  }
+}
+
+class Medico {
+  private $doc_id;
+  private $doc_name;
+  private $doc_cpf;
+  private $doc_pwd;
+  private $doc_email;
+
+  public function __construct($doc_id, $doc_name, $doc_cpf, $doc_pwd, $doc_email) {
+    $this->doc_id   = $doc_id;
+    $this->doc_name   = $doc_name;
+    $this->doc_cpf    = $doc_cpf;
+    $this->doc_pwd    = $doc_pwd;
+    $this->doc_email  = $doc_email;
+  }
+
+  public function getId() {
+    return $this->doc_id;
+  }
+
+  public function getNome() {
+    return $this->doc_name;
+  }
+
+  public function getCpf() {
+    return $this->doc_cpf;
+  }
+
+  public function getPwd() {
+    return $this->doc_pwd;
+  }
+
+  public function getMail() {
+    return $this->doc_email;
+  }
+
+}
+
+class SignupMedic extends Signup {
+  private $doc_name;
+  private $doc_cpf;
+  private $doc_pwd;
+  private $doc_email;
+
+  public function __construct($doc_name, $doc_cpf, $doc_pwd, $doc_email) {
+    $this->doc_name   = $doc_name;
+    $this->doc_cpf    = $doc_cpf;
+    $this->doc_pwd    = $doc_pwd;
+    $this->doc_email  = $doc_email;
+  }
+
+  public function signupMedic() {
+    if ($this->isInputEmpty() == true) {
+      // Input vazio!
+      header("Location: ../dist/adm/cadastrar_admin.php?error=empty-input");
+      exit();
+    }
+
+    $this->setDoctor($this->doc_name, $this->doc_cpf, $this->doc_pwd, $this->doc_email);
+  }
+
+  private function isInputEmpty() {
+
+    if (empty($this->doc_name) || empty($this->doc_cpf) || empty($this->doc_pwd) || (!isset($this->doc_email))) {
+      $result = true;
+    } else {  
+      $result = false;
+    }
+    return $result;
+  }
+
+}
+
+if (isset($_GET['action'])) {
+  if($_GET['action'] === 'listarUsuarios')
+  {
+    $usuarioDB = new UsuarioDB();
+    $usuarios = $usuarioDB->listarUsuarios();
+
+    $dadosUsuarios = [];
+
+    foreach ($usuarios as $usuario):
+      $dadosUsuario = [
+        'nome' => $usuario->getNome(),
+        'fibra' => $usuario->getFibra(),
+        'cmdt' => $usuario->getCmdt(),
+        'cmdtCode' => $usuario->getCmdtCode(),
+      ];
+      $dadosUsuarios[] = $dadosUsuario;
+    endforeach;
+
+    $json_texto = json_encode(["dadosUsuarios" => $dadosUsuarios]);
+    echo($json_texto);  
+
+    exit();
+  } else if($_GET['action'] === 'listar-medicos') {
+    $medico = new UsuarioDB();
+    $medicos = $medico->listarMedicos();
+
+    $dados_medicos = [];
+
+    foreach ($medicos as $medico):
+      $dados_medico = [
+        'id' => $medico->getId(),
+        'nome' => $medico->getNome(),
+        'cpf' => $medico->getCpf(),
+        'email' => $medico->getMail()
+      ];
+      $dados_medicos[] = $dados_medico;
+    endforeach;
+
+    $json_medicos = json_encode(["dados_medicos" => $dados_medicos]);
+    echo($json_medicos);
+  }
 }

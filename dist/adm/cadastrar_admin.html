@@ -174,7 +174,6 @@
       <section class="flex flex-col justify-center items-start p-[1.25rem] gap-2 bg-white shadow-lg w-full h-3/4">
         <header class="flex flex-row font-poppins gap-2.5 items-center">
           <h1 class="text-[2rem] font-semibold">Ação Selecionada</h1>
-          <p>Novo Socorrista</p>
         </header>
 
         <!-- Novo socorrista: -->
@@ -232,26 +231,59 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="segundo_socorrista" class="text-xl">Segundo Socorrista:</label>
-            <input id="segundo_socorrista" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input id="segundo_socorrista" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
           </div>
           <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
             <label for="terceiro_socorrista" class="text-xl">Terceiro Socorrista:</label>
-            <input id="terceiro_socorrista" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input id="terceiro_socorrista" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
           </div>
           <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
             <label for="demandante" class="text-xl">Demandante:</label>
-            <input id="demandante" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input id="demandante" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
           </div>
           <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
             <label for="nome_equipe" class="text-xl">Nome da Equipe:</label>
-            <input id="nome_equipe" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input id="nome_equipe" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
           </div>
           <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Equipe<img src="../public/images/caret.svg" alt=""></button>
+        </form>
+
+        <form id="form_new_post" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="titulo_post" class="text-xl">Título do post:</label>
+            <input id="titulo_post" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui..." required>
+          </div>
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="conteudo_post" class="text-xl">Conteúdo do post</label>
+            <input id="conteudo_post" type="textarea" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
+          </div>
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="imagem_post" class="text-xl">Imagem do post:</label>
+            <input id="imagem_post" type="file" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira a imagem aqui">
+          </div>
+          <div class="input_box flex flex-col gap-2.5" title="Input Box">
+            <label for="comentarios" class="text-xl">Comentários habilitados:</label>
+            <div id="comentarios" class="container_radio flex flex-row items-center gap-10">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" id="adm_sim_desktop" name="escolha" value="sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+                <label for="cmt_sim_desktop" class="text-xl">Sim</label>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <input type="radio" id="adm_nao_desktop" name="escolha" value="nao" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full">
+                <label for="cmt_nao_desktop" class="text-xl">Não</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Criar Post<img src="../public/images/caret.svg" alt=""></button>
         </form>
       </section>
     </section>

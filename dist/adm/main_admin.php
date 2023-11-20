@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
-  <?php
-    include("../../inc/views/main_admin.inc.php");
-  ?>
+  <?php include("../../inc/views/nav-admin.inc.php"); ?>
+  <?php include("../../inc/views/main_admin.inc.php");?>
+  <?php include("../../inc/views/footer-adm.inc.php") ?>
 </body>

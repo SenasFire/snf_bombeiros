@@ -38,15 +38,15 @@
 
   <ul class="navlinks hidden desktop:flex flex-row text-white gap-12 items-center text-xl font-poppins h-full">
     <li>
-      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Perfil</a>
+      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" href="perfil.php">Perfil</a>
     </li>
     <li>
-      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a>
+      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" href="main_admin.php">Página Principal</a>
     </li>
 
     <!-- Lista Dropdown: -->
     <li class="group flex flex-col items-center">
-      <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">
+      <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer" href="cadastrar_admin.php" onclick="abrirCadastro();">
         Novo Cadastro<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo">
       </a>
       <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
@@ -54,7 +54,7 @@
         group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
       ">
         <div class="close flex justify-center items-start self-stretch gap-1 p-4 cursor-pointer">
-          <p class="self-center text-vermelho font-poppins cursor-pointer">Novo Cadastro</p>
+          <a class="self-center text-vermelho font-poppins cursor-pointer" href="cadastrar_admin.php">Novo Cadastro</a>
           <button class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
           </button>
         </div>
@@ -84,13 +84,13 @@
     </li>
 
     <li class="group flex flex-col items-center">
-      <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer">Visualizar<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a>
+      <a class="flex flex-row gap-2.5 justify-center items-center cursor-pointer" href="cadastrar_admin.php" onclick="abrirCadastro()">Visualizar<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a>
       <section class="menu_open absolute max-h-0 overflow-hidden bg-white flex flex-col items-center z-10
         transition-[max-height] duration-300 ease-out
         group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
       ">
         <div class="close flex justify-center self-stretch p-4 gap-1 cursor-pointer">
-          <p class="self-stretch text-vermelho font-poppins cursor-pointer">Visualizar</p>
+          <a class="self-stretch text-vermelho font-poppins cursor-pointer" href="cadastrar_admin.php">Visualizar</a>
           <button class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
           </button>
         </div>

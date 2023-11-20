@@ -7,7 +7,7 @@
     
     // Capturar e dados em entidades HTML por exemplo:
     // caractere & vira em HTML -> &amp
-    $username   = filter_var($_POST["username"],   FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $username   = htmlspecialchars($_POST["username"]);
     $num_fibra  = filter_var($_POST["num_fibra"],  FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $pwd        = filter_var($_POST["pwd"],        FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cmdt_code  = filter_var($_POST["cmdt_code"],  FILTER_SANITIZE_FULL_SPECIAL_CHARS);

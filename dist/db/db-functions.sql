@@ -38,11 +38,18 @@ CREATE TABLE usuarios_socorristas (
     usuarios_foto_perfil MEDIUMBLOB
 );
 
+CREATE TABLE usuarios_medicos (
+    medicos_id INT PRIMARY KEY AUTO_INCREMENT,
+    medicos_nome VARCHAR(90) NOT NULL,
+    medicos_cpf VARCHAR(14) NOT NULL,
+    medicos_email VARCHAR(90) NOT NULL
+);
+
 -- EQUIPES:
 
 CREATE TABLE equipes (
     equipe_id INT PRIMARY KEY AUTO_INCREMENT,
-    equipe_nome VARCHAR(90) NOT NULL
+    equipe_nome VARCHAR(90) NOT NULL,
     equipe_motorista VARCHAR(90) NOT NULL,
     equipe_primeiro_socorrista VARCHAR(90) NOT NULL,
     equipe_segundo_socorrista VARCHAR(90) NOT NULL,
@@ -74,13 +81,29 @@ CREATE TABLE equipes_usuarios (
 CREATE TABLE alertas_e_noticias (
     noticia_id INT PRIMARY KEY AUTO_INCREMENT,
     noticia_nome VARCHAR(255) NOT NULL,
-    noticia_conteudo VARCHAR,
+    noticia_conteudo LONGTEXT,
     noticia_imagem MEDIUMBLOB NOT NULL,
     data_noticia DATE NOT NULL,
     noticia_comentario_habilitado VARCHAR(3) NOT NULL,
     noticia_comentario LONGTEXT,
     noticia_criador INT,
     FOREIGN KEY (noticia_criador) REFERENCES usuarios_socorristas(usuarios_id)
+);
+
+CREATE TABLE snf_hospitais (
+    hospital_id INT PRIMARY KEY AUTO_INCREMENT
+);
+
+/*
+== TABELA DO ACOMPANHANTE:
+*/
+
+CREATE TABLE paciente_acompanhante (
+    acompanhante_id INT PRIMARY KEY AUTO_INCREMENT,
+    acompanhante_nome VARCHAR(90),
+    acompanhante_cpf INT(11),
+    acompanhante_telefone INT,
+    acompanhante_idade INT(3)
 );
 
 /*
@@ -112,22 +135,6 @@ CREATE TABLE paciente_atendido (
 );
 
 /*
-== TABELA DO ACOMPANHANTE:
-*/
-
-CREATE TABLE paciente_acompanhante (
-    acompanhante_id INT PRIMARY KEY AUTO_INCREMENT,
-    acompanhante_nome VARCHAR,
-    acompanhante_cpf INT(11)
-    acompanhante_telefone INT,
-    acompanhante_idade INT(3)
-);
-
-CREATE TABLE snf_hospitais (
-    hospital_id INT PRIMARY KEY AUTO_INCREMENT
-);
-
-/*
 == TABELA DA OCORRENCIA:
 
 -  cabecalho da ocorrencia;
@@ -136,17 +143,6 @@ CREATE TABLE snf_hospitais (
 -  fotos da ocorrencia;
 
 */
-
-CREATE TABLE ocorrencia (
-    ocorrencia_id INT PRIMARY KEY AUTO_INCREMENT,
-    fotos_ocorrencia MEDIUMBLOB,
-    ocorrencia_paciente INT,
-    ocorrencia_cabecalho INT,
-    ocorrencia_tipo INT,
-    ocorrencia_prob_sus INT,
-    FOREIGN KEY (ocorrencia_paciente) REFERENCES paciente_atendido(paciente_id),
-    FOREIGN KEY (ocorrencia_cabecalho) REFERENCES cabecalho_ocorrencia(cabecalho_id),
-);
 
 -- PARTES DA OCORRÊNCIA:
 
@@ -160,4 +156,17 @@ CREATE TABLE tipo_ocorrencia (
 
 CREATE TABLE problemas_sus_ocorrencia (
     prob_sus_id INT PRIMARY KEY AUTO_INCREMENT
+);
+
+CREATE TABLE ocorrencia (
+    ocorrencia_id INT PRIMARY KEY AUTO_INCREMENT,
+    fotos_ocorrencia MEDIUMBLOB,
+    ocorrencia_paciente INT,
+    ocorrencia_cabecalho INT,
+    ocorrencia_tipo INT,
+    ocorrencia_prob_sus INT,
+    FOREIGN KEY (ocorrencia_paciente) REFERENCES paciente_atendido(paciente_id),
+    FOREIGN KEY (ocorrencia_cabecalho) REFERENCES cabecalho_ocorrencia(cabecalho_id),
+    FOREIGN KEY (ocorrencia_tipo) REFERENCES tipo_ocorrencia(tp_ocorrencia_id),
+    FOREIGN KEY (ocorrencia_prob_sus) REFERENCES problemas_sus_ocorrencia(prob_sus_id)
 );
