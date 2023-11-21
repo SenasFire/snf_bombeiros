@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
   <script src="../inc/js/form_script.inc.js" defer></script>
-  <title>Procedimentos Efetuados</title>
+  <script src="../inc/js/nav_script.inc.js" defer></script>
+  <title>Materiais Utilizados Descartáveis</title>
 </head>
-
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
+  <!-- Texto placeholder -->
+  <div class="placeholder flex flex-row justify-center items-center align-super gap-1.5 self-stretch py-4 text-white md:hidden">
+    <p class="tablet:text-preto">Release 0.1</p>
+  </div>
   <nav class="navbar_cellphone flex py-2.5 px-8 lg:flex-row justify-between items-center w-full h-fit bg-vermelho">
     <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
       <img src="../public/images/logo-noar.png" alt="" class="w-10 h-10 md:h-32 md:w-32">
@@ -34,7 +37,7 @@
     <!-- Menu que abre após clicar no ícone -- TODO: -->
     <section id="primary-navigation" class="menu_open hidden absolute top-0 right-0 border flex-col items-start gap-[5px] p-4 w-[232px] bg-white
     transition-transform
-    ">
+  ">
       <div class="close flex justify-end items-center self-stretch">
         <!-- ICON FECHAR: -->
         <p onclick="retrairMenu()" class="self-center text-vermelho font-poppins cursor-pointer">Fechar</p>
@@ -42,8 +45,8 @@
         </button>
       </div>
       <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
-        <li><a>Perfil</a></li>
-        <li><a>Página Principal</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+        <li><a href="main.html">Página Principal</a></li>
         <li><a>Histórico de Ocorrências</a></li>
         <li><a>Nova Ocorrência</a></li>
         <li><a>Ajuda</a></li>
@@ -59,11 +62,7 @@
       <li><img src="../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class=""></li>
     </ul>
   </nav>
-  <div class="placeholder flex flex-row justify-center items-center align-super gap-1.5 self-stretch py-4 text-white md:hidden">
-    <p class="tablet:text-preto">Release 0.1</p>
-  </div>
-  <main class="flex flex-col items-center justify-center w-full h-fit gap-3 font-poppins md:gap-8
-    md:px-16 md:py-8">
+  <main class="flex flex-col items-center w-full h-fit gap-3 font-poppins md:gap-8 md:px-16 md:py-8">
     <!-- Header -->
     <header class="noar_logo flex flex-col text-center items-center justify-center gap-1 font-poppins
       tablet:flex-row tablet:justify-start tablet:w-full md:hidden">
@@ -74,17 +73,18 @@
     </header>
     <section aria-labelledby="title_main" class="flex flex-col px-8 justify-center items-center gap-10 self-stretch">
       <header class="flex flex-col justify-center items-center gap-3 self-stretch text-center last:pb-2 last:border-b-2 last:border-[#595959]">
-        <h1 id="title_main"  class="font-bold text-3xl">Materiais Descartáveis<span class="text-vermelho"> utilizados na ocorrência</span></h1>
+        <h1 id="title_main"  class="font-bold text-3xl">Materiais Utilizados<span class="text-vermelho"> Descartáveis</span></h1>
         <p id="subtitle"     class="text-cinza text-sm text-center">Selecione as opções abaixo de acordo com a sua <b>necessidade.</b></p>
-        <p id="instructions" class="text-cinza text-sm text-center">Você pode <b>marcar</b> clicando nos caixas de seleção, ou <b>adicionar diretamente</b> digitando na caixa de texto.</p>
+        <p id="instructions" class="text-cinza text-sm text-center">Você pode <b>adicionar</b> clicando nos botões, ou <b>adicioná-los diretamente</b> clicando na caixa de texto.</p>
       </header>
     </section>
-    <!-- Formulário -->
-    <section aria-labelledby="title_conducao" class="flex flex-col gap-2.5 w-fit" title="Form Container">
-      <header class="flex flex-col ">
-        <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Materias Usados </span> Descartável </h1>
-      </header>
-      <form class="flex flex-col gap-4" action="" method="" id="form_vitimas">
+    <!-- FORM: -->
+    <section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">
+      <form action="" class="flex flex-col items-center justify-center mx-10 gap-3 odd:bg-white even:bg-[#F2F2F2] w-full">
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <p class="w-full text-center">Material</p>
+          <p class="w-full text-center">Quantidade</p>
+        </div>
         <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
           <label for="id1">Ataduras</label>
           <div class="flex flex-row justify-end w-1/2">
@@ -96,70 +96,142 @@
             transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
-        
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Cateter TP. Óculos</span>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <label for="id1">Cateter TP.Óculos</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
         </div>
-        
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Compressa Comum </span>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
+          <label for="id1">Compressa Comum</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
         </div>
-        
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Kits (X) (P) (Q) </span>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <label for="id1">KITS</label>
+          <select name="" id="">
+            <option value="None" disabled selected>Selecione...</option>
+            <option value="Nenhum">X</option>
+            <option value="Adulto">P</option>
+            <option value="Infantil">Q</option>
+          </select>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
         </div>
-        
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Luvas Desc (Pares) </span>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
+          <label for="id1">Luvas Desc (Pares)</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
+        </div>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <label for="id1">Máscara Desc</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
+        </div>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
+          <label for="id1">Manta aluminizada</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
+        </div>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <label for="id1">Pás do DEA</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
+        </div>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full">
+          <label for="id1">Sonda de Aspiração</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
+        </div>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <label for="id1">Soro Fisiólogico</label>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
         </div>
 
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Mascara Desc </span>
+        <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
+          <label for="id1">Talas</label>
+          <select name="" id="">
+            <option value="None" disabled selected>Selecione...</option>
+            <option value="Adulto">P</option>
+            <option value="Infantil">G</option>
+          </select>
+          <div class="flex flex-row justify-end w-1/2">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
+            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
+          </div>
         </div>
 
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Manta Aluminizada </span>
-        </div>
-      
-        <div class="flex items-center gap-2 ">
-          <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Pás do DEA </span>
-        </div>
-      
-        <div class="flex items-center gap-2 ">
-            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-            <span class="text-gray-700"> Sonda de Aspiração </span>
-        </div>
-        
-        <div class="flex items-center gap-2 ">
-            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-            <span class="text-gray-700"> Soro Fisiológico </span>
-        </div>
-
-        <div class="flex items-center gap-2 ">
-            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-            <span class="text-gray-700"> Talas (X) (G) </span>
-        </div>
+        <button type="submit" class="text-[16px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+        transition ease-in-out hover:scale-105">Salvar Dados</button>
+        <p class="text-cinza text-sm text-center">Os dados serão salvos na sua <b>ocorrência.</b></p>
       </form>
     </section>
   </main>
   <footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
-    desktop:flex-col desktop:items-start desktop:px-16
-  ">
-    <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch
-      desktop:justify-between desktop:items-center desktop:flex-row
-    ">
-      <!-- LOGOS: -->
+    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho desktop:mt-8">
+    <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch first:pt-16 
+      desktop:justify-between desktop:items-center desktop:flex-row">
       <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
-        <img src="../public/images/logo-noar.png" alt="Logo Noar">
-        <img src="../public/images/ambulancia.png" alt="Logo Ambulância">
-        <!-- SOBRE O SISTEMA: -->
+        <img src="../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
+        <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
         <header aria-labelledby="footer_title" class="header hidden desktop:flex flex-col justify-center items-start gap-2.5 self-stretch">
           <h1 id="footer_title" class="text-4xl font-poppins font-bold leading-9 text-preto">SOS Bombeiros</h1>
           <p class="self-stretch text-cinza font-poppins text-xl font-normal leading-5 w-96">
@@ -167,49 +239,39 @@
           </p>
         </header>
       </section>
-
-      <!-- SOBRE O SISTEMA: -->
       <header aria-labelledby="footer_title_mobile" class="header flex desktop:hidden flex-col justify-center items-start gap-2.5 self-stretch">
         <h1 id="footer_title_mobile" class="text-4xl font-poppins font-bold leading-9 text-preto">SOS Bombeiros</h1>
-        <p class="self-stretch text-cinza font-poppins text-xl font-normal leading-5 w-96">
+        <p class="text-cinza font-poppins text-xl font-normal leading-5 w-fit">
           Fazendo uso da <b>tecnologia</b> para <b>otimizar</b> o atendimento de ocorrências e facilitar a <b>comunicação</b> entre bombeiros e médicos
         </p>
       </header>
-
-      <!-- NAVEGAÇÃO: -->
       <section aria-labelledby="navegar_title" class="group_1 flex flex-col items-start gap-2.5 self-stretch text-left">
         <h1 id="navegar_title" class="font-poppins font-bold leading-10 text-4xl text-preto">Navegar</h1>
         <ul class="flex flex-col text-cinza font-poppins font-normal text-xl leading-5 w-full">
-          <li>Principal</li>
-          <li>Login</li>
-          <li>Ocorrências</li>
-          <li>Dados</li>
+          <li class="hover:text-black"><a href="">Principal</a></li>
+          <li class="hover:text-black"><a href="">Login</a></li>
+          <li class="hover:text-black"><a href="">Ocorrências</a></li>
+          <li class="hover:text-black"><a href="">Dados</a></li>
         </ul>
       </section>
-
-      <!-- CONTATO: -->
       <section aria-labelledby="contato_title" class="contato flex flex-col items-start gap-2.5 self-stretch text-left">
-        <!-- Arrumar SVGs -->
         <h1 id="contato_title" class="font-poppins font-bold leading-10 text-4xl text-preto text-left">Contato</h1>
         <ul class="flex flex-col text-cinza font-poppins font-normal text-xl leading-5 w-full">
           <div class="text flex flex-row gap-2.5">
-            <a href="">Av. Procópio Gomes, 244</a>
+            <a href="" class="hover:text-black">Av. Procópio Gomes, 244</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="">+55 (47) 99735-5556</a>
+            <a href="" class="hover:text-black">+55 (47) 99735-5556</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="">paulo@email.com</a>
+            <a href="" class="hover:text-black">paulo@email.com</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="">@plxulo</a>
+            <a href="" class="hover:text-black">@plxulo</a>
           </div>
         </ul>
-
       </section>
     </section>
-
-    <!-- SOBRE FINAL BG VERMELHO -->
     <section class="container_footer2 flex flex-col px-8 py-16 w-full justify-center items-center gap-6 bg-vermelho font-poppins
       desktop:flex-row desktop:justify-between desktop:p-16 desktop:self-stretch desktop:text-center
     ">
@@ -227,4 +289,3 @@
   </footer>
 </body>
 </html>
-
