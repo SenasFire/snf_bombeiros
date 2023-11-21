@@ -210,11 +210,11 @@
             <option value="Infantil">G</option>
           </select>
           <div class="flex flex-row justify-end w-1/2">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            <button id="minus" onclick="clicarMinus()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">-</button>
-            <input id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
-            <button type="submit" onclick="event.preventDefault()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            <span id="value" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">0</span>
+            <button id="plus" onclick="clicarAdd()" class="button px-3 py-1 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">+</button>
           </div>
         </div>
@@ -264,7 +264,7 @@
             <a href="" class="hover:text-black">+55 (47) 99735-5556</a>
           </div>
           <div class="text flex flex-row gap-2.5">
-            <a href="" class="hover:text-black">paulo@email.com</a>
+            <a href="" class="hover:text-black">pauloviado@email.com</a>
           </div>
           <div class="text flex flex-row gap-2.5">
             <a href="" class="hover:text-black">@plxulo</a>
@@ -288,4 +288,31 @@
     </section>
   </footer>
 </body>
+<script>
+const value = document.getElementById('value');
+const plusButton = document.getElementById('plus');
+const minusButton = document.getElementById('minus');
+
+const updateValue = () => {
+    value.innerHTML = count;
+};
+
+let count = 0;
+let intervalId = 0;
+
+function clicarAdd(){
+    count += 1;
+    updateValue();
+};
+
+function clicarMinus() {
+    if (count > 0) {
+        count -= 1;
+        updateValue();
+    }
+};
+
+document.addEventListener('mouseup', () => clearInterval(intervalId));
+
+</script>
 </html>
