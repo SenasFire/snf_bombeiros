@@ -4,7 +4,6 @@
   // ===================== GERENCIAR FORMULÁRIOS COM SEGURANÇA ===================== //
 
   // Verificar se arquivo foi acessado corretamente:
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
   
     $tipo_cadastro = $_GET["action"];
 
@@ -15,6 +14,7 @@
       $num_fibra  = filter_var($_POST["num_fibra"],  FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $pwd        = filter_var($_POST["pwd"],        FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $cmdt_code  = filter_var($_POST["cmdt_code"],  FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $cmdt_code  = $cmdt_code !== '' ? $cmdt_code : null;
       $cmdt_radio = $_POST["cmdt_radio"];
 
       // Instanciar as classes e banco de dados
@@ -26,11 +26,12 @@
 
       $usuarioDB = new UsuarioDB();
       $usuarios = $usuarioDB->listarUsuarios();
-  
+
       $dadosUsuarios = [];
-  
+
       foreach ($usuarios as $usuario):
         $dadosUsuario = [
+          'id' => $usuario->getId(),
           'nome' => $usuario->getNome(),
           'fibra' => $usuario->getFibra(),
           'cmdt' => $usuario->getCmdt(),
@@ -38,9 +39,9 @@
         ];
         $dadosUsuarios[] = $dadosUsuario;
       endforeach;
-  
+
       $json_texto = json_encode(["dadosUsuarios" => $dadosUsuarios]);
-      echo($json_texto);
+      echo($json_texto);  
       exit();
     }
     else {
@@ -76,9 +77,4 @@
       echo($json_medicos);
       exit();
     }
-  } else {
-    $json_texto = json_encode(["error" => "Algo deu errado..."]);
-    header('Content-Type: application/json'); // Definir o cabeçalho como JSON
-    echo $json_texto;
-    exit();
-  }
+  

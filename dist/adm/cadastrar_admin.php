@@ -223,14 +223,14 @@
         <table class="min-w-full border-collapse border border-gray-300 font-poppins w-1/2">
           <thead>
               <tr class="bg-gray-200">
-                  <th class="border border-gray-300 py-2 px-4">Nome</th>
-                  <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
-                  <th class="border border-gray-300 py-2 px-4">Usuário é Administrador</th>
-                  <th class="border border-gray-300 py-2 px-4">Código de Administrador</th>
-                  <th class="border border-gray-300 py-2 px-4">Ações</th>
+                <th class="border border-gray-300 py-2 px-4">Nome</th>
+                <th class="border border-gray-300 py-2 px-4">Num Fibra</th>
+                <th class="border border-gray-300 py-2 px-4">Admin</th>
+                <th class="border border-gray-300 py-2 px-4">Código Admin</th>
+                <th class="border border-gray-300 py-2 px-4">Ações</th>
               </tr>
           </thead>
-          <tbody id="userTable">
+          <tbody id="userTable" class="w-full">
 
           </tbody>
         </table>

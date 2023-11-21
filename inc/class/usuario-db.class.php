@@ -257,6 +257,28 @@ class DBoperations extends Dbh {
       return ['success' => false, 'error' => 'Erro durante a exclusão: ' . $e->getMessage()];
     }
   }
+
+  public function deletarMedico() {
+    $sql = "DELETE FROM usuarios_medicos WHERE medicos_id = :id";
+
+    try {
+      $pdo = $this->connect();
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+      $stmt->execute();
+
+      // Verifique se a exclusão foi bem-sucedida
+      $rowCount = $stmt->rowCount();
+
+      if ($rowCount > 0) {
+        return ['success' => true];
+      } else {
+        return ['success' => false, 'error' => 'Nenhum médico encontrado para excluir.'];
+      }
+    } catch (PDOException $e) {
+      return ['success' => false, 'error' => 'Erro durante a exclusão: ' . $e->getMessage()];
+    }
+  }
 }
 
 if (isset($_GET['action'])) {
@@ -308,9 +330,13 @@ if (isset($_GET['action'])) {
 
     $response = ["success" => true];
     echo json_encode($response);
-  } else {
-    // Comando inválido
-    $response = ["error" => "Comando inválido"];
+  } else if ($_GET['action'] === 'excluir-medico') {
+    $id = $_GET["id"];
+
+    $excluir = new DBoperations($id);
+    $excluir->deletarMedico();
+
+    $response = ["success" => true];
     echo json_encode($response);
   }
 }

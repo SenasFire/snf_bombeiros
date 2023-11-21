@@ -38,26 +38,24 @@ function showForm(buttonId, formId) {
 }
 
 function Executar(elemento, acao) {
-  if (acao === 'excluir') {
-      // Obter o ID associado ao link clicado
-      var id = elemento.getAttribute('data-id');
+  // Obter o ID associado ao link clicado
+  var id = elemento.getAttribute('data-id');
 
-      // Enviar dados via AJAX
-      $.ajax({
-          type: 'POST',
-          url: '../../inc/class/usuario-db.class.php?action=excluir&id='+id,  // Substitua pelo caminho correto para o seu arquivo PHP no servidor
-          data: id,
-          dataType: 'json',
-          success: function(retorno) {
-            loadDoctor();
-            loadUsers();
-          },
-          error: function(xhr, status, error) {
-            // Lógica para lidar com erros de requisição AJAX
-            alert('Erro ao deletar: ' + error);
-          }
-      });
-  }
+  // Enviar dados via AJAX
+  $.ajax({
+    type: 'POST',
+    url: '../../inc/class/usuario-db.class.php?action='+acao+'&id='+id,  // Substitua pelo caminho correto para o seu arquivo PHP no servidor
+    data: id,
+    dataType: 'json',
+    success: function(retorno) {
+      loadDoctor();
+      loadUsers();
+    },
+    error: function(xhr, status, error) {
+      // Lógica para lidar com erros de requisição AJAX
+      alert('Erro ao deletar: ' + error);
+    }
+  });
 }
 
 function loadUsers() {
@@ -77,9 +75,7 @@ function loadUsers() {
       
       if(lista.length<=0) {
         const row = userTable.insertRow();
-        const cell1 = row.insertCell(0);
-
-        cell1.innerHTML = "<p>Nenhum cadastro no momento...</p>"
+        row.innerHTML = "<p class='w-full self-stretch'>Nenhum cadastro no momento...</p>"
       }
 
       for(x=0;x<lista.length;x++)
@@ -109,12 +105,6 @@ function loadUsers() {
     error: function(xhr, status, error) {
       alert("Erro inesperado:" + error);
     },
-    beforeSend: function(xhr) {
-      console.log("Operação sendo realizada");
-    },
-    complete: function(xhr, status) {
-      console.log("Operação finalizada.");
-    },
     timeout: 10000
   })
 }
@@ -131,7 +121,12 @@ function loadDoctor() {
     success: function(retorno) {  
       var valores = retorno;          
       var lista = valores.dados_medicos;
-      
+
+      if(lista.length<=0) {
+        const row = doc_table.insertRow();
+        row.innerHTML = "<p class='w-full self-stretch'>Nenhum cadastro no momento...</p>"
+      }
+
       for(x=0;x<lista.length;x++)
       {
         const row = doc_table.insertRow();
@@ -139,11 +134,13 @@ function loadDoctor() {
         const cell2 = row.insertCell(1);
         const cell3 = row.insertCell(2);
         const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
 
         cell1.textContent = lista[x].id;
         cell2.textContent = lista[x].nome;
         cell3.textContent = lista[x].cpf;
         cell4.textContent = lista[x].email;
+        cell5.innerHTML = `<a href="#" data-id="${lista[x].id}" onclick="Executar(this,'excluir-medico')">Excluir</a>`;
 
         cell1.classList.add("p-6");
 
@@ -175,12 +172,6 @@ function addUser() {
       var valores = retorno;
       var lista = valores.dadosUsuarios
 
-      for(x=0;x<lista.length;x++) {
-        console.log(lista[x].nome);
-        console.log(lista[x].fibra);
-        console.log(lista[x].cmdt);
-        console.log(lista[x].cmdtCode);
-      }
       loadUsers();
     },
     error: function(xhr, status, error) {
@@ -219,12 +210,6 @@ function addDoctor() {
     },
     error: function(xhr, status, error) {
       alert("Há campos inválidos...");
-    },
-    beforeSend: function(xhr) {
-      console.log("Operação sendo realizada");
-    },
-    complete: function(xhr, status) {
-      console.log("Operação finalizada.");
     },
     timeout: 10000
   })

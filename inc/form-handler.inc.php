@@ -11,6 +11,7 @@
     $num_fibra  = filter_var($_POST["num_fibra"],  FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $pwd        = filter_var($_POST["pwd"],        FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cmdt_code  = filter_var($_POST["cmdt_code"],  FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $cmdt_code  = $cmdt_code !== '' ? $cmdt_code : null;
     $cmdt_radio = $_POST["cmdt_radio"];
 
     // Instanciar as classes e banco de dados
