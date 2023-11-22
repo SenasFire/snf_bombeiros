@@ -45,6 +45,28 @@ class Usuario {
 // ======== Somente pode ser acessado por administradores já cadastrados: ======== //
 
 class UsuarioDB extends Dbh {
+  public function listarUsuario($id_usuario) {
+    $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_id = :id";
+
+    try {
+      $stmt = $this->connect()->prepare($sql);
+      $stmt->bindParam(":id", $id_usuario, PDO::PARAM_INT);
+      $stmt->execute();
+
+      if (!$stmt) {
+        return false;
+        exit();
+      }
+
+    } catch (PDOException $erro) {
+      $stmt = null;
+      exit("Erro na conexão:<br>".$erro->getMessage());
+    }
+    $row = $stmt->fetch();
+    $usuario = new Usuario($row['usuarios_id'], $row['usuarios_username'], $row['usuarios_num_fibra'], $row['usuarios_e_cmdt'], $row['usuarios_cmdt_cod']);
+  
+    return $usuario;
+  }
 
   public function listarUsuarios() {
     $sql = "SELECT * FROM usuarios_socorristas";
@@ -228,6 +250,49 @@ class SignupMedic extends Signup {
 
 }
 
+// Adicionar notícia:
+class createPost extends Dbh {
+  private $nome_post;
+  private $conteudo_post;
+  private $comentario_habilitado;
+  private $imagem;
+  private $id_usuario;
+  
+  public function __construct($nome_post, $conteudo_post, $comentario_habilitado, $imagem, $id_usuario)
+  {
+    $this->nome_post = $nome_post;
+    $this->conteudo_post = $conteudo_post;
+    $this->comentario_habilitado = $comentario_habilitado;
+    $this->imagem = $imagem;
+    $this->id_usuario = $id_usuario;
+  }
+
+  public function setPost($nome_post, $conteudo_post, $comentario_habilitado, $imagem, $id_usuario) {
+    $sql = "INSERT INTO alertas_e_noticias(noticia_nome, noticia_conteudo, noticia_imagem, data_noticia, noticia_comentario_habilitado, noticia_criador)
+    VALUES (:nome, :conteudo, :imagem, :data_noticia, :comentario_habilitado, :id)";
+
+    try {
+      $stmt = $this->connect()->prepare($sql);
+      $stmt->bindParam(":nome", $nome_post);
+      $stmt->bindParam(":conteudo", $conteudo_post);
+      $stmt->bindParam(":imagem", $imagem, PDO::PARAM_LOB);
+      $stmt->bindParam(":data_noticia", $data_post);
+      $stmt->bindParam(":comentario_habilitado", $comentario_habilitado);
+      $stmt->bindParam(':id', $id_usuario, PDO::PARAM_INT);
+      $stmt->execute();
+
+      if ($stmt) {
+        $result = ['success' => true];
+      } else {
+        $result = ['success' => false, 'error' => 'Nenhum cadastro encontrado.'];
+      }
+    } catch (PDOException $e) {
+      $result = ['success' => false, 'error' => 'Erro durante a exclusão: ' . $e->getMessage()];
+    }
+    return $result;
+  }
+}
+
 class DBoperations extends Dbh {
   private $id;
 
@@ -338,5 +403,12 @@ if (isset($_GET['action'])) {
 
     $response = ["success" => true];
     echo json_encode($response);
+  } else if($_GET["action"] === "log-out") {
+    session_start();
+    session_unset();
+    session_destroy();
+
+    header("Location: ../../dist/login.php?success=logout");
+    exit();
   }
 }

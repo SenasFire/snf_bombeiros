@@ -1,3 +1,13 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION["usuario_id"])) {
+    header("Location: ../login.php?error=invalid-access");
+  }
+
+  $id_usuario = $_SESSION['usuario_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -120,27 +130,43 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="primeiro_socorrista" class="text-xl">Primeiro Socorrista:</label>
-            <input id="primeiro_socorrista" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
+            <select name="" id="primeiro_socorrista" class="select text-xl border-2 border-[#595959]">
+              <option class="text-xs" value="None" disabled selected>Selecione:</option>
+              <?php
+
+              ?>
+            </select>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="segundo_socorrista" class="text-xl">Segundo Socorrista:</label>
-            <input id="segundo_socorrista" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
+            <select name="" id="segundo_socorrista" class="select text-xl border-2 border-[#595959]">
+              <option class="text-xs" value="None" disabled selected>Selecione:</option>
+              <?php
+
+              ?>
+            </select>
           </div>
-          <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="terceiro_socorrista" class="text-xl">Terceiro Socorrista:</label>
-            <input id="terceiro_socorrista" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
+            <select name="" id="terceiro_socorrista" class="select text-xl border-2 border-[#595959]">
+              <option class="text-xs" value="None" disabled selected>Selecione:</option>
+              <?php
+
+              ?>
+            </select>
           </div>
-          <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
+          <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="demandante" class="text-xl">Demandante:</label>
-            <input id="demandante" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
+            <select name="" id="demandante" class="select text-xl border-2 border-[#595959]">
+              <option class="text-xs" value="None" disabled selected>Selecione:</option>
+              <?php
+
+              ?>
+            </select>
           </div>
-          <div id="adm_code_container" class="input_box hidden flex-col g-2.5" title="Input Box">
+          <div id="adm_code_container" class="input_box flex-col g-2.5" title="Input Box">
             <label for="nome_equipe" class="text-xl">Nome da Equipe:</label>
-            <input id="nome_equipe" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input id="nome_equipe" type="text" class="input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
           </div>
           <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
@@ -177,19 +203,20 @@
         <form id="form_new_post" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="titulo_post" class="text-xl">Título do post:</label>
-            <input id="titulo_post" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input name="nome_post" id="titulo_post" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui..." required>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="conteudo_post" class="text-xl">Conteúdo do post</label>
-            <input id="conteudo_post" type="textarea" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input name="conteudo_post" id="conteudo_post" type="textarea" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o conteúdo aqui...">
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="imagem_post" class="text-xl">Imagem do post:</label>
-            <input id="imagem_post" type="file" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input name="imagem" id="imagem_post" type="file" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira a imagem aqui">
           </div>
+          <input type="hidden" name="submit_id" value=<?php echo $id_usuario ?>>
           <div class="input_box flex flex-col gap-2.5" title="Input Box">
             <label for="comentarios" class="text-xl">Comentários habilitados:</label>
             <div id="comentarios" class="container_radio flex flex-row items-center gap-10">
@@ -203,7 +230,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          <button type="submit" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Criar Post<img src="../../public/images/caret.svg" alt=""></button>
         </form>
       </section>

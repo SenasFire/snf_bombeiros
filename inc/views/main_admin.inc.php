@@ -47,7 +47,7 @@
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
               <td class="border border-gray-300 py-2 px-4">
-                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Deletar(<?php $usuario->getId();?>)">Excluir</a>
+                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" data-id="<?php echo $usuario->getId();?>" onclick="Executar(this,'excluir')">Excluir</a>
                 <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Alterar(<?php $usuario->getId();?>)">Alterar</a>
                 <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php $usuario->getId();?>)">Visualizar</a>
               </td>

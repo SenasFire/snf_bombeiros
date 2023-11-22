@@ -105,6 +105,7 @@
       </section>
     </li>
     <li><a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Ajuda</a></li>
+    <li><a href="../../inc/class/usuario-db.class.php?action=log-out" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Sair</a></li>
     <li><img src="../../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class="cursor-pointer"></li>
   </ul>
 

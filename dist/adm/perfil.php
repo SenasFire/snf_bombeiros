@@ -1,3 +1,21 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION["usuario_id"])) {
+    header("Location: ../login.php?error=invalid-access");
+  }
+  
+  $id_usuario = $_SESSION['usuario_id'];
+
+  include("../../inc/class/usuario-db.class.php");
+  include("../../inc/class/login.class.php");
+
+  // Instanciar classes de acesso / obtenção de usuários:
+
+  $acessoDados = new UsuarioDB;               // Instanciar classe acesso
+  $usuario = $acessoDados->listarUsuario($id_usuario); // Obter usuários
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,10 +48,9 @@
       <section class="card flex flex-col h-full bg-vermelho rounded-3xl">
         <img src="https://s3-alpha-sig.figma.com/img/2e41/9381/822c8af7b5e6ebe22b0d2fcb55c27c2c?Expires=1698624000&Signature=TThybD2QerhZYKJtMrfQry~cYUE1eT9fCmJ4a1rMmMA9CDfyqa7oYgBqMr-NjUjsspCovAR4Pn4zVIqNWihsybYMNaH580qPbGN8uNMGUe7U4Ww2DzrOKg3pd3ZmQ-NHgqNQvCphyFpNJVeTtkMLjXdCH5lkJCw9z58edsmTKrXvwJf1g-~q2NKL37MErH1P9VjinxYqR~FBGUdV1FvT6Pwxw~7vSoJeuz9PtjzpxpBg439OmOD2nypajXsGIl~VXOtSUhULCA-5T8ldO3omA6ObdiudhNoRU6Y-TkGpHW5zNAVoQ-4UP8zrqzHc3PBwi~u1cj2yWGSjpU3AXivYZw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" class="h-80 w-full rounded-3xl z-10" alt="Foto de Perfil">
         <section class="content flex flex-col bg-vermelho px-16 py-8 text-white rounded-3xl">
-          <p>Nome: Jorginho</p>
-          <p>Idade: 38</p>
-          <p>N° Fibra: 33678</p>
-          <p>Total de Ocorrências: 102</p>
+          <p>Nome: <?php echo $usuario->getNome(); ?></p>
+          <p>N° Fibra: <?php echo $usuario->getFibra(); ?></p>
+          <p>Comandante: <?php echo $usuario->getCmdt(); ?></p>
         </section>
       </section>
     </section>

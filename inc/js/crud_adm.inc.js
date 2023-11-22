@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () =>  {
-  loadUsers();
-  loadDoctor();
-  showForm('btn', 'form_new_team');
+  if (document.location.pathname.includes("cadastrar_admin.php")) {
+    loadUsers();
+    loadDoctor();
+    showForm('btn', 'form_new_team');
+  }
 });
 
 // Esconder todos os forms, chamado no carregamento da página / quando um novo botão é clicado
@@ -12,21 +14,23 @@ function hideAll() {
   }
 }
 
-document.getElementById('btn_new_team').addEventListener('click', function() {
-  showForm('btn_new_team', 'form_new_team');
-});
- 
-document.getElementById('btn_new_rescuer').addEventListener('click', function() {
-  showForm('btn_new_rescuer', 'form_new_rescuer');
-});
+if (document.location.pathname.includes("cadastrar_admin.php")) {
+  document.getElementById('btn_new_team').addEventListener('click', function() {
+    showForm('btn_new_team', 'form_new_team');
+  });
+  
+  document.getElementById('btn_new_rescuer').addEventListener('click', function() {
+    showForm('btn_new_rescuer', 'form_new_rescuer');
+  });
 
-document.getElementById('btn_new_doctor').addEventListener('click', function() {
-  showForm('btn_new_doctor', 'form_new_doctor');
-});
+  document.getElementById('btn_new_doctor').addEventListener('click', function() {
+    showForm('btn_new_doctor', 'form_new_doctor');
+  });
 
-document.getElementById('btn_new_post').addEventListener('click', function() {
-  showForm('btn_new_post', 'form_new_post');
-});
+  document.getElementById('btn_new_post').addEventListener('click', function() {
+    showForm('btn_new_post', 'form_new_post');
+  });
+}
 
 // Exibir o form referente à cada botão pressionado
 function showForm(buttonId, formId) {
@@ -62,7 +66,7 @@ function loadUsers() {
   const userTable = document.getElementById("userTable");
   userTable.innerHTML = "";
 
-  var selectUsers = document.getElementsByClassName('select')[0];
+  var selectArray = [...document.querySelectorAll('.select')];
 
   $.ajax({
     type: "GET",
@@ -95,11 +99,13 @@ function loadUsers() {
 
         cell1.classList.add("p-6");
 
-        var option = document.createElement('option');
-        option.classList.add("text-xs")
-        option.value = lista[x].valor; // Substitua 'valor' pelo nome real do campo
-        option.textContent = lista[x].nome; // Substitua 'nome' pelo nome real do campo
-        selectUsers.appendChild(option);
+        selectArray.forEach(function(select) {
+          var option = document.createElement('option');
+          option.classList.add("text-xs")
+          option.value = lista[x].valor;
+          option.textContent = lista[x].nome;
+          select.appendChild(option);
+        });
       }
     },
     error: function(xhr, status, error) {
@@ -149,12 +155,6 @@ function loadDoctor() {
     error: function(xhr, status, error) {
       alert("Erro ao carregar médicos:" + error);
     },
-    beforeSend: function(xhr) {
-      console.log("Operação sendo realizada");
-    },
-    complete: function(xhr, status) {
-      console.log("Operação finalizada.");
-    },
     timeout: 10000
   })
 }
@@ -169,9 +169,7 @@ function addUser() {
     dataType: 'json',
 
     success: function(retorno) {
-      var valores = retorno;
-      var lista = valores.dadosUsuarios
-
+      alert("Usuário cadastrado!");
       loadUsers();
     },
     error: function(xhr, status, error) {
@@ -206,6 +204,8 @@ function addDoctor() {
         console.log(lista[x].cpf);
         console.log(lista[x].email);
       }
+
+      alert("Médico cadastrado!");
       loadDoctor();
     },
     error: function(xhr, status, error) {
@@ -214,3 +214,23 @@ function addDoctor() {
     timeout: 10000
   })
 }
+
+$("#form_new_post").submit(function(e) {
+  e.preventDefault();
+  var formData = new FormData(this);
+
+  $.ajax({
+    type: 'POST',
+    url: '../../inc/general-handler.inc.php?action=inserir-imagem',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(response) {
+      alert("Notícia Criada!");
+    },
+    error: function(xhr, status, error) {
+        alert("Há campos inválidos...");
+    },
+    timeout: 10000
+  });
+});
