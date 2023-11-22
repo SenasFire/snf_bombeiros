@@ -67,7 +67,7 @@ class Login extends Dbh {
       $_SESSION['usuario_username'] = $user[0]["usuarios_username"];
 
       if($user[0]["usuarios_e_cmdt"] == "Sim") {
-        header("Location: ../dist/adm/main_admin.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]."&id=".$user[0]["usuario_id"]);
+        header("Location: ../dist/adm/main_admin.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]."&id=".$user[0]["usuarios_id"]);
         exit();
       } else {
         header("Location: ../dist/adm/main_socorrista.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]);
