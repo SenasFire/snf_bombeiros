@@ -173,6 +173,7 @@ function addUser() {
       loadUsers();
     },
     error: function(xhr, status, error) {
+      console.log(error);
       alert("Há campos inválidos..." + error);
     },
     beforeSend: function(xhr) {
@@ -229,7 +230,7 @@ $("#form_new_post").submit(function(e) {
       alert("Notícia Criada!");
     },
     error: function(xhr, status, error) {
-        alert("Há campos inválidos...");
+      alert("Há campos inválidos...");
     },
     timeout: 10000
   });

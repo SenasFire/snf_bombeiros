@@ -84,7 +84,7 @@ CREATE TABLE alertas_e_noticias (
     noticia_nome VARCHAR(255) NOT NULL,
     noticia_conteudo LONGTEXT,
     noticia_imagem MEDIUMBLOB NOT NULL,
-    data_noticia DATE NOT NULL,
+    data_noticia DATE,
     noticia_comentario_habilitado VARCHAR(3) NOT NULL,
     noticia_comentario LONGTEXT,
     noticia_criador INT,
