@@ -16,7 +16,9 @@
 </head>
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
   <?php include("../inc/views/nav.inc.php"); ?>
-  <?php include("../inc/views/ocorrencia-conteudo.inc.php"); ?>
+  <main class="flex flex-col items-center w-full h-fit gap-3 font-poppins px-8 md:gap-8">
+    <?php include("../inc/views/ocorrencia-conteudo.inc.php"); ?>
+  </main>
   <?php include("../inc/views/footer.inc.php"); ?>
 </body>
 </html>
