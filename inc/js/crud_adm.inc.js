@@ -95,7 +95,7 @@ function loadUsers() {
         cell2.textContent = lista[x].fibra;
         cell3.textContent = lista[x].cmdt;
         cell4.textContent = lista[x].cmdtCode || "-";
-        cell5.innerHTML = `<a href="#" data-id="${lista[x].id}" onclick="Executar(this,'excluir')">Excluir</a>`;
+        cell5.innerHTML = `<a data-id="${lista[x].id}" onclick="Executar(this,'excluir')">Excluir</a>`;
 
         cell1.classList.add("p-6");
 
