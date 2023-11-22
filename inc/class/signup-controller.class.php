@@ -26,9 +26,11 @@ class signupController extends Signup {
       // Código já tomado!
       header("Location: ../dist/cadastro.php?error=num-fibra-taken");
       exit();
+    }  
+    if ($this->setUser($this->username, $this->num_fibra, $this->pwd, $this->cmdt_radio, $this->cmdt_code) == true) {
+      header("Location: ../dist/cadastro.php?success=usuario-cadastrado");
+      exit();
     }
-
-    $this->setUser($this->username, $this->num_fibra, $this->pwd, $this->cmdt_radio, $this->cmdt_code);
   }
 
   // =============================================================================== //

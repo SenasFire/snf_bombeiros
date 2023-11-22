@@ -5,11 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="Website Icon" type="png" href="../public/images/logo-noar.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/output.css">
   <script src="../inc/js/form_script.inc.js" defer></script>
+  <script src="../inc/js/nav_script.inc.js" defer></script>
   <title>Opções Ocorrência</title>
 </head>
 
@@ -76,26 +80,56 @@
         <h1 id="title_main" class="font-bold text-xl md:text-2xl"><span class="text-vermelho">Selecione</span> o que você deseja visualizar na ocorrência</h1>
         <p id="subtitle" class="text-cinza text-xs text-center md:text-sm">Selecione uma das opções abaixo de acordo com a sua <b>necessidade</b></p>
       </header>
+
       <section aria-label="Botões" class="flex flex-col items-center justify-center gap-4 w-full">
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+
+        <button onclick="Redirecionar()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
         transition ease-in-out hover:scale-105">Cabeçalho</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+
+        <script>
+                
+          function Redirecionar()
+          {
+              window.location.replace("./cabecalho.html")
+          }
+          
+      </script>
+
+        <button onclick="Redireciona2()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
         transition ease-in-out hover:scale-105">Tipo da Ocorrência</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Problemas Suspeitos</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Fotos da Ocorrência</button>
-        <button type="submit" onclick="event.preventDefault()" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Revisar Ocorrência</button>
+
+        <script>
+                
+          function Redireciona2()
+          {
+              window.location.replace("./tipo_ocorrencia.html")
+          }
+          
+        </script>
+
+          <button type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+          transition ease-in-out hover:scale-105">Fotos da Ocorrência</button></a>
+
+
+          <button onclick="Redireciona4()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+            transition ease-in-out hover:scale-105">Revisar Ocorrência</button>
+
+            <script>
+                
+              function Redireciona4()
+              {
+                  window.location.replace("./main.html")
+              }
+              
+            </script>
+
       </section>
     </section>
   </main>
   <footer class="flex flex-col justify-center items-start gap-[0.625rem] w-full h-full self-stretch bg-white
-    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho desktop:mt-8
-  ">
+    desktop:flex-col desktop:items-start desktop:border-t-[4px] desktop:border-vermelho desktop:mt-8">
     <section class="container_footer flex flex-col justify-center items-center gap-5 p-8 self-stretch first:pt-16 
-      desktop:justify-between desktop:items-center desktop:flex-row
-    ">
+      desktop:justify-between desktop:items-center desktop:flex-row">
       <section class="logos_row flex flex-row justify-center items-center gap-4 self-stretch">
         <img src="../public/images/logo-noar.png" alt="Logo Noar" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">
         <img src="../public/images/ambulancia.png" alt="Logo Ambulância" class="w-[126px] h-[126px] desktop:w-[192px] desktop:h-[192px]">

@@ -47,19 +47,19 @@
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome">N° Fibra:</label>
           <input id="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200" required>
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome">Senha:</label>
           <input id="input_senha" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******">
+          transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******" required>
         </div>
         <div class="checkbox flex items-center gap-2.5">
           <input type="checkbox" class="w-4 h-4 border border-input_placeholder rounded-none"><p class="text-cinza"><b>Lembrar</b> de mim</p>
         </div>
-        <button id="cadastrar" type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+        <button id="cadastrar" type="submit" class="button px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
           transition ease-in-out hover:scale-105 tablet:text-3xl">Cadastre-se</button>
-        <a href="#" onclick="event.preventDefault()" class="underline text-sm font-normal text-cinza"><b>Clique aqui</b> caso não tenha cadastro</a>
+        <a href="cadastro.html" class="underline text-sm font-normal text-cinza"><b>Clique aqui</b> caso não tenha cadastro</a>
       </form>
       <div class="content hidden tablet:flex flex-row justify-center items-end self-stretch h-full">
         <p class="text-xs text-cinza"><b>Todos</b> os direitos reservados, SenasTech, 2023</p>
@@ -95,19 +95,19 @@
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome">N° Fibra:</label>
             <input type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200" id="n_fibra">
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200" id="n_fibra" required>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome">Senha:</label>
             <input type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******" id="senha">
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******" id="senha" required>
           </div>
           <div class="checkbox flex items-center gap-2.5">
             <input type="checkbox" class="input border border-input_placeholder rounded-none appearance-none checked:bg-vermelho w-5 h-5"><p class="text-cinza"><b>Lembrar</b> de mim</p>
           </div>
-          <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">Cadastre-se<img src="../public/images/caret.svg" alt=""></button>
-          <a href="#" onclick="event.preventDefault()" class="underline text-sm font-normal text-cinza focus:outline-vermelho"><b>Clique aqui</b> caso não tenha cadastro</a>
+          <button type="submit" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:scale-105 focus:scale-105 disabled:opacity-75 disabled:transition-none">Entrar<img src="../public/images/caret.svg" alt=""></button>
+          <a href="cadastro.html" class="underline text-sm font-normal text-cinza focus:outline-vermelho"><b>Clique aqui</b> caso não tenha cadastro</a>
         </form>
       </div>
     </section>
