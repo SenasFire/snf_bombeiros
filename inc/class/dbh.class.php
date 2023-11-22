@@ -12,7 +12,7 @@ class Dbh {
   ];
 
   // Conexão ao banco de dados (protected para extender depois):
-  protected function connect() {
+  public function connect() {
     $dsn = "mysql:host=localhost;dbname=snf_bombeiros;charset=utf8";
 
     try {

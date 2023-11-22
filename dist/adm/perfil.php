@@ -55,26 +55,26 @@
       </section>
     </section>
     <section class="alter_info flex flex-col w-full h-full items-center justify-center">
-      <form class="flex flex-col gap-2.5 w-3/4 h-full font-poppins overflow-y-auto" action="" method="POST">
+      <form class="flex flex-col gap-2.5 w-3/4 h-full font-poppins overflow-y-auto" action="../../inc/alterar-nome.php" method="POST">
         <header>
           <h1 class="font-semibold text-4xl">Alterar Informações</h1>
         </header>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome_desktop" class="text-xl">Nome:</label>
-          <input id="nome_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input name="nome" id="nome_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: Henrique Osmar Adelino" required>
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="num_fibra_desktop" class="text-xl">N° Fibra:</label>
-          <input id="num_fibra_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input name="fibra" id="num_fibra_desktop" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 4200">
         </div>
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="password_desktop" class="text-xl">Senha:</label>
-          <input id="password_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+          <input name="pwd" id="password_desktop" type="password" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="******">
         </div>
-        <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+        <button type="submit" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
               transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Salvar Informações<img src="../public/images/caret.svg" alt=""></button>
       </form>
     </section>
