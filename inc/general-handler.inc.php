@@ -79,13 +79,7 @@
   // Cadastrar post
   else if($tipo_cadastro === "inserir-imagem") {
     session_start();
-    /*
-    $nome_post = "Nome";
-    $conteudo_post = "Conteúdo";
-    $comentario_habilitado = "Sim";
-    $imagem = "Imagem";
-    $id_usuario = 36;
-    */
+
     $nome_post = htmlspecialchars($_POST["nome_post"]);
     $conteudo_post = htmlspecialchars($_POST["conteudo_post"]);
     $comentario_habilitado = $_POST["escolha"];

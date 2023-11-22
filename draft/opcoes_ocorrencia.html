@@ -80,6 +80,7 @@
         <h1 id="title_main" class="font-bold text-xl md:text-2xl"><span class="text-vermelho">Selecione</span> o que você deseja visualizar na ocorrência</h1>
         <p id="subtitle" class="text-cinza text-xs text-center md:text-sm">Selecione uma das opções abaixo de acordo com a sua <b>necessidade</b></p>
       </header>
+
       <section aria-label="Botões" class="flex flex-col items-center justify-center gap-4 w-full">
 
         <button onclick="Redirecionar()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
@@ -94,36 +95,33 @@
           
       </script>
 
-        <button onclick="Redirecionar()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+        <button onclick="Redireciona2()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
         transition ease-in-out hover:scale-105">Tipo da Ocorrência</button>
 
         <script>
                 
-          function Redirecionar()
+          function Redireciona2()
           {
               window.location.replace("./tipo_ocorrencia.html")
           }
           
-      </script>
+        </script>
 
-        <button onclick="Redirecionar()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Problemas Suspeitos</button>
+          <button type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+          transition ease-in-out hover:scale-105">Fotos da Ocorrência</button></a>
 
-         <script>
+
+          <button onclick="Redireciona4()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+            transition ease-in-out hover:scale-105">Revisar Ocorrência</button>
+
+            <script>
                 
-          function Redirecionar()
-          {
-              window.location.replace("./tipo_ocorrencia.html")
-          }
-          
-      </script>
-
-        <button type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Fotos da Ocorrência</button></a>
-
-        <a href="main.html" class="underline text-sm font-normal text-cinza">
-        <button type="submit" class="text-[16px] px-6 py-4 gap-2.5 w-1/2 flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
-        transition ease-in-out hover:scale-105">Revisar Ocorrência</button></a>
+              function Redireciona4()
+              {
+                  window.location.replace("./main.html")
+              }
+              
+            </script>
 
       </section>
     </section>

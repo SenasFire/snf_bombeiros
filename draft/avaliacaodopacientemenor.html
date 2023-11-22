@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/output.css">
+  <script src="../inc/js/form_script.inc.js" defer></script>
+  <title> Avaliação do Paciente (Menor que 5 anos)</title>
+</head>
+
+<body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
+  <!-- MOBILE: -->
+  <main class="flex flex-col items-center w-full h-fit gap-3 font-poppins md:gap-8 lg:hidden">
+    <!-- Texto placeholder -->
+    <div class="placeholder flex flex-row justify-center items-center align-super gap-1.5 self-stretch py-4 text-white md:hidden">
+      <p class="tablet:text-preto">Release 0.1</p>
+    </div>
+    <nav class="navbar_cellphone flex py-2.5 px-8 lg:flex-row justify-between items-center w-full h-fit bg-vermelho">
+      <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
+        <img src="../public/images/logo-noar.png" alt="" class="w-10 h-10 md:h-32 md:w-32">
+        <div aria-label="Título" class="flex flex-col">
+          <h1 id="nav_title" class="font-poppins font-semibold text-white text-2xl md:text-4xl">NOAR</h1>
+          <p class="hidden laptop:block font-poppins text-2xl text-white font-medium">Núcleo de Operações Aéreas e Resgate
+          </p>
+        </div>
+      </header>
+      <!-- MENU ICON / Criar uma imagem depois para não bugar o estado -->
+      <button onclick="expandirMenu()" id="menu-toggle" aria-controls="primary-navigation"
+        class="desktop:hidden w-8 h-8 bg-menu-icon-toggle bg-no-repeat z-50">
+        <span class="sr-only" style="display:none">Menu</span>
+      </button>
+      <!-- Menu que abre após clicar no ícone -- TODO: -->
+      <section id="primary-navigation" class="menu_open hidden absolute top-0 right-0 border flex-col items-start gap-[5px] p-4 w-[232px] bg-white
+      transition-transform
+    ">
+        <div class="close flex justify-end items-center self-stretch">
+          <!-- ICON FECHAR: -->
+          <p onclick="retrairMenu()" class="self-center text-vermelho font-poppins cursor-pointer">Fechar</p>
+          <button onclick="retrairMenu()" id="nav-close" class="bg-close w-8 h-8 bg-no-repeat bg-center">
+          </button>
+        </div>
+        <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
+          <li><a href="perfil.html">Perfil</a></li>
+          <li><a href="main.html">Página Principal</a></li>
+          <li><a>Histórico de Ocorrências</a></li>
+          <li><a>Nova Ocorrência</a></li>
+          <li><a>Ajuda</a></li>
+          <li><a>Acessibilidade</a></li>
+        </ul>
+      </section>
+      <ul class="navlinks hidden desktop:flex flex-row text-white gap-12 items-center text-xl font-poppins">
+        <li><a>Perfil</a></li>
+        <li><a>Página Principal</a></li>
+        <li><a>Histórico de Ocorrências</a></li>
+        <li><a>Nova Ocorrência</a></li>
+        <li><a>Ajuda</a></li>
+        <li><img src="../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class=""></li>
+      </ul>
+    </nav>
+    <!-- Header -->
+    <header class="noar_logo flex flex-col items-center justify-center gap-1 font-poppins">
+      <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-imagem_placeholder h-imagem_placeholder">
+      <!--<div class="w-imagem_placeholder h-imagem_placeholder bg-logo-noar bg-no-repeat bg-center bg-cover"></div>-->
+    </header>
+    <!-- Formulário -->
+    <section aria-labelledby="title_cadastro" class="flex flex-col gap-2.5 w-fit" title="Form Container">
+      <header class="flex flex-col items-center">
+        <h1 id="title_cadastro" class="font-bold text-preto text-xl font-poppins"><span class="font-bold text-vermelho">Avaliação do </span> Paciente</h1>
+        <br>
+        <p class="text-sm text-cinza">NÍVEL DE CONSCIÊNCIA</p>  
+        <p class="text-sm text-cinza">Menores de 5 anos</p> 
+    </header>
+    <br>
+     
+    <div class="input_box flex flex-col g-2.5 justify-center items-center " title="Input Box">
+        <label for="nome">Abertura Ocular:</label>
+      </div>
+      <form class="flex flex-col gap-1" action="" method="" id="form_cadastro">
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Espontânea </span>
+          </div>
+        </div>
+   
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Comando verbal </span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Estímulo doloroso </span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Nenhuma </span>
+          </div>
+        </div>
+
+        <div class="input_box flex flex-col g-2.5 justify-center items-center " title="Input Box">
+            <label for="nome">Resposta Verbal:</label>
+          </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Palavras e frases inapropriadas </span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Palavras inapropriadas </span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Choro persistente ou gritos </span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Sons incompreensíveis</span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Nenhuma resposta verbal</span>
+          </div>
+        </div>
+
+        <div class="input_box flex flex-col g-2.5 justify-center items-center " title="Input Box">
+            <label for="nome">Resposta Motora:</label>
+          </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Obedece prontamente</span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Localiza dor ou estímulo tatil</span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Retirada do segmento estimulado</span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Flexão anormal (decorticação)</span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Extensão anormal (decerebração)</span>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Ausência Paralisia Flácida, Hipotonia</span>
+          </div>
+        </div>
+        <br>
+           <div class="input_box flex flex-col g-2.5" title="Input Box">
+            <label for="nome">Total (GCS)(3-15):</label>
+            <input id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 7" required>
+            <br>
+            <button type="submit" class="text-[1px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+          transition ease-in-out hover:scale-105">Registrar dados</button>
+            <br>
+            <a href="avaliacaodopacientemaior.html" class="underline text-sm font-normal text-cinza justify-center items-center"><b>Clique aqui</b> caso o paciente tenha idade maior que 5 anos</a>
+          </div>
+          <br>
+        </div>
+      </form>
+    </section>
+  </main>
