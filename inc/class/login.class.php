@@ -70,7 +70,7 @@ class Login extends Dbh {
         header("Location: ../dist/adm/main_admin.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]."&id=".$user[0]["usuarios_id"]);
         exit();
       } else {
-        header("Location: ../dist/adm/main_socorrista.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]);
+        header("Location: ../dist/main_socorrista.php?sucess=login-admin-completo"." usuario=".$user[0]["usuarios_username"]);
       }
     }
   }

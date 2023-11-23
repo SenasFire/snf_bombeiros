@@ -15,7 +15,9 @@
   $stmt->execute();
 
   $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  $id = $resultados[0]['ocorrencia_id'];
+  if ($stmt->rowCount() > 0) {
+    $id = $resultados[0]['ocorrencia_id'];
+  }
 ?>
 
 <main class="flex flex-col h-screen px-16 py-8 gap-8 self-stretch items-center justify-start">
@@ -51,23 +53,27 @@
         </thead>
         <tbody>
           <?php
-            foreach ($resultados as $resultado) {
-              $id = $resultado['ocorrencia_id'];
-              $nome_paciente = $resultado['nome_paciente'];
-              $cpf = $resultado['cpf'];
-              $data = $resultado['data'];
-              $local = $resultado['local_ocorrencia'];
-              
-              echo("<tr class='border border-gray-300 hover:bg-gray-100'>");
-                echo("<td class='py-2 px-4 text-center'>".$nome_paciente."</td>");
-                echo("<td class='py-2 px-4 text-center'>".$cpf."</td>");
-                echo("<td class='py-2 px-4 text-center'>".$data."</td>");
-                echo("<td class='py-2 px-4 text-center'>".$local."</td>");
-                echo("<td colspan='2' class='py-2 px-4 text-center h-full flex flex-row gap-2.5 justify-center items-center'>
-                <a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='../../inc/class/usuario-db.class.php?action=excluir-ocorrencia&id=$id'>Excluir</a>
-                <a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='visualizar.php?action=visualizar-ocorrencia&id=$id'>Visualizar</a>
-                </td>");
-              echo("<tr>");
+            if($stmt->rowCount() > 0){
+              foreach ($resultados as $resultado) {
+                $id = $resultado['ocorrencia_id'];
+                $nome_paciente = $resultado['nome_paciente'];
+                $cpf = $resultado['cpf'];
+                $data = $resultado['data'];
+                $local = $resultado['local_ocorrencia'];
+                
+                echo("<tr class='border border-gray-300 hover:bg-gray-100'>");
+                  echo("<td class='py-2 px-4 text-center'>".$nome_paciente."</td>");
+                  echo("<td class='py-2 px-4 text-center'>".$cpf."</td>");
+                  echo("<td class='py-2 px-4 text-center'>".$data."</td>");
+                  echo("<td class='py-2 px-4 text-center'>".$local."</td>");
+                  echo("<td colspan='2' class='py-2 px-4 text-center h-full flex flex-row gap-2.5 justify-center items-center'>
+                  <a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='../../inc/class/usuario-db.class.php?action=excluir-ocorrencia&id=$id'>Excluir</a>
+                  <a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='visualizar.php?action=visualizar-ocorrencia&id=$id'>Visualizar</a>
+                  </td>");
+                echo("<tr>");
+              }
+            } else {
+              echo ("<p>Nenhuma ocorrência no momento.</p>");
             }
           ?>
         </tbody>
@@ -97,7 +103,7 @@
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdt(); ?></td>
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
               <td class="border border-gray-300 py-2 px-4">
-                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Deletar(<?php $usuario->getId();?>)">Excluir</a>
+                <a href="../../inc/class/excluir-usuario.class.php?action=excluir&id=<?php echo $usuario->getId(); ?>" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Deletar(<?php $usuario->getId();?>)">Excluir</a>
                 <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php $usuario->getId();?>)">Visualizar</a>
               </td>
             </tr>

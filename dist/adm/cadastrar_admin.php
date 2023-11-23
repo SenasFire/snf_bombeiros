@@ -1,11 +1,18 @@
 <?php
   session_start();
+  require_once "../../inc/class/dbh.class.php";
+  $dbh = new Dbh();
 
   if(!isset($_SESSION["usuario_id"])) {
     header("Location: ../login.php?error=invalid-access");
   }
 
   $id_usuario = $_SESSION['usuario_id'];
+
+  $sql = "SELECT * from usuarios_socorristas";
+  $stmt = $dbh->connect()->prepare($sql);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -64,12 +71,6 @@
               <p>Nova Notícia</p>
             </button>
           </div>
-          <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
-            <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <button id="btn_new_desp" class="w-full items-start justify-start text-left">
-              <p>Novo DESP</p>
-            </button>
-          </div>
         </section>
       </section>
 
@@ -118,58 +119,93 @@
         </form>
 
         <!-- Nova Equipe: -->
-        <form id="form_new_team" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
+        <form id="form_new_team" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="../../inc/nova-equipe.php" method="POST">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome_motorista" class="text-xl">Motorista:</label>
-            <select name="" id="motorista" class="select text-xl border-2 border-[#595959]">
+            <select name="motorista" id="motorista" class="select text-xl border-2 border-[#595959]">
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
-
+                foreach ($resultados as $resultado) {
+                  $id = $resultado['usuarios_id'];
+                  $nome_usuario = $resultado['usuarios_username'];
+                  
+                  echo("<option class='text-xs' value=$id>");
+                    echo($nome_usuario);
+                  echo("</option>");
+                }
               ?>
             </select>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="primeiro_socorrista" class="text-xl">Primeiro Socorrista:</label>
-            <select name="" id="primeiro_socorrista" class="select text-xl border-2 border-[#595959]">
+            <select name="primeiro_socorrista" id="primeiro_socorrista" class="select text-xl border-2 border-[#595959]">
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
-
+                foreach ($resultados as $resultado) {
+                  $id = $resultado['usuarios_id'];
+                  $nome_usuario = $resultado['usuarios_username'];
+                  
+                  echo("<option class='text-xs' value=$id>");
+                    echo($nome_usuario);
+                  echo("</option>");
+                }
               ?>
             </select>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="segundo_socorrista" class="text-xl">Segundo Socorrista:</label>
-            <select name="" id="segundo_socorrista" class="select text-xl border-2 border-[#595959]">
+            <select name="segundo_socorrista" id="segundo_socorrista" class="select text-xl border-2 border-[#595959]">
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
-
+                foreach ($resultados as $resultado) {
+                  $id = $resultado['usuarios_id'];
+                  $nome_usuario = $resultado['usuarios_username'];
+                  
+                  echo("<option class='text-xs' value=$id>");
+                    echo($nome_usuario);
+                  echo("</option>");
+                }
               ?>
             </select>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="terceiro_socorrista" class="text-xl">Terceiro Socorrista:</label>
-            <select name="" id="terceiro_socorrista" class="select text-xl border-2 border-[#595959]">
+            <select name="terceiro_socorrista" id="terceiro_socorrista" class="select text-xl border-2 border-[#595959]">
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
-
+                foreach ($resultados as $resultado) {
+                  $id = $resultado['usuarios_id'];
+                  $nome_usuario = $resultado['usuarios_username'];
+                  
+                  echo("<option class='text-xs' value=$id>");
+                    echo($nome_usuario);
+                  echo("</option>");
+                }
               ?>
             </select>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="demandante" class="text-xl">Demandante:</label>
-            <select name="" id="demandante" class="select text-xl border-2 border-[#595959]">
+            <select name="demandante" id="demandante" class="select text-xl border-2 border-[#595959]">
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
-
+                foreach ($resultados as $resultado) {
+                  $id = $resultado['usuarios_id'];
+                  $nome_usuario = $resultado['usuarios_username'];
+                  
+                  echo("<option class='text-xs' value=$id>");
+                    echo($nome_usuario);
+                  echo("</option>");
+                }
               ?>
             </select>
           </div>
           <div id="adm_code_container" class="input_box flex-col g-2.5" title="Input Box">
             <label for="nome_equipe" class="text-xl">Nome da Equipe:</label>
-            <input id="nome_equipe" type="text" class="input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            <input name="nome_equipe" id="nome_equipe" type="text" class="input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o nome aqui...">
           </div>
-          <button type="submit" onclick="event.preventDefault()" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          <button type="submit" class="button px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Equipe<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 

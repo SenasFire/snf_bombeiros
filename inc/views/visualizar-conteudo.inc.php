@@ -36,40 +36,35 @@
         <p>Você selecionou a ocorrência de ID: <?php echo $id; ?>, sinta se <b>livre</b> para realizar as alterações desejadas.</p>
       </header>
       <!-- Table aqui: -->
-      <section class="flex flex-row">
-        <?php
-          echo '<table class="flex flex-row w-fit h-fit border-collapse font-poppins">';
-          foreach ($resultados as $resultado) {
-            foreach ($resultado as $campo => $valor) {
-              echo "<input class='py-2 px-4 text-center hover:bg-gray-100' placeholder='$valor'></input>";
-            }
-          }
-          echo '</table>'
-        ?>
-        <table class="flex flex-row w-fit h-fit border-collapse font-poppins">
-          <thead>
-              <tr class="flex flex-col h-full border bg-gray-200">
+      <section class="flex flex-col w-full">
+        <form class='flex flex-col gap-2.5' action='../../inc/alterar-ocorrencia.php?id=<?php echo $id?>' method='POST'>
+          <table class="flex flex-row w-full h-fit border-collapse font-poppins">
+            <thead class="w-1/2">
+                <tr class="flex flex-col h-full border bg-gray-200">
+                  <?php
+                    foreach ($resultados as $resultado) {
+                      foreach ($resultado as $campo => $valor) {
+                        echo "<td class='py-4 px-4'>$campo</td>";
+                      }
+                    }
+                  ?>
+                </tr>
+            </thead>
+              <tbody class="w-full">
                 <?php
                   foreach ($resultados as $resultado) {
+                    echo "<tr class='flex flex-col h-full border border-gray-300'>";
                     foreach ($resultado as $campo => $valor) {
-                      echo "<td class='border-gray-300 py-2 px-4'>$campo</td>";
+                        echo "<td class='py-2'><input type='text' name='$campo' value='$valor' class='text-left px-8 py-2 w-full border-none active:outline-none focus:outline-none'></td>";
                     }
+                    echo "</tr>";
                   }
                 ?>
-              </tr>
-          </thead>
-          <tbody>
-            <tr class="flex flex-col h-full border border-gray-300">
-              <?php
-                foreach ($resultados as $resultado) {
-                  foreach ($resultado as $campo => $valor) {
-                    echo "<input class='py-2 px-4 text-center hover:bg-gray-100' placeholder='$valor'></input>";
-                  }
-                }
-              ?>
-            </tr>
-          </tbody>
-        </table>
+              </tbody>
+          </table>
+          <button type="submit" class="button w-full px-6 py-4 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+            transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Salvar Alterações</button>
+        </form>
       </section>
     </section>
   </section>

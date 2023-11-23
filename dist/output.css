@@ -1550,6 +1550,12 @@ video {
   }
 }
 
+@media (min-width: 640px) {
+  .sm\:h-screen {
+    height: 100vh;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
@@ -1619,10 +1625,6 @@ video {
 @media (min-width: 1024px) {
   .laptop\:block {
     display: block;
-  }
-
-  .laptop\:h-screen {
-    height: 100vh;
   }
 
   .laptop\:w-1\/3 {

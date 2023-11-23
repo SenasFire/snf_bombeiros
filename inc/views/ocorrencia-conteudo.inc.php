@@ -1,3 +1,15 @@
+<?php
+    
+  require_once "../inc/class/dbh.class.php";
+  $dbh = new Dbh();
+
+  $sql = "SELECT * FROM equipes";
+  $stmt = $dbh->connect()->prepare($sql);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <header class="noar_logo flex flex-col text-center items-center justify-center gap-1 font-poppins
     tablet:flex-row tablet:justify-start tablet:w-full md:hidden">
     <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[192px] h-[192px] tablet:w-[236px] tablet:h-[236px]">
@@ -13,7 +25,16 @@
       <legend class="font-bold text-xl tablet:text-2xl">Equipe de Atendimento</legend>
       <select name="equipe_atendimento" id="equipe de atendimento" class="select text-xl border-2 border-[#595959]">
         <option class="text-xs" value="None" disabled selected>Selecione:</option>
-        <option class="text-xs" value="Ratos do Sistema">Ratos do sistema</option>
+        <?php
+          foreach ($resultados as $resultado) {
+            $id = $resultado['equipe_id'];
+            $nome_equipe = $resultado['equipe_nome'];
+            
+            echo("<option class='text-xs' value=$id>");
+              echo($nome_equipe);
+            echo("</option>");
+          }
+        ?>
       </select>
     </section>
     <!-- CABEÇALHO DA OCORRÊNCIA -->

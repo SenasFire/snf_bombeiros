@@ -47,15 +47,13 @@
   $respostaMotora = implode(", ", $avaCheckboxMotora);
   $avaTotal = $_POST["ava_total"];
 
+  $problemasSuspeitosArr = isset($_POST['prob_sus_checkbox']) ? $_POST['prob_sus_checkbox'] : [];
+  $problemasSuspeitos = implode(", ", $problemasSuspeitosArr);
+
+
   if (isset($_POST['tipo_checkbox'])) {
     $tipoOcorrencia = $_POST['tipo_checkbox'];
     // Agora $tipoOcorrencia contém um array com os valores dos checkboxes selecionados
-  }
-
-  // Processa os campos de problemas suspeitos
-  if (isset($_POST['prob_sus_checkbox'])) {
-      $problemasSuspeitos = $_POST['prob_sus_checkbox'];
-      // Agora $problemasSuspeitos contém um array com os valores dos checkboxes selecionados
   }
 
   // Processa os campos de sinais e sintomas
@@ -103,106 +101,6 @@
 
   // Fim da Ocorrência
   $kmFinal = isset($_POST['km_final']) ? $_POST['km_final'] : '';
-  // Agora você pode processar ou armazenar esses dados no banco de dados
-  // ...
-
-  // Exemplo de como imprimir os valores para teste
-  echo "Tipo de Ocorrência: " . implode(", ", $tipoOcorrencia) . "<br>";
-  echo "Problemas Suspeitos: " . implode(", ", $problemasSuspeitos) . "<br>";
-  echo "Sinais e Sintomas: " . implode(", ", $sinaisSintomas) . "<br>";
-  echo "Problema Respiratório: " . $problemaRespiratorio . "<br>";
-  echo "Diabetes: " . $diabetes . "<br>";
-  echo "Problema Obstétrico: " . $problemaObsterico . "<br>";
-  echo "Forma de Transporte: " . $formaTransporte . "<br>";
-  echo "Outros Problemas: " . $outrosProblemas . "<br>";
-  echo "Tipo de Cianose: " . $tipoCianose . "<br>";
-  echo "Outro: " . $inputOther . "<br>";
-
-  // Imprimir todos os valores para teste
-  echo "Equipe de Atendimento: " . $equipeAtendimento . "<br>";
-  echo "Nome do Paciente: " . $nomePaciente . "<br>";
-  echo "Data: " . $data . "<br>";
-  echo "Sexo: " . $sexo . "<br>";
-  echo "Nome do Hospital: " . $nomeHospital . "<br>";
-  echo "RG/Cpf do Paciente: " . $rgCpfPaciente . "<br>";
-  echo "Idade do Paciente: " . $idadePaciente . "<br>";
-  echo "Acompanhante do Paciente: " . $acompanhantePaciente . "<br>";
-  echo "Idade do Acompanhante: " . $idadeAcompanhante . "<br>";
-  echo "Local da Ocorrência: " . $localOcorrencia . "<br>";
-  echo "Número USB: " . $numeroUsb . "<br>";
-  echo "Número da Ocorrência: " . $numeroOcorrencia . "<br>";
-  echo "Despachante: " . $despachante . "<br>";
-  echo "HCH: " . $hch . "<br>";
-
-  // ... Continuar com a impressão de outros valores ...
-
-  // Exemplo para a Anamnese
-  echo "Anamnese - Outras Vezes: " . $anamneseOutrasVezes . "<br>";
-  echo "Anamnese - Tempo: " . $anamneseTempo . "<br>";
-  echo "Anamnese - Problema de Saúde: " . $anamneseProblemaSaude . "<br>";
-
-  // ... Continuar com a impressão de outros valores ...
-
-  // Exemplo para a Avaliação do Paciente
-  echo "Avaliação do Paciente - Checkbox: ";
-  print_r($avaCheckbox);
-  echo $avaCheckbox[0];
-  echo "<br>";
-  echo "Avaliação do Paciente - Total: " . $avaTotal . "<br>";
-
-  // ... Continuar com a impressão de outros valores ...
-  echo "Escolha Cinemática: " . $escolhaCinematica . "<br>";
-  echo "Escolha Cinemática Capacete: " . $escolhaCinematicaCap . "<br>";
-  echo "Escolha Cinemática Cinto: " . $escolhaCinematicaCinto . "<br>";
-  echo "Escolha Cinemática Para-brisas: " . $escolhaCinematicaPb . "<br>";
-  echo "Escolha Cinemática Caminhando: " . $escolhaCinematicaCam . "<br>";
-  echo "Escolha Cinemática Painel Avariado: " . $escolhaCinematicaPainel . "<br>";
-  echo "Escolha Cinemática Volante Torcido: " . $escolhaCinematicaVol . "<br>";
-
-  // Exemplo para Problemas Suspeitos
-  echo "Problemas Suspeitos: ";
-  print_r($problemasSuspeitos);
-  echo "<br>";
-
-  // ... Continuar com a impressão de outros valores ...
-
-  // Exemplo para Sinais e Sintomas
-  echo "Sinais e Sintomas: ";
-  print_r($sinaisSintomas);
-  echo "<br>";
-
-  // ... Continuar com a impressão de outros valores ...
-
-  // Exemplo para outros campos
-  echo "Problema Respiratório: " . $problemaRespiratorio . "<br>";
-  echo "Diabetes: " . $diabetes . "<br>";
-  echo "Problema Obstétrico: " . $problemaObsterico . "<br>";
-  echo "Forma de Transporte: " . $formaTransporte . "<br>";
-  echo "Outros Problemas: " . $outrosProblemas . "<br>";
-  echo "Tipo de Cianose: " . $tipoCianose . "<br>";
-  echo "Input Other: " . $inputOther . "<br>";
-
-  // ... Continuar com a impressão de outros valores ...
-
-  // Exemplo para Forma de Condução
-  echo "Escolha de Condução: " . $escolhaConducao . "<br>";
-
-  // Exemplo para O que a Vítima Era
-  echo "O que a Vítima Era: " . $vitimaEra . "<br>";
-
-  // Exemplo para Decisão de Transporte
-  echo "Escolha de Transporte: " . $escolhaTransporte . "<br>";
-
-  // Exemplo para Sinais Vitais
-  echo "Pressão: " . $pressao . "<br>";
-  echo "Pulso: " . $pulso . "<br>";
-  echo "Respiração: " . $respiracao . "<br>";
-  echo "Saturação: " . $saturacao . "<br>";
-  echo "Temperatura: " . $temperatura . "<br>";
-  echo "Escolha de Perfusão: " . $escolhaPerfusao . "<br>";
-
-  // Exemplo para Fim da Ocorrência
-  echo "KM Final: " . $kmFinal . "<br>";
 
   $sql = "INSERT INTO `ocorrencia` (
     `nome_paciente`, `cpf`, `genero`, `idade`, `acompanhante`, `idade_acompanhante`, 
@@ -219,13 +117,13 @@
     `hospital`, `hch`, `num_usb`
   ) VALUES (
     '$nomePaciente', '$rgCpfPaciente', '$sexo', '$idadePaciente', '$acompanhantePaciente', '$idadeAcompanhante', 
-    '$numeroOcorrencia', '$localOcorrencia', '$data', 1, '$despachante', 
+    '$numeroOcorrencia', '$localOcorrencia', '$data', $equipeAtendimento, '$despachante', 
     '$anamneseOutrasVezes', '$anamneseTempo', '$anamnesePossuiProbSaude', '$anamneseProblemaSaude', '$anamneseUsaMedicacao', '$anamneseHorarioMedicacao', 
     '$anamneseMedicacaoUsada', '$anamneseAlergico', '$anamneseEspecifiqueAlergia', '$anamneseIngeriuAlimento', '$anamneseHorasIngeriuAlimento', 
     '$aberturaOcular','$respostaVerbal','$respostaMotora','$avaTotal','$tipoOcorrencia[0]', '$escolhaCinematica', '$escolhaCinematicaCap', 
     '$escolhaCinematicaCinto', '$escolhaCinematicaPb', '$escolhaCinematicaCam', 
     '$escolhaCinematicaPainel', '$escolhaCinematicaVol', 
-    '$problemasSuspeitos[0]', '$problemaRespiratorio', '$diabetes', 
+    '$problemasSuspeitos', '$problemaRespiratorio', '$diabetes', 
     '$problemaObsterico', '$formaTransporte', '$sinaisSintomas[0]', '$tipoCianose', 
     '$escolhaConducao', '$vitimaEra', '$escolhaTransporte', '$pressao', 
     '$pulso', '$respiracao', '$saturacao', '$temperatura', 

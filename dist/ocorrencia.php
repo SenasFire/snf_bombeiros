@@ -1,12 +1,20 @@
 <?php
+  include("../inc/class/dbh.class.php");
+
   session_start();
+  $id = $_SESSION["usuario_id"];
 
   if(!isset($_SESSION["usuario_id"])) {
     header("Location: ../login.php?error=invalid-access");
   }
 
-  $id_usuario = $_SESSION['usuario_id'];
+  $dbh = new Dbh();
+  $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_e_cmdt = 'Sim' AND usuarios_id = $id";
+  $stmt = $dbh->connect()->prepare($sql);
+  $stmt->execute();
+  $stmt->fetch();
 ?>
+<html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +31,13 @@
   <title>Cadastrar Nova Ocorrência</title>
 </head>
 <body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
-  <?php include("../inc/views/nav.inc.php"); ?>
+  <?php
+    if($stmt->rowCount()>0) {
+      include("../inc/views/nav-admin2.inc.php"); 
+    } else {
+      include("../inc/views/nav.inc.php"); 
+    }
+  ?>
   <main class="flex flex-col items-center w-full h-fit gap-3 font-poppins p-12 md:gap-8">
     <?php include("../inc/views/ocorrencia-conteudo.inc.php"); ?>
   </main>

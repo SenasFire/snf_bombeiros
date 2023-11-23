@@ -98,14 +98,6 @@ function loadUsers() {
         cell5.innerHTML = `<a data-id="${lista[x].id}" onclick="Executar(this,'excluir')">Excluir</a>`;
 
         cell1.classList.add("p-6");
-
-        selectArray.forEach(function(select) {
-          var option = document.createElement('option');
-          option.classList.add("text-xs")
-          option.value = lista[x].valor;
-          option.textContent = lista[x].nome;
-          select.appendChild(option);
-        });
       }
     },
     error: function(xhr, status, error) {
