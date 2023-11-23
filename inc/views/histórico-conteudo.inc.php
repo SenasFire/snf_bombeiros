@@ -7,7 +7,7 @@
 </header>
 
 <section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">
-    <form class="flex flex-col gap-8 font-poppins" action="">
+    <form class="flex flex-col gap-8 font-poppins" action="../inc/class/cadastrar_historico.class.php">
         <!-- Procedimentos Efetuados -->
         <section class="flex flex-col gap-2.5">
             <legend class="font-bold text-xl text-row tablet:text-3xl ">Procedimentos Efetuados</legend>
@@ -477,7 +477,7 @@
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite aqui..."></textarea>
           </div>
         </div>
-        <button onclick="history.back()" type="submit" class="text-[16px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
+        <button type="submit" class="text-[16px] px-6 py-4 gap-2.5 self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-xl text-white
         transition ease-in-out hover:scale-105">Salvar Dados</button>
         <p class="text-cinza text-sm text-center">Os dados serão salvos na sua <b>ocorrência.</b></p>
       </form>
