@@ -7,12 +7,13 @@
 </header>
 
 <section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">  
-  <form class="flex flex-col gap-8 font-poppins" action="">
+  <form class="flex flex-col gap-8 font-poppins" action="../inc/class/cadastrar-ocorrencia.class.php" method="POST">
     <!-- EQUIPE DE ATENDIMENTO: -->
     <section class="flex flex-col gap-2.5">
       <legend class="font-bold text-xl tablet:text-2xl">Equipe de Atendimento</legend>
       <select name="equipe_atendimento" id="equipe de atendimento" class="select text-xl border-2 border-[#595959]">
         <option class="text-xs" value="None" disabled selected>Selecione:</option>
+        <option class="text-xs" value="Ratos do Sistema">Ratos do sistema</option>
       </select>
     </section>
     <!-- CABEÇALHO DA OCORRÊNCIA -->
@@ -20,7 +21,7 @@
       <legend class="font-bold text-xl tablet:text-2xl">Cabeçalho da Ocorrência</legend>
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Nome do Paciente:</label>
-        <input  id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+        <input name="input_name" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
         transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Henrique Osmar Adelino" required>
       </div>
 
@@ -205,28 +206,28 @@
       </div>
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Espontânea" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_ocular[]" value="Espontânea" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Espontânea </span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Comando verbal" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_ocular[]" value="Comando verbal" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Comando verbal </span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Estímulo doloroso" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_ocular[]" value="Estímulo doloroso" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Estímulo doloroso </span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox"" name="ava_checkbox[]" value="Nenhuma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_ocular[]" value="Nenhuma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Nenhuma </span>
         </div>
       </div>
@@ -237,35 +238,35 @@
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Orientado" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_verbal[]" value="Orientado" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Orientado </span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Confuso" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_verbal[]" value="Confuso" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Confuso </span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Palavras inapropriadas" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_verbal[]" value="Palavras inapropriadas" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Palavras inapropriadas </span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Palavras incompreensíveis" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_verbal[]" value="Palavras incompreensíveis" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Palavras incompreensíveis</span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Nenhuma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_verbal[]" value="Nenhuma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Nenhuma</span>
         </div>
       </div>
@@ -276,42 +277,42 @@
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Obedece comandos" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_motora[]" value="Obedece comandos" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Obedece comandos</span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Localiza dor" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_motora[]" value="Localiza dor" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Localiza dor</span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Movimento de retirada" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_motora[]" value="Movimento de retirada" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Movimento de retirada</span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Flexão anormal" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_motora[]" value="Flexão anormal" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Flexão anormal</span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Extensão anormal" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_motora[]" value="Extensão anormal" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Extensão anormal</span>
         </div>
       </div>
 
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="ava_checkbox[]" value="Nenhuma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="ava_checkbox_motora[]" value="Nenhuma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700">Nenhuma</span>
         </div>
       </div>
@@ -465,6 +466,88 @@
         <div class="flex items-center gap-2 space-x-2">
           <input type="checkbox" name="tipo_checkbox[]" value="" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Tranferência </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avaliação Cinemática -->
+    <section class="flex flex-col gap-2.5">
+      <legend class="font-bold text-xl tablet:text-2xl">Avaliação Cinemática</legend>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin" class="text-left">Distúrbio de comportamento:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin" class="text-left">Encontrado de capacete:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica_cap" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica_cap" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin" class="text-left">Encontrado de cinto:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica_cinto" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica_cinto" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin" class="text-left">Para-brisas avariado:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica_pb" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica_pb" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin">Caminhando na cena:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica_cam" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica_cam" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin" class="text-left">Painel avariado:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica_painel" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica_painel" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="admin" class="text-left">Volante torcido:</label>
+        <div class="container_radio flex flex-row justify-start items-center gap-10">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_sim" name="escolha_cinematica_vol" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="radio" id="adm_nao" name="escolha_cinematica_vol" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>
+          </div>
         </div>
       </div>
     </section>
@@ -717,6 +800,7 @@
 
     <!-- O QUE A VÍTIMA ERA: -->
     <section class="flex flex-col gap-2.5">
+      <legend class="font-bold text-xl tablet:text-2xl">Vítima era</legend>
       <section class="flex flex-col gap-2.5">
         <div class="flex items-center gap-2 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Ciclista" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
@@ -819,7 +903,7 @@
       </div>
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="terc_socorr">Saturação (%)</label>
-        <input name="saturação" id="terc_socorr" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+        <input name="saturacao" id="terc_socorr" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
         transition ease-in-out focus:scale-105 laptop:focus:scale-100 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 96%">
       </div>
       <div class="input_box flex flex-col gap-2.5" title="Input Box">

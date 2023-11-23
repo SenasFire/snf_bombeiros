@@ -410,5 +410,34 @@ if (isset($_GET['action'])) {
 
     header("Location: ../../dist/login.php?success=logout");
     exit();
+  } else if($_GET["action"] === "excluir-ocorrencia") {
+    $id = $_GET["id"];
+
+    $dbh = new Dbh();
+
+    $sql = "DELETE FROM ocorrencia WHERE ocorrencia_id = :id";
+    $excluir = $dbh->connect()->prepare($sql);
+    $excluir->bindParam(":id", $id, PDO::PARAM_INT);
+    $excluir->execute();
+
+    if($excluir) {
+      echo
+      "
+        <script type='text/javascript'>
+          window.alert('Ocorrência excluída');
+        </script>
+      ";
+      header("Location: ../../dist/adm/main_admin.php?success=ocorrencia-excluida&id=".$id);
+      exit();
+    } else {
+      echo
+      "
+        <script type='text/javascript'>
+          window.alert('Erro ao excluir a ocorrência');
+        </script>
+      ";
+      header("Location: ../../dist/adm/main_admin.php?error=excluir-falhou");
+      exit();
+    }
   }
 }
