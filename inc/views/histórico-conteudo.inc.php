@@ -5,7 +5,6 @@
       <legend class="hidden tablet:flex font-bold text-3xl text-white tablet:text-preto">Bombeiros Voluntários</legend>
     </div>
 </header>
-
 <section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">
     <form class="flex flex-col gap-8 font-poppins" action="../inc/class/cadastrar_historico.class.php">
         <!-- Procedimentos Efetuados -->
@@ -363,8 +362,9 @@
             <option value="G">G</option>
           </select>
           <div class="flex flex-row justify-end w-1/2">
-            <span id="value" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
-            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">0</span>
+            <input name="Area_Selecao_Materias_Ultilizados_Descartaveis" id="num_fibra" type="number" class="text-center input border-b-2 border-[#595959] w-1/2 bg-white text-input_placeholder text-sm
+            transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="0">
+          </div>
           </div>
         </div>
         <!-- Lista de Materias Ultilizados na Ocorrência -->
