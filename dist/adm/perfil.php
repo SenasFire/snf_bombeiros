@@ -1,19 +1,18 @@
 <?php
   session_start();
-
-  if(!isset($_SESSION["usuario_id"])) {
-    header("Location: ../login.php?error=invalid-access");
-  }
-  
   $id_usuario = $_SESSION['usuario_id'];
+
+  if(!isset($id_usuario)) {
+    header("Location: ../login.php?error=invalid-access");
+  }  
 
   include("../../inc/class/usuario-db.class.php");
   include("../../inc/class/login.class.php");
 
   // Instanciar classes de acesso / obtenção de usuários:
 
-  $acessoDados = new UsuarioDB;               // Instanciar classe acesso
-  $usuario = $acessoDados->listarUsuario($id_usuario); // Obter usuários
+  $acessoDados = new UsuarioDB;                         // Instanciar classe acesso
+  $usuario = $acessoDados->listarUsuario($id_usuario);  // Obter usuários
 ?>
 
 <!DOCTYPE html>

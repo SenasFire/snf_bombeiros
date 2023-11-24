@@ -60,24 +60,14 @@
         </div>
         <hr class="border-vermelho self-center border-y-1" width="90%">
         <ul class="navlinks flex flex-col justify-center items-start gap-2.5 p-4 self-stretch text-vermelho font-poppins">
-          <li>
-            <a href="../ocorrencia.php" class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Nova Ocorrência</a>
+        <li>
+            <a href="ocorrencia.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Nova Ocorrência</a>
           </li>
           <li>
-            <a class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Socorrista</a></li>
-          <li>
-            <a class="cursor-pointer flex flex-row gap-2.5 
-                      justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Médico</a>
+            <a href="adm/cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Socorrista</a>
           </li>
           <li>
-            <a class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Nova USB</a>
-          </li>
-          <li>
-            <a class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo DESP</a>
+            <a href="adm/cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Médico</a>
           </li>
         </ul>
       </section>

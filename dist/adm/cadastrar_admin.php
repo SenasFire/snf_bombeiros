@@ -1,14 +1,17 @@
 <?php
   session_start();
+
+  // Instanciar classe de acesso ao banco de dados:
   require_once "../../inc/class/dbh.class.php";
   $dbh = new Dbh();
 
-  if(!isset($_SESSION["usuario_id"])) {
-    header("Location: ../login.php?error=invalid-access");
-  }
-
   $id_usuario = $_SESSION['usuario_id'];
 
+  if(!isset($id_usuario)) {
+    header("Location: ../login.php?error=invalid-access");
+  }  
+
+  // Consulta para listar os usuários
   $sql = "SELECT * from usuarios_socorristas";
   $stmt = $dbh->connect()->prepare($sql);
   $stmt->execute();
@@ -39,9 +42,9 @@
 
 <body>
   <?php include("../../inc/views/nav-admin.inc.php"); ?>
-
   <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-center justify-center w-full">
     <section class="flex flex-row items-center justify-center w-full font-poppins text-2xl gap-[1.875rem]">
+      <!-- Acessar as funções de cadastro rapidamente -->
       <section class="flex flex-col justify-center items-start p-[1.25rem] gap-2 bg-white shadow-lg w-full h-full">
         <header class="font-poppins text-[2rem] font-semibold">
           <h1>Acesso Rápido</h1>
@@ -71,8 +74,18 @@
               <p>Nova Notícia</p>
             </button>
           </div>
+          <div class="group hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho w-full">
+            <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <button id="btn_new_admin" class="w-full items-start justify-start text-left">
+              <p>Novo Administrador</p>
+            </button>
+          </div>
         </section>
       </section>
+
+
+      <!-- Formulários de cadastro: -->
+
 
       <section class="flex flex-col justify-center items-start p-[1.25rem] gap-2 bg-white shadow-lg w-full h-full">
         <header class="flex flex-row font-poppins gap-2.5 items-center">
@@ -118,13 +131,17 @@
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Usuário<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 
-        <!-- Nova Equipe: -->
+        <!-- Criação de equipes (que são regitradas na ocorrência) -->
         <form id="form_new_team" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="../../inc/nova-equipe.php" method="POST">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome_motorista" class="text-xl">Motorista:</label>
-            <select name="motorista" id="motorista" class="select text-xl border-2 border-[#595959]">
+            <select name="motorista" id="motorista" class="select text-xl border-2 border-[#595959]" required>
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
+                //  - Cada select é preenchido com options
+                //  - Options são echos de resultados de uma consulta SQL
+                //  - Só podem ser criadas equipes com usuários que existam
+                
                 foreach ($resultados as $resultado) {
                   $id = $resultado['usuarios_id'];
                   $nome_usuario = $resultado['usuarios_username'];
@@ -138,7 +155,7 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="primeiro_socorrista" class="text-xl">Primeiro Socorrista:</label>
-            <select name="primeiro_socorrista" id="primeiro_socorrista" class="select text-xl border-2 border-[#595959]">
+            <select name="primeiro_socorrista" id="primeiro_socorrista" class="select text-xl border-2 border-[#595959]" required>
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
                 foreach ($resultados as $resultado) {
@@ -154,7 +171,7 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="segundo_socorrista" class="text-xl">Segundo Socorrista:</label>
-            <select name="segundo_socorrista" id="segundo_socorrista" class="select text-xl border-2 border-[#595959]">
+            <select name="segundo_socorrista" id="segundo_socorrista" class="select text-xl border-2 border-[#595959]" required>
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
                 foreach ($resultados as $resultado) {
@@ -170,7 +187,7 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="terceiro_socorrista" class="text-xl">Terceiro Socorrista:</label>
-            <select name="terceiro_socorrista" id="terceiro_socorrista" class="select text-xl border-2 border-[#595959]">
+            <select name="terceiro_socorrista" id="terceiro_socorrista" class="select text-xl border-2 border-[#595959]" required>
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
                 foreach ($resultados as $resultado) {
@@ -186,7 +203,7 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="demandante" class="text-xl">Demandante:</label>
-            <select name="demandante" id="demandante" class="select text-xl border-2 border-[#595959]">
+            <select name="demandante" id="demandante" class="select text-xl border-2 border-[#595959]" required>
               <option class="text-xs" value="None" disabled selected>Selecione:</option>
               <?php
                 foreach ($resultados as $resultado) {
@@ -209,7 +226,7 @@
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Equipe<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 
-        <!-- Adicionar novo médico: -->
+        <!-- Adicionar novo médico (nome, cpf, senha, email...) -->
         <form id="form_new_doctor" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="medico_nome" class="text-xl">Nome do médico:</label>
@@ -235,7 +252,7 @@
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Cadastrar Médico<img src="../../public/images/caret.svg" alt=""></button>
         </form>
 
-        <!-- Adicionar nova postagem -->
+        <!-- Adicionar nova postagem (imagem, título, conteúdo...) -->
         <form id="form_new_post" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="" method="">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="titulo_post" class="text-xl">Título do post:</label>
@@ -252,7 +269,7 @@
             <input name="imagem" id="imagem_post" type="file" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
             transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira a imagem aqui">
           </div>
-          <input type="hidden" name="submit_id" value=<?php echo $id_usuario ?>>
+          <input type="hidden" name="submit_id" value=<?php echo $id_usuario // Envia o ID do usuário que criou o POST ?>>
           <div class="input_box flex flex-col gap-2.5" title="Input Box">
             <label for="comentarios" class="text-xl">Comentários habilitados:</label>
             <div id="comentarios" class="container_radio flex flex-row items-center gap-10">
@@ -272,6 +289,10 @@
       </section>
     </section>
 
+
+    <!-- Tabelas com os dados dos médicos e socorristas: -->
+
+
     <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex justify-center items-start gap-10 self-stretch">
       <section aria-labelledby="title_socorristas" class="socorristas flex flex-col gap-5 h-full w-full" title="Socorristas Cadastrados">
         <header>
@@ -282,7 +303,7 @@
           <input id="buscar_socorristas" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
         </div>
-        <!-- Table aqui: -->
+        <!-- Tabela de listagem dos usuários -->
         <table class="min-w-full border-collapse border border-gray-300 font-poppins w-1/2">
           <thead>
               <tr class="bg-gray-200">
@@ -294,10 +315,14 @@
               </tr>
           </thead>
           <tbody id="userTable" class="w-full">
-
+            <!-- 
+              Essa parte é preenchida com ajax
+              Exibe/exclui os bombeiros cadastrados
+             -->
           </tbody>
         </table>
       </section>
+
       <section aria-labelledby="title_medicos" class="medicos flex flex-col gap-5 h-full w-full" title="Médicos Cadastrados">
         <header>
           <h1 id="title_medicos" class="font-poppins font-regular text-4xl">Médicos Cadastrados</h1>
@@ -307,7 +332,7 @@
           <input id="buscar_medicos" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
           transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
         </div>
-        <!-- Table aqui: -->
+        <!-- Tabela de listagem dos médicos -->
         <table class="min-w-full border-collapse border border-gray-300 font-poppins w-full">
           <thead>
               <tr class="bg-gray-200">
@@ -316,17 +341,18 @@
                   <th class="border border-gray-300 py-2 px-4">CPF</th>
                   <th class="border border-gray-300 py-2 px-4">Email</th>
                   <th class="border border-gray-300 py-2 px-4">Ações</th>
-                </tr>
+              </tr>
           </thead>
           <tbody id="doc_table">
-
+            <!-- 
+              Essa parte é preenchida com ajax
+              Exibe/exclui os médicos cadastrados
+             -->
           </tbody>
         </table>
       </section>
     </section>
-
   </main>
-
   <?php include("../../inc/views/footer-adm.inc.php"); ?>
 </body>
 

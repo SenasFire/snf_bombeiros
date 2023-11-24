@@ -34,7 +34,7 @@
     </section>
   </section>
 
-  <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex h-full justify-center items-start gap-10 self-stretch">
+  <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex flex-col lg:flex-row h-full justify-center items-start gap-10 self-stretch">
     <section aria-labelledby="title_socorristas" class="socorristas flex flex-col gap-5 h-full w-full" title="Socorristas Cadastrados">
       <header>
         <h1 id="title_socorristas" class="font-poppins font-semibold text-3xl">Ocorrências</h1>
@@ -70,10 +70,12 @@
                   <a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='../../inc/class/usuario-db.class.php?action=excluir-ocorrencia&id=$id'>Excluir</a>
                   <a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='visualizar.php?action=visualizar-ocorrencia&id=$id'>Visualizar</a>
                   </td>");
-                echo("<tr>");
+                echo("</tr>");
               }
             } else {
-              echo ("<p>Nenhuma ocorrência no momento.</p>");
+              echo("<tr class='border border-gray-300 hover:bg-gray-100'>");
+                echo("<td colspan='5' class='py-2 px-4 text-center'><p>Nenhuma ocorrência no momento.</p></td>");
+              echo("<tr>");
             }
           ?>
         </tbody>

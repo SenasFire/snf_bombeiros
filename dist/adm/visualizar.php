@@ -1,11 +1,10 @@
 <?php
   session_start();
+  $id_usuario = $_SESSION['usuario_id'];
 
-  if(!isset($_SESSION["usuario_id"])) {
+  if(!isset($id_usuario)) {
     header("Location: ../login.php?error=invalid-access");
   }
-
-  $id_usuario = $_SESSION['usuario_id'];
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +28,7 @@
   <title>Painel Admin</title>
 </head>
 
-<body class="bg-bg-mobile bg-no-repeat bg-contain bg-local tablet:bg-none lg:bg-none">
+<body class="tablet:bg-none lg:bg-none">
   <?php include("../../inc/views/nav-admin.inc.php"); ?>
   <?php include("../../inc/views/visualizar-conteudo.inc.php"); ?>
   <?php include("../../inc/views/footer-adm.inc.php") ?>

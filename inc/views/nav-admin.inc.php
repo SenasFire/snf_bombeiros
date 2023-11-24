@@ -54,30 +54,20 @@
         group-hover:max-h-[1000px] group-hover:transition-[max-height] group-hover:duration-300 group-hover:ease-in drop-shadow-lg
       ">
         <div class="close flex justify-center items-start self-stretch gap-1 p-4 cursor-pointer">
-          <a class="self-center text-vermelho font-poppins cursor-pointer" href="cadastrar_admin.php">Novo Cadastro</a>
+          <a class="self-center text-vermelho font-poppins cursor-pointer"">Novo Cadastro</a>
           <button class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
           </button>
         </div>
         <hr class="border-vermelho self-center border-y-1" width="90%">
         <ul class="navlinks flex flex-col justify-center items-start gap-2.5 p-4 self-stretch text-vermelho font-poppins">
           <li>
-            <a href="../ocorrencia.php" class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Nova Ocorrência</a>
+            <a href="../ocorrencia.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Nova Ocorrência</a>
           </li>
           <li>
-            <a class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo Socorrista</a></li>
-          <li>
-            <a class="cursor-pointer flex flex-row gap-2.5 
-                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo Médico</a>
+            <a href="cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo Socorrista</a>
           </li>
           <li>
-            <a class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Nova USB</a>
-          </li>
-          <li>
-            <a class="cursor-pointer flex flex-row gap-2.5
-                      justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo DESP</a>
+            <a href="cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo Médico</a>
           </li>
         </ul>
       </section>
@@ -98,9 +88,8 @@
         <ul class="navlinks flex flex-col justify-center items-start gap-2.5 p-4 self-stretch text-vermelho font-poppins">
           <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Equipes</a></li>
           <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Socorristas</a></li>
-          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Médicos<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
-          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">USBs<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
-          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">DESPs</a></li>
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Ocorrências</a></li>
+          <li><a class="cursor-pointer flex flex-row gap-2.5 justify-center items-center">Histórico</a></li>
         </ul>
       </section>
     </li>
