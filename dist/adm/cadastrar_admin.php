@@ -261,8 +261,9 @@
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="conteudo_post" class="text-xl">Conteúdo do post</label>
-            <input name="conteudo_post" id="conteudo_post" type="textarea" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o conteúdo aqui...">
+            <textarea name="conteudo_post" id="conteudo_post" type="textarea" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+              transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite o conteúdo aqui...">
+            </textarea>
           </div>
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="imagem_post" class="text-xl">Imagem do post:</label>

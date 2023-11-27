@@ -21,7 +21,38 @@
       </h1>
       <p class="text-sm text-cinza text-center">Insira suas informações para cadastro</p>
     </header>
-    
+    <?php
+      if(isset($_GET["error"])) {
+        $return_error = $_GET["error"];      
+        if($return_error === "num-fibra-taken") {
+          echo "
+            <div class='error_message error flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+              <img src='../public/images/alert-icon.svg' alt='Alerta'>
+              <p class='text-sm text-vermelho font-poppins'>Erro ao cadastrar: Número fibra já em uso</p>
+            </div>
+          ";
+        } else if($return_error === "empty-input") {
+          echo "
+            <div class='error_message error flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+              <img src='../public/images/alert-icon.svg' alt='Alerta'>
+              <p class='text-sm text-vermelho font-poppins'>Erro ao cadastrar: Há campos vazios</p>
+            </div>
+          ";
+        }
+      }
+
+      if(isset($_GET["success"])) {
+        $return_success = $_GET["success"];
+        if($return_success === "usuario-cadastrado") {
+          echo "
+            <div class='flex bg-success_bg border-2 border-border_success flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+              <img src='../public/images/alert-success.svg' class='stroke-success_color' alt='Alerta'>
+              <p class='text-sm text-success_color font-poppins'>Cadastro realizado com sucesso, <a href='login.php' class='font-bold cursor-pointer'>clique aqui para fazer log-in</a></p>
+            </div>
+          ";
+        }
+      }
+    ?>
     <form action="../inc/form-handler.inc.php" method="post" class="flex flex-col gap-2.5">
       
       <?php
@@ -54,7 +85,7 @@
         <label for="admin">Administrador:</label>
         <div class="container_radio flex flex-row items-center gap-10">
           <div class="flex items-center gap-2.5">
-            <input type="radio" id="adm_sim" name="cmdt_radio" value="Ssim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="cmdt_radio" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-center gap-2.5">
             <input type="radio" id="adm_nao" name="cmdt_radio" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full"><label for="adm_nao">Não</label>

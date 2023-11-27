@@ -11,26 +11,13 @@
   $dbh = new Dbh();
   $sql = "SELECT ocorrencia_id, ocorrencia.nome_paciente, ocorrencia.cpf, ocorrencia.data, ocorrencia.local_ocorrencia FROM ocorrencia ORDER BY ocorrencia.data";
 
-  $stmt = $dbh->connect()->prepare($sql);
-  $stmt->execute();
+  $stmt_ocorrencias = $dbh->connect()->prepare($sql);
+  $stmt_ocorrencias->execute();
 
-  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  if ($stmt->rowCount() > 0) {
+  $resultados = $stmt_ocorrencias->fetchAll(PDO::FETCH_ASSOC);
+  if ($stmt_ocorrencias->rowCount() > 0) {
     $id = $resultados[0]['ocorrencia_id'];
   }
-
-  $sql_noticias = "SELECT * FROM alertas_e_noticias";
-  $stmt_noticias = $dbh->connect()->prepare($sql_noticias);
-  $stmt_noticias->execute();
-
-  $noticias_resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-  $sql_criador = "SELECT usuarios_socorristas.usuarios_username AS nome FROM alertas_e_noticias INNER JOIN usuarios_socorristas ON alertas_e_noticias.noticia_criador = usuarios_socorristas.usuarios_id";
-  $stmt_criador = $dbh->connect()->prepare($sql_criador);
-  $stmt_criador->execute();
-  $dados_criador = $stmt_criador->fetch();
-
-  $criador = $dados_criador["nome"];
 ?>
 
 <main class="flex flex-col h-full px-16 py-8 gap-8 self-stretch items-center justify-start lg:h-screen">
@@ -38,20 +25,39 @@
     <header>
       <h1 class="text-preto font-poppins font-semibold text-4xl">Alertas e Notícias</h1>
     </header>
-    <section aria-label="Notícias" class="flex flex-row justify-start items-start gap-10 self-stretch w-full">
+    <section aria-label="Notícias" class="flex flex-col lg:flex-row overflow-x-auto justify-start items-start gap-10 p-4 self-stretch w-full">
       <?php
+        $sql_noticias = "SELECT * FROM alertas_e_noticias";
+        $stmt_noticias = $dbh->connect()->prepare($sql_noticias);
+        $stmt_noticias->execute();
+
         if($stmt_noticias->rowCount() > 0) {
           while ($linhas = $stmt_noticias->fetch()) {
+            $id_noticia = $linhas["noticia_id"];
             $imagem = $linhas["noticia_imagem"];
             $titulo = $linhas["noticia_nome"];
 
             $imagem_convertida = base64_decode($imagem);
+
+            // Recupera o nome do criador para cada notícia
+            $sql_criador = "SELECT usuarios_socorristas.usuarios_username AS nome FROM alertas_e_noticias INNER JOIN usuarios_socorristas ON alertas_e_noticias.noticia_criador = usuarios_socorristas.usuarios_id WHERE noticia_id = :noticia_id";
+            $stmt_criador = $dbh->connect()->prepare($sql_criador);
+            $stmt_criador->bindParam(':noticia_id', $id_noticia, PDO::PARAM_INT);
+            $stmt_criador->execute();
+            $dados_criador = $stmt_criador->fetch();
+
             echo "
-              <div class='bg-white p-2 drop-shadow-lg font-poppins'>
-                <img src='data:image/jpeg;base64,$imagem' class='w-full h-[180px]'>
-                <p class='font-bold text-xl'>$titulo</p>
-                <p class='text-sm'>$criador</p>
-              </div>
+              <a class='w-full' href='ver_noticia.php?noticia=$titulo&usuario=$id_usuario&id_noticia=$id_noticia&criador={$dados_criador['nome']}'>
+                <div class='bg-white p-2 drop-shadow-lg font-poppins w-full h-[292px] overflow-hidden relative'>
+                  <img src='data:image/jpeg;base64,$imagem' class='w-full h-full object-cover'>
+                  <div class='absolute inset-0 flex flex-col justify-end'>
+                    <div class='bg-white px-4'>
+                      <p class='font-bold text-xl'>$titulo</p>
+                      <p class='text-sm'>{$dados_criador['nome']}</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
             ";
             echo "
             
@@ -86,7 +92,7 @@
         </thead>
         <tbody>
           <?php
-            if($stmt->rowCount() > 0){
+            if($stmt_ocorrencias->rowCount() > 0){
               foreach ($resultados as $resultado) {
                 $id = $resultado['ocorrencia_id'];
                 $nome_paciente = $resultado['nome_paciente'];
@@ -133,7 +139,7 @@
         </thead>
         <tbody>
           <?php 
-            if($stmt->rowCount() > 0){
+            if($usuarios > 0){
               foreach ($usuarios as $usuario): 
           ?>
             <tr class="hover:bg-gray-100">

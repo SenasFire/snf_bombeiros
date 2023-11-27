@@ -21,12 +21,27 @@
       </h1>
       <p class="text-sm text-cinza text-center">Insira suas informações para entrar</p>
     </header>
-    
+    <?php
+      if(isset($_GET["error"])) {
+        $return_error = $_GET["error"];      
+        if($return_error === "user-not-found") {
+          echo "
+            <div class='error_message error flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+              <img src='../public/images/alert-icon.svg' alt='Alerta'>
+              <p class='text-sm text-vermelho font-poppins'>Erro ao fazer log-in: Usuário não encontrado</p>
+            </div>
+          ";
+        } else if($return_error === "senha-incorreta") {
+          echo "
+            <div class='error_message error flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+              <img src='../public/images/alert-icon.svg' alt='Alerta'>
+              <p class='text-sm text-vermelho font-poppins'>Erro ao fazer log-in: Senha incorreta</p>
+            </div>
+          ";
+        }
+      }
+    ?>
     <form class="flex flex-col gap-2.5" action="../inc/login.inc.php" method="POST" id="form_cadastro">
-      <div id="error" class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
-        <img src="../public/images/alert-icon.svg" alt="Alerta">
-        <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
-      </div>
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">N° Fibra:</label>
         <input id="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 

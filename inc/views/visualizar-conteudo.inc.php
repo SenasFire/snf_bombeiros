@@ -5,7 +5,7 @@
   $id = $_GET["id"];
   $dbh = new Dbh();
   $sql = "SELECT `nome_paciente` AS 'Nome do paciente', `cpf` AS 'CPF', `genero` AS 'Gênero', `idade` AS 'Idade', `acompanhante` AS 'Acompanhante', `idade_acompanhante` AS 'Idade do acompanhante', 
-  `num_ocorrencia` AS 'Número da ocorrência', `local_ocorrencia` AS 'Local da ocorrência', `data` AS 'Data da ocorrência', `equipe_atendimento` AS 'Equipe de atendimento', `num_desp`, 
+  `num_ocorrencia` AS 'Número da ocorrência', `local_ocorrencia` AS 'Local da ocorrência', `data` AS 'Data da ocorrência', `equipe_atendimento` AS 'Equipe de atendimento', `num_desp` AS 'Despachante', 
   `aconteceu_outras_vezes` AS 'Ocorrência já aconteceu outras vezes', `qt_tempo_aconteceu` AS 'A quanto tempo aconteceu?', `problema_saude` AS 'Possuí problema de saúde?', `tipo_problema_saude` AS 'Problema de saúde', 
   `medicacao` AS 'Faz uso de medicação', `medicacao_horario` AS 'Horário da medicação', `medicamento_usado` AS 'Medicamento utilizado', `alergia` AS 'Possuí alergias', `alergia_tipo` AS 'Tipo da alergia', 
   `ingeriu_alimento` AS 'Ingeriu algo', `horario_ingestao` AS 'Horário da ingestão', `abertura_ocular` AS 'Resposta ocular', `resposta_verbal` AS 'Resposta verbal', 
@@ -29,7 +29,11 @@
   }
 ?>
 
-<main class="flex flex-col h-fit px-16 py-8 gap-8 self-stretch items-center justify-start font-poppins">
+<main class="flex flex-col h-fit px-16 py-8 gap-8 self-stretch items-start justify-start font-poppins">
+  <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
+    <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">
+    <p class="text-vermelho text-xl font-bold">Voltar</p>
+  </a>
   <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex h-full justify-center items-start gap-10 self-stretch">
     <section aria-labelledby="title_socorristas" class="socorristas flex flex-col gap-5 h-full w-full" title="Socorristas Cadastrados">
       <header>

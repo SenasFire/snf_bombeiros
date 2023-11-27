@@ -39,7 +39,10 @@ module.exports = {
         input_color: '#EDEDED',
         input_placeholder: 'rgba(89,89,89,0.75)',
         error_bg: 'rgba(199, 64, 45, 0.10)',
-        border_error: 'rgba(199, 64, 45, 0.60)'
+        border_error: 'rgba(199, 64, 45, 0.60)',
+        success_color: '#61C830',
+        border_success: 'rgba(97, 200, 48, 0.60)',
+        success_bg: 'rgba(97, 200, 48, 0.10)'
       },
       width: {
         imagem_placeholder: '192px'

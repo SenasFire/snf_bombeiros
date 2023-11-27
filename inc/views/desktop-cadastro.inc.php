@@ -18,10 +18,38 @@
         <h1 class="font-bold text-preto text-4xl font-poppins text-center"><span class="font-bold text-vermelho">Cadastre-se</span> no app</h1>
         <p class="text-xl lg:text-sm text-cinza font-poppins text-center">Insira suas informações para cadastro</p>
       </header>
-      <div class="error_message error bg-error_bg border-2 border-border_error hidden flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch" title="Alerta" aria-label="Alerta">
-        <img src="../public/images/alert-icon.svg" alt="Alerta">
-        <p class="text-sm text-vermelho font-poppins">Há campos inválidos</p>
-      </div>
+      <?php
+        if(isset($_GET["error"])) {
+          $return_error = $_GET["error"];      
+          if($return_error === "num-fibra-taken") {
+            echo "
+              <div class='error_message error flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+                <img src='../public/images/alert-icon.svg' alt='Alerta'>
+                <p class='text-sm text-vermelho font-poppins'>Erro ao cadastrar: Número fibra já em uso</p>
+              </div>
+            ";
+          } else if($return_error === "empty-input") {
+            echo "
+              <div class='error_message error flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+                <img src='../public/images/alert-icon.svg' alt='Alerta'>
+                <p class='text-sm text-vermelho font-poppins'>Erro ao cadastrar: Há campos vazios</p>
+              </div>
+            ";
+          }
+        }
+
+        if(isset($_GET["success"])) {
+          $return_success = $_GET["success"];
+          if($return_success === "usuario-cadastrado") {
+            echo "
+              <div class='flex bg-success_bg border-2 border-border_success flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+                <img src='../public/images/alert-success.svg' class='stroke-success_color' alt='Alerta'>
+                <p class='text-sm text-success_color font-poppins'>Cadastro realizado com sucesso, <a href='login.php' class='font-bold cursor-pointer'>clique aqui para fazer log-in</a></p>
+              </div>
+            ";
+          }
+        }
+      ?>
       <form action="../inc/form-handler.inc.php" method="post" class="flex flex-col gap-2.5 w-full font-poppins">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome_desktop">Nome:</label>

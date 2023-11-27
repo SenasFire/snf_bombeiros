@@ -29,6 +29,7 @@
     <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-preto font-poppins">
     <li><a href="perfil.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Perfil</a></li>
       <li><a href="adm/main_admin.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Página Principal</a></li>
+      <li><a href="adm/consulta_avancada.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Consulta Avançada</a></li>
       <li><a href="adm/cadastrar_admin.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Novo Cadastro</a></li>
       <li><a href="ocorrencia.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Nova Ocorrência</a></li>
       <li><a href="historico.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Preencher Histórico</a></li>
@@ -42,6 +43,9 @@
     </li>
     <li>
       <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" href="adm/main_admin.php">Página Principal</a>
+    </li>
+    <li>
+      <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" href="adm/consulta_avancada.php">Consulta Avançada</a>
     </li>
 
     <!-- Lista Dropdown: -->
@@ -68,6 +72,9 @@
           </li>
           <li>
             <a href="adm/cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Socorrista</a>
+          </li>
+          <li>
+            <a href="adm/cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Post</a>
           </li>
           <li>
             <a href="adm/cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../public/images/add-icon.svg" alt="Adicionar">Novo Médico</a>

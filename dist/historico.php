@@ -38,7 +38,7 @@
       include("../inc/views/nav.inc.php"); 
     }
   ?>
-  <main class="flex flex-col items-center w-full h-fit gap-3 font-poppins p-12 md:gap-8">
+  <main class="flex flex-col items-center w-full md:h-screen gap-3 font-poppins p-12 md:gap-8 overflow-y-auto">
     <?php include("../inc/views/historico-conteudo.inc.php"); ?>
   </main>
   <?php include("../inc/views/footer.inc.php"); ?>
