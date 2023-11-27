@@ -9,16 +9,20 @@
   $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
-<header class="noar_logo flex flex-col text-center items-center justify-center gap-1 font-poppins
-    tablet:flex-row tablet:justify-start tablet:w-full md:hidden">
+<header class="noar_logo flex flex-col text-center items-center justify-center gap-1 font-poppins md:hidden">
     <img src="../public/images/logo-noar-opt.svg" alt="" srcset="" class="w-[192px] h-[192px] tablet:w-[236px] tablet:h-[236px]">
     <div class="tablet:flex tablet:flex-col tablet:items-start tablet:gap-5 tablet:pt-10 tablet:justify-start tablet:text-left">
-      <legend class="hidden tablet:flex font-bold text-3xl text-white tablet:text-preto">Bombeiros Voluntários</legend>
+      <legend class="hidden font-bold text-3xl text-white tablet:text-preto">Bombeiros Voluntários</legend>
     </div>
 </header>
+<section aria-labelledby="title_main" class="flex flex-col px-8 justify-center items-center gap-10 self-stretch">
+  <header class="flex flex-col justify-center items-center gap-3 self-stretch text-center last:pb-2 last:border-b-2 laptop:last:p-6 last:border-[#595959]">
+    <h1 id="title_main"  class="font-bold text-3xl"><span class="text-vermelho">Cadastrar nova</span> da ocorrência</h1>
+    <p id="subtitle"     class="text-cinza text-sm text-center">Selecione as opções abaixo de acordo com a sua <b>necessidade.</b></p>
+  </header>
+</section>
 
-<section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">  
+<section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">
   <form class="flex flex-col gap-8 font-poppins" action="../inc/class/cadastrar-ocorrencia.class.php" method="POST">
     <!-- EQUIPE DE ATENDIMENTO: -->
     <section class="flex flex-col gap-2.5">
@@ -82,19 +86,19 @@
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Acompanhante:</label>
         <input name="acompanhante_paciente" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho"placeholder="Ex: (47) 9002-8922" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho"placeholder="Nome do acompanhante" required>
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Idade do Acompanhante:</label>
         <input name="idade_acompanhante" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Paulo César" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Idade do acompanhante" required>
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Local da Ocorrência:</label>
         <input name="local_ocorrencia" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Rua Petrópolis 1940" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Rua Fulano de Tal, 1940" required>
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">

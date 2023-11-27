@@ -26,13 +26,13 @@
       <button onclick="retrairMenu()" id="nav-close" class="nav-close bg-close w-8 h-8 bg-no-repeat bg-center">
       </button>
     </div>
-    <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
-      <li><a class="cursor-pointer">Perfil</a></li>
-      <li><a class="cursor-pointer">Página Principal</a></li>
-      <li><a onclick="abrirCadastro();" class="flex flex-row gap-2.5 justify-center items-center">Novo Cadastro<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
-      <li><a onclick="abrirVisualizar();" class="flex flex-row gap-2.5 justify-center items-center">Visualizar<img src="../../public/images/caret-right.svg" alt="Seta Para Baixo"></a></li>
-      <li><a class="cursor-pointer">Ajuda</a></li>
-      <li><a class="cursor-pointer">Acessibilidade</a></li>
+    <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-preto font-poppins">
+      <li><a href="perfil.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Perfil</a></li>
+      <li><a href="main_admin.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Página Principal</a></li>
+      <li><a href="cadastrar_admin.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Novo Cadastro</a></li>
+      <li><a href="../ocorrencia.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Nova Ocorrência</a></li>
+      <li><a href="../historico.php" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Preencher Histórico</a></li>
+      <li><a href="../../inc/class/usuario-db.class.php?action=log-out" class="cursor-pointer hover:text-vermelho transition-colors duration-300">Sair</a></li>
     </ul>
   </section>
 
@@ -62,6 +62,9 @@
         <ul class="navlinks flex flex-col justify-center items-start gap-2.5 p-4 self-stretch text-vermelho font-poppins">
           <li>
             <a href="../ocorrencia.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Nova Ocorrência</a>
+          </li>
+          <li>
+            <a href="../historico.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Histórico</a>
           </li>
           <li>
             <a href="cadastrar_admin.php" class="cursor-pointer flex flex-row gap-2.5 justify-center items-center"><img src="../../public/images/add-icon.svg" alt="Adicionar">Novo Socorrista</a>

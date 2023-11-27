@@ -51,16 +51,11 @@
   $problemasSuspeitos = implode(", ", $problemasSuspeitosArr);
 
 
-  if (isset($_POST['tipo_checkbox'])) {
-    $tipoOcorrencia = $_POST['tipo_checkbox'];
-    // Agora $tipoOcorrencia contém um array com os valores dos checkboxes selecionados
-  }
+  $tipoOcorrenciaArr = isset($_POST["tipo_checkbox"]) ? $_POST["tipo_checkbox"] : [];
+  $tipoOcorrencia = implode(", ", $tipoOcorrenciaArr);
 
-  // Processa os campos de sinais e sintomas
-  if (isset($_POST['sinais_sintomas_checkbox'])) {
-      $sinaisSintomas = $_POST['sinais_sintomas_checkbox'];
-      // Agora $sinaisSintomas contém um array com os valores dos checkboxes selecionados
-  }
+  $sinaisSintomasArr = isset($_POST["sinais_sintomas_checkbox"]) ? $_POST["sinais_sintomas_checkbox"] : [];
+  $sinaisSintomas = implode(", ", $sinaisSintomasArr);
 
   // Outros campos
   $problemaRespiratorio = $_POST['problema_respiratorio'];
@@ -120,11 +115,11 @@
     '$numeroOcorrencia', '$localOcorrencia', '$data', $equipeAtendimento, '$despachante', 
     '$anamneseOutrasVezes', '$anamneseTempo', '$anamnesePossuiProbSaude', '$anamneseProblemaSaude', '$anamneseUsaMedicacao', '$anamneseHorarioMedicacao', 
     '$anamneseMedicacaoUsada', '$anamneseAlergico', '$anamneseEspecifiqueAlergia', '$anamneseIngeriuAlimento', '$anamneseHorasIngeriuAlimento', 
-    '$aberturaOcular','$respostaVerbal','$respostaMotora','$avaTotal','$tipoOcorrencia[0]', '$escolhaCinematica', '$escolhaCinematicaCap', 
+    '$aberturaOcular','$respostaVerbal','$respostaMotora','$avaTotal','$tipoOcorrencia', '$escolhaCinematica', '$escolhaCinematicaCap', 
     '$escolhaCinematicaCinto', '$escolhaCinematicaPb', '$escolhaCinematicaCam', 
     '$escolhaCinematicaPainel', '$escolhaCinematicaVol', 
     '$problemasSuspeitos', '$problemaRespiratorio', '$diabetes', 
-    '$problemaObsterico', '$formaTransporte', '$sinaisSintomas[0]', '$tipoCianose', 
+    '$problemaObsterico', '$formaTransporte', '$sinaisSintomas', '$tipoCianose', 
     '$escolhaConducao', '$vitimaEra', '$escolhaTransporte', '$pressao', 
     '$pulso', '$respiracao', '$saturacao', '$temperatura', 
     '$escolhaPerfusao', '$kmFinal', '$nomeHospital', '$hch', 

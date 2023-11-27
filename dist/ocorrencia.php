@@ -5,22 +5,23 @@
   $id = $_SESSION["usuario_id"];
 
   if(!isset($_SESSION["usuario_id"])) {
-    header("Location: ../login.php?error=invalid-access");
+    header("Location: login.php?error=invalid-access");
   }
 
   $dbh = new Dbh();
   $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_e_cmdt = 'Sim' AND usuarios_id = $id";
   $stmt = $dbh->connect()->prepare($sql);
   $stmt->execute();
-  $stmt->fetch();
+  
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<html>
+<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="Website Icon" type="png" href=../public/images/logo-noar.png" />
+  <link rel="Website Icon" type="png" href="../public/images/logo-noar.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

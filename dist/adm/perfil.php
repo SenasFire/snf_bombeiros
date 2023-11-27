@@ -39,7 +39,7 @@
 <body>
   <?php include("../../inc/views/nav-admin.inc.php"); ?>
 
-  <main class="flex flex-row px-16 py-8 gap-8 self-stretch items-center justify-center w-full h-max font-poppins">
+  <main class="flex flex-row px-16 py-8 gap-8 self-stretch items-center justify-center w-full h-max font-poppins lg:h-screen">
     <section class="flex flex-col">
       <header>
         <h1 class="font-semibold text-4xl">Meu Perfil</h1>

@@ -18,26 +18,59 @@
   if ($stmt->rowCount() > 0) {
     $id = $resultados[0]['ocorrencia_id'];
   }
+
+  $sql_noticias = "SELECT * FROM alertas_e_noticias";
+  $stmt_noticias = $dbh->connect()->prepare($sql_noticias);
+  $stmt_noticias->execute();
+
+  $noticias_resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  $sql_criador = "SELECT usuarios_socorristas.usuarios_username AS nome FROM alertas_e_noticias INNER JOIN usuarios_socorristas ON alertas_e_noticias.noticia_criador = usuarios_socorristas.usuarios_id";
+  $stmt_criador = $dbh->connect()->prepare($sql_criador);
+  $stmt_criador->execute();
+  $dados_criador = $stmt_criador->fetch();
+
+  $criador = $dados_criador["nome"];
 ?>
 
-<main class="flex flex-col h-screen px-16 py-8 gap-8 self-stretch items-center justify-start">
+<main class="flex flex-col h-full px-16 py-8 gap-8 self-stretch items-center justify-start lg:h-screen">
   <section aria-labelledby="title_noticias" title="Alertas e notícias" class="flex flex-col items-start gap-2.5 w-full">
     <header>
       <h1 class="text-preto font-poppins font-semibold text-4xl">Alertas e Notícias</h1>
     </header>
     <section aria-label="Notícias" class="flex flex-row justify-start items-start gap-10 self-stretch w-full">
-      <div class="bg-[#B9E4C5] w-full h-[180px] drop-shadow-lg"></div>
-      <div class="bg-[#9EDEF2] w-full h-[180px] drop-shadow-lg"></div>
-      <div class="bg-[#F0ACAC] w-full h-[180px] drop-shadow-lg"></div>
-      <div class="bg-[#F5EC95] w-full h-[180px] drop-shadow-lg"></div>
-      <div class="bg-[#f595dd] w-full h-[180px] drop-shadow-lg"></div>
+      <?php
+        if($stmt_noticias->rowCount() > 0) {
+          while ($linhas = $stmt_noticias->fetch()) {
+            $imagem = $linhas["noticia_imagem"];
+            $titulo = $linhas["noticia_nome"];
+
+            $imagem_convertida = base64_decode($imagem);
+            echo "
+              <div class='bg-white p-2 drop-shadow-lg font-poppins'>
+                <img src='data:image/jpeg;base64,$imagem' class='w-full h-[180px]'>
+                <p class='font-bold text-xl'>$titulo</p>
+                <p class='text-sm'>$criador</p>
+              </div>
+            ";
+            echo "
+            
+            ";
+          }
+        } else {
+          echo "
+            <p>Não há nenhum alerta ou notícia próprio ou de nosso sistema, <a href='cadastrar_admin.php' class='font-bold underline'>cadastre uma notícia aqui!</a></p>
+          ";
+        }
+      ?>
     </section>
   </section>
 
-  <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex flex-col lg:flex-row h-full justify-center items-start gap-10 self-stretch">
+  <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex flex-col lg:flex-row h-full w-full justify-center items-start gap-10 self-stretch font-poppins">
     <section aria-labelledby="title_socorristas" class="socorristas flex flex-col gap-5 h-full w-full" title="Socorristas Cadastrados">
       <header>
-        <h1 id="title_socorristas" class="font-poppins font-semibold text-3xl">Ocorrências</h1>
+        <h1 id="title_socorristas" class="font-poppins font-semibold text-3xl">Ocorrências Cadastradas</h1>
+        <p>Aqui você encontra uma visão geral das informações das ocorrências cadastradas, você pode visualizá-las com mais detalhes, incluindo o histórico de cada uma clicando na ação "visualizar"</p>
       </header>
 
       <!-- Table aqui: -->
@@ -85,6 +118,7 @@
     <section aria-labelledby="title_medicos" class="medicos flex flex-col gap-5 h-full w-full" title="Médicos Cadastrados">
       <header>
         <h1 id="title_medicos" class="font-poppins font-semibold text-3xl">Bombeiros Cadastrados</h1>
+        <p>Aqui você encontra uma visão geral das informações dos bombeiros cadastrados, você pode visualizar seus dados com mais detalhes, clicando na ação "visualizar"</p>
       </header>
       <!-- Table aqui: -->
       <table class="min-w-full h-3/4 border-collapse border border-gray-300 font-poppins">
@@ -98,7 +132,10 @@
             </tr>
         </thead>
         <tbody>
-          <?php foreach ($usuarios as $usuario): ?>
+          <?php 
+            if($stmt->rowCount() > 0){
+              foreach ($usuarios as $usuario): 
+          ?>
             <tr class="hover:bg-gray-100">
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getNome(); ?></td>
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getFibra(); ?></td>
@@ -109,7 +146,14 @@
                 <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php $usuario->getId();?>)">Visualizar</a>
               </td>
             </tr>
-          <?php endforeach; ?>
+          <?php 
+              endforeach;
+            } else {
+              echo("<tr class='border border-gray-300 hover:bg-gray-100'>");
+                echo("<td colspan='5' class='py-2 px-4 text-center'><p>Nenhum usuário cadastrado</p></td>");
+              echo("<tr>");
+            }
+          ?>
         </tbody>
       </table>
     </section>

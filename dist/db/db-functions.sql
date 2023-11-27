@@ -171,3 +171,6 @@ CREATE TABLE ocorrencia (
     FOREIGN KEY (ocorrencia_tipo) REFERENCES tipo_ocorrencia(tp_ocorrencia_id),
     FOREIGN KEY (ocorrencia_prob_sus) REFERENCES problemas_sus_ocorrencia(prob_sus_id)
 );
+
+CREATE TABLE `snf_bombeiros`.`historico` 
+(`historico_id` INT(6) NOT NULL AUTO_INCREMENT , `ocorrencia_referente` INT(6) NOT NULL  , `socorrista_id` INT(6) NOT NULL , `procedimentos_efetuados` VARCHAR(200) NULL , `imobilizacoes` VARCHAR(200) NULL , `colar` VARCHAR(45) NULL , `tamanho_colar` VARCHAR(45) NULL , `lpm` VARCHAR(45) NULL , `meios_auxiliares` VARCHAR(200) NULL , `ataduras` INT(6) NULL , `cateter_tp_oculos` INT(6) NULL , `compressa_comum` INT(6) NULL , `kit_tipo` VARCHAR(45) NULL , `kit_qtd` INT(6) NULL , `luvas` INT(6) NULL , `mascaras` INT(6) NULL , `manta_aluminizada` INT(6) NULL , `pas_dea` INT(6) NULL , `sonda_asp` INT(6) NULL , `soro_fisiologico` INT(6) NULL , `talas_tipo` VARCHAR(45) NULL , `talas_qtd` INT(6) NULL , `base_establizador` INT(6) NULL , `colar_tipo` VARCHAR(45) NULL , `colar_qtd` INT(6) NULL , `coxins` INT(6) NULL , `ked_tipo` VARCHAR(45) NULL , `ket_qtd` INT(6) NULL , `maca_rigida` INT(6) NULL , `ttf_tipo` VARCHAR(45) NULL , `qtd_ttf` INT(6) NULL , `tirante_aranha` INT(6) NULL , `tirante_cabeca` INT(6) NULL , `canula` INT(6) NULL , `observacoes` VARCHAR(200) NULL , PRIMARY KEY (`historico_id`)) ENGINE = InnoDB;
