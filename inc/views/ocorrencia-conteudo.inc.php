@@ -24,6 +24,30 @@
 
 <section class="form-container flex flex-col items-center justify-center md:w-full tablet:w-full">
   <form class="flex flex-col gap-8 font-poppins" action="../inc/class/cadastrar-ocorrencia.class.php" method="POST">
+    <?php
+      if(isset($_GET["success"])) {
+        $return_success = $_GET["success"];
+
+        $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_e_cmdt = 'Sim' AND usuarios_id = $id";
+        $stmt = $dbh->connect()->prepare($sql);
+        $stmt->execute();
+        if($return_success === "ocorrencia-criada" && $stmt->rowCount()>0) {
+          echo "
+            <div class='flex bg-success_bg border-2 border-border_success flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+              <img src='../public/images/alert-success.svg' class='stroke-success_color' alt='Alerta'>
+              <p class='text-sm text-success_color font-poppins'>Ocorrência criada com sucesso, <a href='adm/main_admin.php' class='font-bold cursor-pointer'>clique aqui para visualizar as ocorrências!</a></p>
+            </div>
+          ";
+        } else if($return_success === "ocorrencia-criada") {
+          echo "
+          <div class='flex bg-success_bg border-2 border-border_success flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+            <img src='../public/images/alert-success.svg' class='stroke-success_color' alt='Alerta'>
+            <p class='text-sm text-success_color font-poppins'>Ocorrência criada com sucesso!</p>
+          </div>
+          ";
+        }
+      }
+    ?>
     <!-- EQUIPE DE ATENDIMENTO: -->
     <section class="flex flex-col gap-2.5">
       <legend class="font-bold text-xl tablet:text-2xl">Equipe de Atendimento</legend>
@@ -47,13 +71,13 @@
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Nome do Paciente:</label>
         <input name="input_name" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Henrique Osmar Adelino" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Henrique Osmar Adelino" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="data">Data</label>
         <input id="data" name="data" type="date" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 4200" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 4200" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
@@ -68,61 +92,61 @@
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Nome do Hospital:</label>
         <input name="nome_hospital" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Hospital Dona Helena" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Hospital Dona Helena" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">RG/CPF do Paciente:</label>
         <input name="rg_paciente" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho"placeholder="Ex: 123.456.789-01" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho"placeholder="Ex: 123.456.789-01" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Idade do Paciente:</label>
         <input name="idade_paciente" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 56 anos" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 56 anos" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Acompanhante:</label>
         <input name="acompanhante_paciente" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho"placeholder="Nome do acompanhante" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho"placeholder="Nome do acompanhante" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Idade do Acompanhante:</label>
         <input name="idade_acompanhante" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Idade do acompanhante" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Idade do acompanhante" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Local da Ocorrência:</label>
         <input name="local_ocorrencia" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Rua Fulano de Tal, 1940" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: Rua Fulano de Tal, 1940" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">N° USB:</label>
         <input name="numero_usb" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 123" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 123" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">N° da Ocorrência:</label>
         <input name="numero_ocorrencia" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 456789" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 456789" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">DESP:</label>
         <input name="despachante" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 190" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: 190" >
       </div>
 
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">H.CH:</label>
         <input name="hch" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: xxx" required>
+        transition ease-in-out focus:scale-105 focus:bg-white focus:text-black focus:outline-vermelho" placeholder="Ex: xxx" >
       </div>
     </section>
     <!-- ANAMNESE -->
@@ -132,26 +156,26 @@
         <label for="admin" class="text-left">Aconteceu outras vezes?</label>
         <div class="container_radio flex flex-row justify-start items-start gap-10">
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_sim" name="escolha_anamnese_1" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="escolha_anamnese_1" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-center gap-2.5">
-            <input type="radio" id="adm_nao" name="escolha_anamnese_1" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="escolha_anamnese_1" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>
       <div class="input_box flex flex-col gap-2.5 justify-center items-start" title="Input Box">
         <label for="input_senha">Quanto tempo isso aconteceu?</label>
         <input id="input_senha" name="anamnese_tempo" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" >
       </div>
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="admin" class="text-left">Possui algum problema de saúde?</label>
         <div class="container_radio flex flex-row justify-start items-start gap-10">
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_sim" name="escolha_anamnese_2" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="escolha_anamnese_2" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_nao" name="escolha_anamnese_2" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="escolha_anamnese_2" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>
@@ -159,17 +183,17 @@
       <div class="input_box flex flex-col gap-2.5 justify-start items-start" title="Input Box">
         <label for="input_senha">Quais os problemas de saúde?</label>
         <input id="input_senha" name="anamnese_problema_saude" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" >
       </div>
 
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="admin" class="text-left">Faz o uso de medicações?</label>
         <div class="container_radio flex flex-row justify-start items-start gap-10">
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_sim" name="escolha_anamnese_3" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="escolha_anamnese_3" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_nao" name="escolha_anamnese_3" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="escolha_anamnese_3" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>
@@ -177,23 +201,23 @@
       <div class="input_box flex flex-col gap-2.5 justify-start items-start" title="Input Box">
         <label for="input_senha">Horário da última medicação:</label>
         <input id="input_senha" name="anamnese_medicacao" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" >
       </div>
       
       <div class="input_box flex flex-col gap-2.5 justify-start items-start" title="Input Box">
         <label for="input_senha">Quais os medicamentos usados?</label>
         <input id="input_senha" name="anamnese_medicacao_usada" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" >
       </div>
 
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="admin" class="text-left">É alérgico à algo?</label>
         <div class="container_radio flex flex-row justify-start items-start gap-10">
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_sim" name="escolha_anamnese_4" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="escolha_anamnese_4" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_nao" name="escolha_anamnese_4" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="escolha_anamnese_4" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>
@@ -201,17 +225,17 @@
       <div class="input_box flex flex-col gap-2.5 justify-start items-start" title="Input Box">
         <label for="input_senha">Se sim, especifique:</label>
         <input id="input_senha" name="anamnese_alergia" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">
       </div>
       
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="admin" class="text-left">Ingeriu alimento ou líquido à mais de 6 horas?</label>
         <div class="container_radio flex flex-row justify-start items-start gap-10">
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_sim" name="escolha_anamnese_5" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_sim">Sim</label>
+            <input type="radio" id="adm_sim" name="escolha_anamnese_5" value="Sim" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_sim">Sim</label>
           </div>
           <div class="flex items-start gap-2.5">
-            <input type="radio" id="adm_nao" name="escolha_anamnese_5" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" required><label for="adm_nao">Não</label>
+            <input type="radio" id="adm_nao" name="escolha_anamnese_5" value="Não" class="appearance-none w-5 h-5 border border-input_placeholder checked:bg-vermelho rounded-full" ><label for="adm_nao">Não</label>
           </div>
         </div>
       </div>
@@ -219,7 +243,7 @@
       <div class="input_box flex flex-col gap-2.5 justify-start items-start" title="Input Box">
         <label for="input_senha">Que horas?</label>
         <input id="input_senha" name="ananmese_horas" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">
       </div>
     </section>
 
@@ -345,160 +369,162 @@
       <div class="p-4">
         <label for="nome">Total (GCS)(3-15):</label>
         <input id="input_name" name="ava_total" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 7" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: 7">
       </div>
     </section>
 
     <!-- TIPO DE OCORRÊNCIA: -->
-    <section class="flex flex-col gap-2.5">
-      <legend class="font-bold text-xl tablet:text-2xl">Tipo de Ocorrência</legend>
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Causas animais" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Causado por animais </span>
+    <legend class="font-bold text-xl tablet:text-2xl">Tipo de Ocorrência</legend>
+    <section class="flex flex-col md:flex-row">
+      <section class="flex flex-col gap-2.5">
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Causas animais" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Causado por animais </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Meio de tranporte" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Com meio de transporte </span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Meio de tranporte" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Com meio de transporte </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Desmoronamento/deslizamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Desmoronamento/Deslizamento </span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Desmoronamento/deslizamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Desmoronamento/Deslizamento </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Emergência médica" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Emergência Médica </span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Emergência médica" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Emergência Médica </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Queda 2 metros" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Queda de altura 2M </span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Queda 2 metros" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Queda de altura 2M </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Tentativa de suicídio" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Tentativa de Suicídio </span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Tentativa de suicídio" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Tentativa de Suicídio </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Queda própria altura" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Queda própria altura </span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Queda própria altura" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Queda própria altura </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Afogamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Afogamento</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Afogamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Afogamento</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Agressão" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Agressão</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Agressão" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Agressão</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Atropelamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Atropelamento</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Atropelamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Atropelamento</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Choque Elétrico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Choque Elétrico </span>
+      <section class="flex flex-col gap-2.5">
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Choque Elétrico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Choque Elétrico </span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Desabamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Desabamento</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Desabamento" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Desabamento</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Doméstico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Doméstico</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Doméstico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Doméstico</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Esportivo" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Esportivo</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Esportivo" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Esportivo</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Intoxicação" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Intoxicação</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Intoxicação" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Intoxicação</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Queda de bicicleta" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Queda de bicicleta</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Queda de bicicleta" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Queda de bicicleta</span>
+          </div>
         </div>
-      </div>
 
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="Queda de moto" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Queda de moto</span>
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="Queda de moto" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700">Queda de moto</span>
+          </div>
         </div>
-      </div>
-
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700">Queda de nível menor que 2M </span>
-        </div>
-      </div>
 
         <div class="p-4">
           <div class="flex items-center gap-2 space-x-2">
             <input type="checkbox" name="tipo_checkbox[]" value="" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-            <span class="text-gray-700"> Trabalho </span>
+            <span class="text-gray-700">Queda de nível menor que 2M </span>
           </div>
-      </div> 
-
-      <div class="p-4">
-        <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="tipo_checkbox[]" value="" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
-          <span class="text-gray-700"> Tranferência </span>
         </div>
-      </div>
+
+          <div class="p-4">
+            <div class="flex items-center gap-2 space-x-2">
+              <input type="checkbox" name="tipo_checkbox[]" value="" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+              <span class="text-gray-700"> Trabalho </span>
+            </div>
+        </div> 
+
+        <div class="p-4">
+          <div class="flex items-center gap-2 space-x-2">
+            <input type="checkbox" name="tipo_checkbox[]" value="" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+            <span class="text-gray-700"> Tranferência </span>
+          </div>
+        </div>
+      </section>
     </section>
 
     <!-- Avaliação Cinemática -->
     <section class="flex flex-col gap-2.5">
       <legend class="font-bold text-xl tablet:text-2xl">Avaliação Cinemática</legend>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin" class="text-left">Distúrbio de comportamento:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -509,7 +535,7 @@
           </div>
         </div>
       </div>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin" class="text-left">Encontrado de capacete:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -520,7 +546,7 @@
           </div>
         </div>
       </div>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin" class="text-left">Encontrado de cinto:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -531,7 +557,7 @@
           </div>
         </div>
       </div>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin" class="text-left">Para-brisas avariado:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -542,7 +568,7 @@
           </div>
         </div>
       </div>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin">Caminhando na cena:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -553,7 +579,7 @@
           </div>
         </div>
       </div>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin" class="text-left">Painel avariado:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -564,7 +590,7 @@
           </div>
         </div>
       </div>
-      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+      <div class="input_box flex flex-col gap-2.5 p-4" title="Input Box">
         <label for="admin" class="text-left">Volante torcido:</label>
         <div class="container_radio flex flex-row justify-start items-center gap-10">
           <div class="flex items-center gap-2.5">
@@ -587,7 +613,6 @@
         </div>
       </div>
       <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
-        <input type="checkbox" name="prob_sus_checkbox[]" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
         <label for="id1">Respiratório</label>
         
         <select name="problema_respiratorio" id="">
@@ -598,7 +623,6 @@
         </select>
       </div>
       <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
-        <input type="checkbox" name="prob_sus_checkbox[]" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
         <label for="id1">Diabetes</label>
 
         <select name="diabetes" id="">
@@ -609,7 +633,6 @@
         </select>
       </div>
       <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
-        <input type="checkbox" name="prob_sus_checkbox[]" value="Obstérico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
         <label for="id1">Obstérico</label>
         
         <select name="problema_obsterico" id="">
@@ -622,8 +645,6 @@
       </div>
       <legend class="font-bold text-xl tablet:text-2xl">Forma de transporte</legend>
       <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
-
-        <input type="checkbox" name="prob_sus_checkbox[]" value="Sim" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
         <label for="id1">Transporte</label>
         
         <select name="forma_transporte" id="">
@@ -640,7 +661,7 @@
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">Outros:</label>
         <input name="outros_problemas" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite aqui..." required>
+        transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite aqui...">
       </div>
     </section>
 
@@ -730,6 +751,7 @@
           <div class="input-box flex flex-row justify-between items-center px-8 py-4 w-full bg-[#F2F2F2]">
             <select name="tipo_cianose" id="">
                 <option value="None" disabled selected>Selecione:</option>
+                <option value="Nenhum">Nenhum</option>
                 <option value="Labial">Lábios</option>
                 <option value="Extremidades">Extremidade</option>
               </select>
@@ -795,7 +817,7 @@
             <div class="flex items-center gap-2 space-x-2">
               <span class="text-gray-700">Outro</span>
               <input id="input_other" type="text" class="input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-              transition ease-in-out focus:scale-105 focus:text-black focus:bg-white focus:outline-vermelho" placeholder="Digite aqui..." required>
+              transition ease-in-out focus:scale-105 focus:text-black focus:bg-white focus:outline-vermelho" placeholder="Digite aqui...">
             </div>
           </div>
         </section>
@@ -807,72 +829,76 @@
       <legend class="font-bold text-xl tablet:text-2xl">Forma de Condução</legend>
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <div id="admin" class="container_radio flex flex-col gap-5">
-          <div class="flex items-center gap-2.5">
+          <div class="flex items-center gap-2.5 p-4">
             <input type="radio" id="adm_sim_desktop" name="escolha_conducao" value="Deitada" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
             <label for="adm_sim_desktop">Deitada</label>
           </div>
-          <div class="flex items-center gap-2.5">
+          <div class="flex items-center gap-2.5 p-4">
             <input type="radio" id="adm_nao_desktop" name="escolha_conducao" value="Sentada" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
             <label for="adm_nao_desktop">Sentada</label>
           </div>
-          <div class="flex items-center gap-2.5">
+          <div class="flex items-center gap-2.5 p-4">
             <input type="radio" id="adm_nao_desktop" name="escolha_conducao" value="Semi-deitada" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
             <label for="adm_nao_desktop">Semi-deitada</label>
           </div>
+          <div class="flex items-center gap-2.5 p-4">
+            <input type="radio" id="adm_nao_desktop" name="escolha_conducao" value="Sem condução" class="appearance-none w-7 h-7 border border-input_placeholder checked:bg-vermelho rounded-full">
+            <label for="adm_nao_desktop">Sem condução</label>
+          </div>
         </div>
-      </div>
+      </div
     </section>
 
     <!-- O QUE A VÍTIMA ERA: -->
     <section class="flex flex-col gap-2.5">
       <legend class="font-bold text-xl tablet:text-2xl">Vítima era</legend>
       <section class="flex flex-col gap-2.5">
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Ciclista" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Ciclista </span>
         </div>
       
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Condutor moto" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Condutor moto </span>
         </div>
       
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Gestante" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Gestante </span>
         </div>
       
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Passageiro" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Passageiro do banco da frente </span>
         </div>
       
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Passageiro moto" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Passageiro moto </span>
         </div>
 
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox"  name="vitima_era_checkbox[]" value="Condutor carro" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Condutor carro </span>
         </div>
 
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Clínico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Clínico </span>
         </div>
 
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Trauma" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Trauma </span>
         </div>
 
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Passageiro banco de trás" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Passageiro do banco de trás </span>
         </div>
 
-        <div class="flex items-center gap-2 ">
+        <div class="flex items-center gap-2 p-4 ">
           <input type="checkbox" name="vitima_era_checkbox[]" value="Pedestre" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Pedestre </span>
         </div>
@@ -914,7 +940,7 @@
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="input_name">Pressão Arterial</label>
         <input name="pressao" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 laptop:focus:scale-100 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 10 X 6 mmHg" required>
+        transition ease-in-out focus:scale-105 laptop:focus:scale-100 focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Ex: 10 X 6 mmHg">
       </div>
       <div class="input_box flex flex-col gap-2.5" title="Input Box">
         <label for="prim_socorr">Pulso (B.C.P.M)</label>
@@ -957,7 +983,7 @@
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">KM Final:</label>
         <input name="km_final" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: xxx" required>
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho" placeholder="Ex: xxx">
       </div>
     </section>
 

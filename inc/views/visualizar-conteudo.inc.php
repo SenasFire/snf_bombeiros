@@ -29,11 +29,24 @@
   }
 ?>
 
-<main class="flex flex-col h-fit px-16 py-8 gap-8 self-stretch items-start justify-start font-poppins">
+<main class="flex flex-col md:h-screen overflow-y-auto px-16 py-8 gap-8 self-stretch items-start justify-start font-poppins">
   <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
     <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">
     <p class="text-vermelho text-xl font-bold">Voltar</p>
   </a>
+  <?php
+    if(isset($_GET["success"])) {
+      $return_success = $_GET["success"];
+      if($return_success === "ocorrencia-criada") {
+        echo "
+          <div class='flex bg-success_bg border-2 border-border_success flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+            <img src='../public/images/alert-success.svg' class='stroke-success_color' alt='Alerta'>
+            <p class='text-sm text-success_color font-poppins'>Ocorrência criada com sucesso, <a href='adm/main_admin.php' class='font-bold cursor-pointer'>clique aqui para visualizar as ocorrências!</a></p>
+          </div>
+        ";
+      }
+    }
+  ?>
   <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex h-full justify-center items-start gap-10 self-stretch">
     <section aria-labelledby="title_socorristas" class="socorristas flex flex-col gap-5 h-full w-full" title="Socorristas Cadastrados">
       <header>
@@ -89,8 +102,6 @@
 
           // - Listar os campos e valores do histórico da ocorrência específica:
           $sql = "SELECT 
-          `ocorrencia_referente` AS 'Histórico Referente à ocorrência ID',
-          `socorrista_id` AS 'ID do Socorrista',
           `procedimentos_efetuados` AS 'Procedimentos Realizados',
           `imobilizacoes` AS 'Imobilizações',
           `colar` AS 'Colar',
@@ -148,7 +159,7 @@
           }
         ?>
 
-        <form class='flex flex-col gap-5' action="">
+        <form class='flex flex-col gap-5' action='../../inc/alterar-ocorrencia.php?action=alterar-historico&id=<?php echo $id?>' method="POST">
           <table class="flex flex-row w-full h-fit border-collapse font-poppins">
             <thead class="w-1/2">
                 <tr class="flex flex-col h-full border bg-gray-200">

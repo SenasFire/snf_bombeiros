@@ -38,7 +38,7 @@
 <body>
   <?php include("../../inc/views/nav-admin.inc.php"); ?>
 
-  <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-start justify-start w-full font-poppins lg:h-screen lg:overflow-y-auto">
+  <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-start justify-start w-full font-poppins md:h-screen overflow-y-auto">
     <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
       <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">
       <p class="text-vermelho text-xl font-bold">Voltar</p>

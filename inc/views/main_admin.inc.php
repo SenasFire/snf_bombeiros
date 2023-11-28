@@ -25,7 +25,7 @@
     <header>
       <h1 class="text-preto font-poppins font-semibold text-4xl">Alertas e Notícias</h1>
     </header>
-    <section aria-label="Notícias" class="flex flex-col lg:flex-row overflow-x-auto justify-start items-start gap-10 p-4 self-stretch w-full">
+    <section aria-label="Notícias" class="flex flex-col lg:flex-row overflow-x-auto justify-start items-start gap-10 p-4 py-6 self-stretch w-full">
       <?php
         $sql_noticias = "SELECT * FROM alertas_e_noticias";
         $stmt_noticias = $dbh->connect()->prepare($sql_noticias);
@@ -48,7 +48,7 @@
 
             echo "
               <a class='w-full' href='ver_noticia.php?noticia=$titulo&usuario=$id_usuario&id_noticia=$id_noticia&criador={$dados_criador['nome']}'>
-                <div class='bg-white p-2 drop-shadow-lg font-poppins w-full h-[292px] overflow-hidden relative'>
+                <div class='hover:drop-shadow-2xl transition-all duration-500 bg-white p-2 drop-shadow-md font-poppins w-full h-[292px] overflow-hidden relative'>
                   <img src='data:image/jpeg;base64,$imagem' class='w-full h-full object-cover'>
                   <div class='absolute inset-0 flex flex-col justify-end'>
                     <div class='bg-white px-4'>

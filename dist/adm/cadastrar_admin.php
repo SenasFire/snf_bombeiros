@@ -300,9 +300,12 @@
           <h1 id="title_socorristas" class="font-poppins font-regular text-4xl">Bombeiros Cadastrados</h1>
         </header>
         <div class="input_box flex flex-row items-center gap-2.5 w-full" title="Input Box">
-          <label for="buscar">Pesquisar</label>
-          <input id="buscar_socorristas" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-          transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
+          <p>Lista de bombeiros cadastrados no sistema</p>
+          <!--
+            <label for="buscar">Pesquisar</label>
+            <input id="buscar_socorristas" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
+              -->
         </div>
         <!-- Tabela de listagem dos usuários -->
         <table class="min-w-full border-collapse border border-gray-300 font-poppins w-1/2">
@@ -329,9 +332,12 @@
           <h1 id="title_medicos" class="font-poppins font-regular text-4xl">Médicos Cadastrados</h1>
         </header>
         <div class="input_box flex flex-row items-center gap-2.5 w-full" title="Input Box">
-          <label for="buscar">Pesquisar</label>
-          <input id="buscar_medicos" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-          transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
+          <p>Lista de médicos cadastrados no sistema</p>
+          <!--
+            <label for="buscar">Pesquisar</label>
+            <input id="buscar_medicos" type="text" class="font-poppins input w-full border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
+            transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Insira sua pesquisa aqui...">
+          -->
         </div>
         <!-- Tabela de listagem dos médicos -->
         <table class="min-w-full border-collapse border border-gray-300 font-poppins w-full">
