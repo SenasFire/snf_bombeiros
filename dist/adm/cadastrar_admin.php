@@ -42,7 +42,11 @@
 
 <body>
   <?php include("../../inc/views/nav-admin.inc.php"); ?>
-  <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-center justify-center w-full">
+  <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-start justify-center w-full">
+    <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
+      <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">
+      <p class="text-vermelho text-xl font-bold">Voltar</p>
+    </a>
     <section class="flex flex-row items-center justify-center w-full font-poppins text-2xl gap-[1.875rem]">
       <!-- Acessar as funções de cadastro rapidamente -->
       <section class="flex flex-col justify-center items-start p-[1.25rem] gap-2 bg-white shadow-lg w-full h-full">
