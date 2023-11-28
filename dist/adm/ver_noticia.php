@@ -79,19 +79,19 @@
         }
         echo "<p class='desktop:w-2/5'>$conteudo</p>";
       ?>
+      <?php
+        if($id_usuario === $id_criador) {
+          echo "
+            <section>
+              <div class='error_message error cursor-pointer flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
+                <img src='../../public/images/delete_forever.svg' alt='Deletar postagem'>
+                <a href='../../inc/deletar-noticia.php?id=$id_noticia' class='text-sm text-vermelho font-poppins'>Excluir postagem: $titulo</a>
+              </div>      
+            </section>
+          ";
+        }
+      ?>
     </section>
-    <?php
-      if($id_usuario === $id_criador) {
-        echo "
-          <section>
-            <div class='error_message error cursor-pointer flex bg-error_bg border-2 border-border_error flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
-              <img src='../../public/images/delete_forever.svg' alt='Deletar postagem'>
-              <a class='text-sm text-vermelho font-poppins'>Excluir postagem: $titulo</a>
-            </div>      
-          </section>
-        ";
-      }
-    ?>
   </main>
 
   <?php include("../../inc/views/footer-adm.inc.php"); ?>

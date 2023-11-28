@@ -226,7 +226,7 @@
             <div class="input_box flex flex-col g-2.5" title="Input Box">
               <label for="nome">LPM</label>
               <input name="selecao_de_imobilizacao" id="input_name" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 
-                transition ease-in-out focus:scale-105 focus:text-black focus:bg-white focus:outline-vermelho" placeholder="Ex: 3 lpm" required>
+                transition ease-in-out focus:scale-105 focus:text-black focus:bg-white focus:outline-vermelho" placeholder="Ex: 3 lpm">
             </div>
             <div class="flex items-center gap-2 ">
               <input name="selecao_de_imobilizacao_checkbox[]" value="Reanimador" type="checkbox" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
