@@ -34,19 +34,6 @@
     <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">
     <p class="text-vermelho text-xl font-bold">Voltar</p>
   </a>
-  <?php
-    if(isset($_GET["success"])) {
-      $return_success = $_GET["success"];
-      if($return_success === "ocorrencia-criada") {
-        echo "
-          <div class='flex bg-success_bg border-2 border-border_success flex-row gap-2.5 px-3 p-2.5 rounded-[30px] items-center self-stretch' title='Alerta' aria-label='Alerta'>
-            <img src='../public/images/alert-success.svg' class='stroke-success_color' alt='Alerta'>
-            <p class='text-sm text-success_color font-poppins'>Ocorrência criada com sucesso, <a href='adm/main_admin.php' class='font-bold cursor-pointer'>clique aqui para visualizar as ocorrências!</a></p>
-          </div>
-        ";
-      }
-    }
-  ?>
   <section aria-label="Lista de Socorristas e Médicos" title="Cadastros" class="flex h-full justify-center items-start gap-10 self-stretch">
     <section aria-labelledby="title_socorristas" class="socorristas flex flex-col gap-5 h-full w-full" title="Socorristas Cadastrados">
       <header>
@@ -68,17 +55,17 @@
                   ?>
                 </tr>
             </thead>
-              <tbody class="w-full">
-                <?php
-                  foreach ($resultados as $resultado) {
-                    echo "<tr class='flex flex-col h-full border border-gray-300'>";
-                    foreach ($resultado as $campo => $valor) {
-                        echo "<td class='py-2'><input type='text' name='$campo' value='$valor' class='text-left px-8 py-2 w-full border-none active:outline-none focus:outline-none'></td>";
-                    }
-                    echo "</tr>";
+            <tbody class="w-full">
+              <?php
+                foreach ($resultados as $resultado) {
+                  echo "<tr class='flex flex-col h-full border border-gray-300'>";
+                  foreach ($resultado as $campo => $valor) {
+                      echo "<td class='py-2'><input type='text' name='$campo' value='$valor' class='text-left px-8 py-2 w-full border-none active:outline-none focus:outline-none'></td>";
                   }
-                ?>
-              </tbody>
+                  echo "</tr>";
+                }
+              ?>
+            </tbody>
           </table>
           <section class="flex gap-2.5">
             <div class="group w-1/2 hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho">

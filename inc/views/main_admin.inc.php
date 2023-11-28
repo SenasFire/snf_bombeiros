@@ -149,7 +149,7 @@
               <td class="border border-gray-300 py-2 px-4"><?php echo $usuario->getCmdtCode(); ?></td>
               <td class="border border-gray-300 py-2 px-4">
                 <a href="../../inc/class/excluir-usuario.class.php?action=excluir&id=<?php echo $usuario->getId(); ?>" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Deletar(<?php $usuario->getId();?>)">Excluir</a>
-                <a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php $usuario->getId();?>)">Visualizar</a>
+                <a href="visualizar_bombeiro.php?id=<?php echo $usuario->getId(); ?>" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300" onclick="Ver(<?php $usuario->getId();?>)">Visualizar</a>
               </td>
             </tr>
           <?php 

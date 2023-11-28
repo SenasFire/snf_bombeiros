@@ -144,6 +144,7 @@
       <h1 class="font-bold text-2xl">Instruções</h1>
       <p>Selecione o que você deseja consultar ácima, após isso preencha com os parâmetros que serão consultados e clique em "Filtrar"</p>
       <p>Caso queira, você pode reiniciar a consulta clicando no botão "Resetar"</p>
+      <p>Dica: sempre seja específico na consulta</p>
     </section>
 
     <table class="flex flex-row w-full h-fit border-collapse font-poppins">
