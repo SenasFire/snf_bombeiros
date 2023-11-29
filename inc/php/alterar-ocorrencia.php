@@ -1,5 +1,5 @@
 <?php
-require_once "class/dbh.class.php";
+require_once "../class/dbh.class.php";
 $id = $_GET["id"];
 $dbh = new Dbh();
 
@@ -121,10 +121,10 @@ if(!isset($_GET['action'])) {
     $stmt->execute();
 
     if($stmt) {
-        header("Location: ../dist/adm/visualizar.php?success=ocorrencia-alterada&id=$id");
+        header("Location: ../../dist/adm/visualizar.php?success=ocorrencia-alterada&id=$id");
         exit();
     } else {
-        header("Location: ../dist/adm/visualizar.php?error=erro-alterar-ocorrencia&id=$id");
+        header("Location: ../../dist/adm/visualizar.php?error=erro-alterar-ocorrencia&id=$id");
         exit();
     }
 } else {
@@ -201,10 +201,10 @@ if(!isset($_GET['action'])) {
     $stmt->execute();
 
     if($stmt) {
-        header("Location: ../dist/adm/visualizar.php?success=historico-alterado&id=$id");
+        header("Location: ../../dist/adm/visualizar.php?success=historico-alterado&id=$id");
         exit();
     } else {
-        header("Location: ../dist/adm/visualizar.php?error=erro-alterar-historico&id=$id");
+        header("Location: ../../dist/adm/visualizar.php?error=erro-alterar-historico&id=$id");
         exit();
     }
 }

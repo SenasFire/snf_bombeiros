@@ -13,7 +13,7 @@ class loginController extends Login {
 
     if ($this->isInputEmpty() == true) {
       // Input vazio!
-      header("Location: ../dist/index.php?error=empty-input");
+      header("Location: ../../dist/login.php?error=empty-input");
       exit();
     }
 

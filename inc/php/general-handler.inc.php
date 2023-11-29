@@ -3,18 +3,18 @@
   // =============================================================================== //
   // ===================== GERENCIAR FORMULÁRIOS COM SEGURANÇA ===================== //
 
-  require_once "class/dbh.class.php";
-  require_once "class/signup.class.php";
-  require_once "class/usuario-db.class.php";
+  require_once "../class/dbh.class.php";
+  require_once "../class/signup.class.php";
+  require_once "../class/usuario-db.class.php";
 
   // Verificar se arquivo foi acessado corretamente:
   $tipo_cadastro = $_GET["action"];
 
   if($tipo_cadastro === "cadastrar-usuario") {
     // Instanciar as classes e banco de dados
-    require_once "class/dbh.class.php";
-    require_once "class/signup.class.php";
-    require_once "class/usuario-db.class.php";
+    require_once "../class/dbh.class.php";
+    require_once "../class/signup.class.php";
+    require_once "../class/usuario-db.class.php";
 
     // Capturar e dados em entidades HTML por exemplo:
     // caractere & vira em HTML -> &amp

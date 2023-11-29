@@ -1,6 +1,6 @@
 <?php
 
-require_once "class/dbh.class.php";
+require_once "../class/dbh.class.php";
 $dbh = new Dbh();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -18,8 +18,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
   $stmt->execute();
 
   if($stmt) {
-    header("Location: ../dist/adm/cadastrar_admin.php?success=equipe-cadastrada");
+    header("Location: ../../dist/adm/cadastrar_admin.php?success=equipe-cadastrada");
   } else {
-    header("Location: ../dist/adm/cadastrar_admin.php?eror=stmt-failed");
+    header("Location: ../../dist/adm/cadastrar_admin.php?eror=stmt-failed");
   }
 }

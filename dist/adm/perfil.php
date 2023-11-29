@@ -58,7 +58,7 @@
         </section>
       </section>
       <section class="alter_info flex flex-col w-full h-full items-center justify-center">
-        <form class="flex flex-col gap-2.5 w-3/4 h-full font-poppins overflow-y-auto" action="../../inc/alterar-nome.php" method="POST">
+        <form class="flex flex-col gap-2.5 w-3/4 h-full font-poppins overflow-y-auto" action="../../inc/php/alterar-nome.php" method="POST">
           <header>
             <h1 class="font-semibold text-4xl">Alterar Informações</h1>
           </header>

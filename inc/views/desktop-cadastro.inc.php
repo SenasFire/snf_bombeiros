@@ -50,7 +50,7 @@
           }
         }
       ?>
-      <form action="../inc/form-handler.inc.php" method="post" class="flex flex-col gap-2.5 w-full font-poppins">
+      <form action="../inc/php/form-handler.inc.php" method="post" class="flex flex-col gap-2.5 w-full font-poppins">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome_desktop">Nome:</label>
           <input id="nome_desktop" name="username" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 

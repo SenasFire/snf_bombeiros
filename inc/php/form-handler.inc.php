@@ -15,14 +15,14 @@
     $cmdt_radio = $_POST["cmdt_radio"];
 
     // Instanciar as classes e banco de dados
-    require_once "class-autoloader.inc.php";
-    require_once "class/signup.class.php";
-    require_once "class/signup-controller.class.php";
+    require_once "../class-autoloader.inc.php";
+    require_once "../class/signup.class.php";
+    require_once "../class/signup-controller.class.php";
     $signup = new signupController($username, $num_fibra, $pwd, $cmdt_radio, $cmdt_code);
 
     // Inserir usuário / gerenciar erros
     $signup->signupUser();
   } else {
-    header("Location: ../dist/cadastro.php");
+    header("Location: ../../dist/cadastro.php");
     exit();
   }

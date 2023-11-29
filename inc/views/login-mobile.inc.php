@@ -41,7 +41,7 @@
         }
       }
     ?>
-    <form class="flex flex-col gap-2.5" action="../inc/login.inc.php" method="POST" id="form_cadastro">
+    <form class="flex flex-col gap-2.5" action="../inc/php/login.inc.php" method="POST" id="form_cadastro">
       <div class="input_box flex flex-col g-2.5" title="Input Box">
         <label for="nome">N° Fibra:</label>
         <input id="num_fibra" type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 

@@ -5,7 +5,7 @@
   $id = $_SESSION["usuario_id"];
 
   if(!isset($_SESSION["usuario_id"])) {
-    header("Location: ../login.php?error=invalid-access");
+    header("Location: login.php?error=invalid-access");
   }
 ?>
 <!DOCTYPE html>

@@ -156,7 +156,7 @@ function addUser() {
 
   $.ajax({
     type: "POST",
-    url: "../../inc/general-handler.inc.php?action=cadastrar-usuario",
+    url: "../../inc/php/general-handler.inc.php?action=cadastrar-usuario",
     data: dadosForm,
     dataType: 'json',
 
@@ -183,7 +183,7 @@ function addDoctor() {
 
   $.ajax({
     type: "POST",
-    url: "../../inc/general-handler.inc.php?action=cadastrar-medico",
+    url: "../../inc/php/general-handler.inc.php?action=cadastrar-medico",
     data: dadosForm,
     dataType: 'json',
 
@@ -214,7 +214,7 @@ $("#form_new_post").submit(function(e) {
 
   $.ajax({
     type: 'POST',
-    url: '../../inc/general-handler.inc.php?action=inserir-imagem',
+    url: '../../inc/php/general-handler.inc.php?action=inserir-imagem',
     data: formData,
     processData: false,
     contentType: false,

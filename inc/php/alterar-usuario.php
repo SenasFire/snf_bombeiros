@@ -1,5 +1,5 @@
 <?php
-require_once "class/dbh.class.php";
+require_once "../class/dbh.class.php";
 $dbh = new Dbh();
 
 $id = $_GET["id"];
@@ -17,10 +17,10 @@ $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 $stmt->execute();
 
 if($stmt) {
-    header("Location: ../dist/adm/visualizar_bombeiro.php?success=usuario-alterado&id=$id");
+    header("Location: ../../dist/adm/visualizar_bombeiro.php?success=usuario-alterado&id=$id");
     exit();
 } else {
-    header("Location: ../dist/adm/visualizar_bombeiro.php?error=erro-alterar&id=$id");
+    header("Location: ../../dist/adm/visualizar_bombeiro.php?error=erro-alterar&id=$id");
     exit();
 }
 

@@ -53,7 +53,7 @@
         }
       }
     ?>
-    <form action="../inc/form-handler.inc.php" method="post" class="flex flex-col gap-2.5">
+    <form action="../inc/php/form-handler.inc.php" method="post" class="flex flex-col gap-2.5">
       
       <?php
         $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

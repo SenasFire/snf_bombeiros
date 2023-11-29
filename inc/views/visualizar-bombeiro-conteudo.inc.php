@@ -30,7 +30,7 @@
     <p>Você selecionou o(a) usuário: <?php echo $nome; ?>, sinta se <b>livre</b> para realizar as alterações desejadas.</p>
   </header>
   <section class="flex flex-col w-full">
-    <form class='flex flex-col gap-5' action='../../inc/alterar-usuario.php?id=<?php echo $id?>' method='POST'>
+    <form class='flex flex-col gap-5' action='../../inc/php/alterar-usuario.php?id=<?php echo $id?>' method='POST'>
       <table class="flex flex-row w-full h-fit border-collapse font-poppins">
         <thead class="w-1/2">
           <tr class="flex flex-col h-full border bg-gray-200">

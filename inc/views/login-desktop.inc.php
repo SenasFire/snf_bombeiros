@@ -37,7 +37,7 @@
           }
         }
       ?>
-      <form class="flex flex-col gap-2.5 w-full font-poppins" action="../inc/login.inc.php" method="POST">
+      <form class="flex flex-col gap-2.5 w-full font-poppins" action="../inc/php/login.inc.php" method="POST">
         <div class="input_box flex flex-col g-2.5" title="Input Box">
           <label for="nome">N° Fibra:</label>
           <input type="text" name="num_fibra" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm 

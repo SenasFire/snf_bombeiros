@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "class/dbh.class.php";
+require_once "../class/dbh.class.php";
 $dbh = new Dbh();
 
 $nome = $_POST["nome"];
@@ -19,10 +19,10 @@ $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 $stmt->execute();
 
 if($stmt) {
-    header("Location: ../dist/adm/perfil.php?success=usuario-alterado");
+    header("Location: ../../dist/adm/perfil.php?success=usuario-alterado");
     exit();
 } else {
-    header("Location: ../dist/adm/perfil.php?error=erro-alterar");
+    header("Location: ../../dist/adm/perfil.php?error=erro-alterar");
     exit();
 }
 

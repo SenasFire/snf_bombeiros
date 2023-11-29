@@ -136,7 +136,7 @@
         </form>
 
         <!-- Criação de equipes (que são regitradas na ocorrência) -->
-        <form id="form_new_team" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="../../inc/nova-equipe.php" method="POST">
+        <form id="form_new_team" class="changeable_form flex flex-col gap-2.5 w-full max-h-[18rem] font-poppins overflow-y-scroll" action="../../inc/php/nova-equipe.php" method="POST">
           <div class="input_box flex flex-col g-2.5" title="Input Box">
             <label for="nome_motorista" class="text-xl">Motorista:</label>
             <select name="motorista" id="motorista" class="select text-xl border-2 border-[#595959]" required>
