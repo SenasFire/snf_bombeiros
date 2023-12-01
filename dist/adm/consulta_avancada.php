@@ -1,4 +1,5 @@
 <?php
+  // Os includes, uma bagunça, OOP já foi pro abraço:
   include("../../inc/class/dbh.class.php");
   include("../../inc/class/usuario-db.class.php");
   include("../../inc/class/login.class.php");
@@ -11,14 +12,18 @@
     header("Location: ../login.php?error=invalid-access");
   }
 
+  // Genial (pelo menos pra mim) capturar os dados no próprio arquivo, assim não tem erro:
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    // Recupera os valores dos campos do formulário
+
     $tp_consulta = isset($_GET['tp_consulta']) ? $_GET['tp_consulta'] : '';
     $date = isset($_GET['date']) ? $_GET['date'] : '';
     $nome = isset($_GET['nome']) ? $_GET['nome'] : '';
     $local = isset($_GET['local']) ? $_GET['local'] : '';
     $num_fibra = isset($_GET['num_fibra']) ? $_GET['num_fibra'] : '';
+    $tp_consulta = isset($_GET['tp_consulta']) ? $_GET['tp_consulta'] : '';
 
+    // Único role é forçar o usuário a selecionar o tipo da consulta
+    // - mas acho que tá bem intuitivo no HTML já...
     if($tp_consulta === "") {
       $error = "Tipo de consulta não foi selecionado";
     }
@@ -30,16 +35,17 @@
       $nome = '';
       $local = '';
       $num_fibra = '';
+      $tp_ocorrencia = '';
   
       // Redireciona o usuário para a mesma página para reiniciar a consulta
       header("Location: {$_SERVER['PHP_SELF']}");
       exit();
     }
-    
-    // Aqui você pode usar os valores para construir e executar sua consulta SQL
-    // Exemplo de consulta básica:
+
+    // As consultas baseadas no $_GET['tp_consulta'] (valores no select), vários tipos
+    // um tipo corresponde à uma consulta sql diferente:
     if($tp_consulta === "ocorrencia") {
-      $sql = "SELECT ocorrencia_id AS 'ID', ocorrencia.nome_paciente AS 'Paciente', ocorrencia.cpf AS 'CPF do Paciente', ocorrencia.data AS 'Data', ocorrencia.local_ocorrencia AS 'Local' FROM ocorrencia WHERE nome_paciente LIKE '%$nome%' AND local_ocorrencia LIKE '%$local%' AND data LIKE '%$date%'";
+      $sql = "SELECT ocorrencia_id AS 'ID', ocorrencia.nome_paciente AS 'Paciente', ocorrencia.cpf AS 'CPF do Paciente', ocorrencia.data AS 'Data', ocorrencia.local_ocorrencia AS 'Local', ocorrencia.tipo_ocorrencia AS 'Tipo da Ocorrência' FROM ocorrencia WHERE nome_paciente LIKE '%$nome%' OR local_ocorrencia LIKE '%$local%' OR data LIKE '%$date%' OR tipo_ocorrencia LIKE '%$tp_ocorrencia%'";
     }
     if($tp_consulta === "usuarios_socorristas") {
       $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_username LIKE '%$nome%' OR usuarios_num_fibra = '$num_fibra'";
@@ -48,10 +54,21 @@
       $sql = "SELECT noticia_nome AS 'Título', noticia_imagem FROM alertas_e_noticias WHERE noticia_nome LIKE '%$nome%' AND data_noticia = '$date'";
     }
 
+    /*
+      - TODO:
+      
+      - Alterar ->fetch para ->fetchAll
+      
+      - fetchAll para retornar todas as consultas que sejam como
+        o solicitado pelo usuário, muito melhor
+        não sei pq usei só o fetch :/
+    */
+
     // Execute a consulta e processe os resultados...
     // $stmt = $dbh->prepare($sql);
     // $stmt->execute();
     // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     if(isset($sql)) {
       $stmt = $dbh->connect()->prepare($sql);
       $stmt->execute();
@@ -88,11 +105,12 @@
       <p class="text-vermelho text-xl font-bold">Voltar</p>
     </a>
     
+    <!-- Opções de filtragem para consultas aqui: -->
     <form id="formFiltro" method="GET" class="flex flex-col justify-between desktop:flex-row w-full gap-5 bg-input_color p-6" aria-label="Filtros" title="Ações e filtros">
       <section class="text-xl" title="Selecione os filtros">
         <div>
           <legend>Selecione o tipo de tabela que deseja filtrar</legend>
-          <select name="tp_consulta" class="text-xl w-full">
+          <select name="tp_consulta" class="text-xl w-full" required>
             <option class="text-xl" value="None" disabled selected>Selecione:</option>
             <option class="text-xl" value="ocorrencia" 
               <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'ocorrencia' ? 'selected':''):'' ?>
@@ -110,11 +128,13 @@
           </select>
         </div>
       </section>
+      <!-- LAS entradas opcionales dos usuários! -->
       <div class="gap-2.5 flex flex-col desktop:flex-row items-center w-full justify-center">
         <input name="date" class="p-4 w-full focus:outline-vermelho" value="<?= isset($_GET['date']) == true ? :'' ?>" class="focus:outline-vermelho" type="date">
         <input name="nome" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Nome">
         <input name="local" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Local">
         <input name="num_fibra" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Número Fibra">
+        <input name="tp_ocorrencia" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Tipo da Ocorrência">
       </div>
       
       <section class="flex flex-col laptop:flex-row gap-2.5" title="Botões">
@@ -129,6 +149,7 @@
       </section>
     </form>
 
+    <!-- Obrigando o usuário a selecionar tipo de consulta, na real -->
     <?php
       if(isset($error)) {
         echo "
@@ -140,6 +161,8 @@
       }
     ?>
     
+    <!-- Aquelas instrução MEIA-BOCA que eu tô providenciando: -->
+    <!-- Se um dia, eu fizer uma documentação pro que tem que fazer... -->
     <section class="flex flex-col gap-2.5">
       <h1 class="font-bold text-2xl">Instruções</h1>
       <p>Selecione o que você deseja consultar ácima, após isso preencha com os parâmetros que serão consultados e clique em "Filtrar"</p>
@@ -151,6 +174,7 @@
       <thead class="w-1/2">
         <tr class="flex flex-col h-full border bg-gray-200">
           <?php
+            // Bem básico, retornando uns table data pra consulta aí, aquele foreach campo e valor e afins:
             if (isset($resultado)) {
               foreach ($resultado as $campo => $valor) {
                 echo "<td class='py-4 px-4'>$campo</td>";
@@ -161,6 +185,7 @@
       </thead>
       <tbody class="w-full">
         <?php
+          // Aqui só da o retorno do valor, o campo já tá no heading, bem adaptativo:
           echo "<tr class='flex flex-col h-full border border-gray-300'>";
           if (isset($resultado)) {
             foreach ($resultado as $campo => $valor) {
@@ -176,6 +201,7 @@
 </body>
 <script>
   // Função para resetar os campos do formulário
+  // Não sei se realmente funciona, é só prevenção
   function resetarFormulario() {
     document.getElementById("formFiltro").reset();
   }
