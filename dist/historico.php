@@ -38,8 +38,8 @@
       include("../inc/views/nav.inc.php"); 
     }
   ?>
-  <main class="flex flex-col items-start w-full md:h-screen gap-3 font-poppins p-12 md:gap-8 overflow-y-auto">
-    <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
+  <main class="flex flex-col items-center md:items-start w-full md:h-screen gap-3 font-poppins p-12 md:gap-8 overflow-y-auto">
+    <a onclick="window.history.back()" class='hidden md:flex flex-row items-center justify-center cursor-pointer gap-2.5'>
       <img src="../public/images/arrow_left.svg" alt="Flecha voltar">
       <p class="text-vermelho text-xl font-bold">Voltar</p>
     </a>

@@ -19,7 +19,7 @@ class Signup extends Dbh {
       if(!$stmt->execute(array($username, $hashPwd, $num_fibra, $cmdt_radio, $cmdt_code))) {
         $stmt = null;
         $result = false;
-        header("Location: ../dist/cadastro.php?error=stmt-failed");
+        header("Location: ../../dist/cadastro.php?error=stmt-failed");
         exit();
       } else {
         $result = true;
@@ -44,7 +44,7 @@ class Signup extends Dbh {
       if(!$stmt->execute(array($doc_name, $doc_cpf, $hashPwd, $doc_email))) {
         $stmt = null;
         $result = false;
-        header("Location: ../dist/cadastrar_admin.php?error=stmt-failed");
+        header("Location: ../../dist/cadastrar_admin.php?error=stmt-failed");
         exit();
       } else {
         $result = true;

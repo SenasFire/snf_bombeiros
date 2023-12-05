@@ -13,6 +13,13 @@
 
   $id_noticia = $_GET["id_noticia"];
   $titulo = $_GET["noticia"];
+
+  $dbh = new Dbh();
+  $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_e_cmdt = 'Sim' AND usuarios_id = $id_usuario";
+  $stmt = $dbh->connect()->prepare($sql);
+  $stmt->execute();
+  
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +43,13 @@
   <title><?php echo $titulo ?></title>
 </head>
 <body>
-  <?php include("../../inc/views/nav-admin.inc.php"); ?>
-
+  <?php
+    if($stmt->rowCount()>0) {
+      include("../../inc/views/nav-admin.inc.php"); 
+    } else {
+      include("../../inc/views/nav-usuario.inc.php"); 
+    }
+  ?>
   <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-start justify-start w-full font-poppins md:h-screen overflow-y-auto">
     <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
       <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">

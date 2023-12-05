@@ -1,14 +1,16 @@
 <nav class="navbar flex py-2.5 px-16 lg:flex-row justify-between items-center w-full bg-vermelho">
 
-  <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
-    <img src="../public/images/logo-noar.png" alt="">
-    <div aria-label="Título" class="flex flex-col">
-      <h1 id="nav_title" class="font-poppins text-4xl font-semibold text-white">NOAR</h1>
-      <p
-        class="hidden laptop:block 
-        font-poppins text-2xl font-medium text-white">Núcleo de Operações Aéreas e Resgate</p>
-    </div>
-  </header>
+  <a href="adm/main_admin.php">
+    <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
+      <img src="../public/images/logo-noar.png" alt="">
+      <div aria-label="Título" class="flex flex-col">
+        <h1 id="nav_title" class="font-poppins text-4xl font-semibold text-white">NOAR</h1>
+        <p
+          class="hidden laptop:block 
+          font-poppins text-2xl font-medium text-white">Núcleo de Operações Aéreas e Resgate</p>
+      </div>
+    </header>
+  </a>
 
   <button class="desktop:hidden w-8 h-8 z-50
                 bg-menu-icon-toggle bg-no-repeat" onclick="expandirMenu()" id="menu-toggle" aria-controls="primary-navigation">

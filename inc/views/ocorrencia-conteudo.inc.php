@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../inc/js/style.css">
+
 <?php
     
   require_once "../inc/class/dbh.class.php";
@@ -51,7 +53,7 @@
     <!-- EQUIPE DE ATENDIMENTO: -->
     <section class="flex flex-col gap-2.5">
       <legend class="font-bold text-xl tablet:text-2xl">Equipe de Atendimento</legend>
-      <select name="equipe_atendimento" id="equipe de atendimento" class="select text-xl border-2 border-[#595959]">
+      <select name="equipe_atendimento" id="equipe de atendimento" class="select text-xl border-2 border-[#595959]" required>
         <option class="text-xs" value="None" disabled selected>Selecione:</option>
         <?php
           foreach ($resultados as $resultado) {
@@ -244,6 +246,216 @@
         <label for="input_senha">Que horas?</label>
         <input id="input_senha" name="ananmese_horas" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
         transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">
+      </div>
+    </section>
+
+    <!-- Local dos Traumas -->
+    <section class="flex flex-col gap-10">  
+      <legend class="font-bold text-xl tablet:text-2xl">Localização dos traumas</legend>
+      <!-- Braço esquerdo -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="nome">Braço esquerdo:</label>
+
+        <label for="input_senha1">Tipo de trauma</label>
+        <select name="tipo_lesao_braco_esquerdo" id="tipo_lesao" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Braço direito -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="nome1">Braço direito:</label>
+
+        <label for="input_senha1">Tipo de trauma</label>
+        <select name="tipo_lesao_braco_direito" id="tipo_lesao" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Cabeça -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="nome2">Cabeça:</label>
+
+        <label for="input_senha2">Tipo de trauma</label>
+        <select name="tipo_lesao_cabeca" id="tipo_lesao" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Peito -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="nome3">Peito:</label>
+
+        <label for="input_senha3">Tipo de trauma</label>
+        <select name="tipo_lesao_peito" id="tipo_lesao" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Estômago -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="estomago">Estômago:</label>
+
+        <label for="tipo_lesao_estomago">Tipo de trauma</label>
+        <select name="tipo_lesao_estomago" id="tipo_lesao_estomago" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Virilha -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="virilha">Virilha:</label>
+
+        <label for="tipo_lesao_virilha">Tipo de trauma</label>
+        <select name="tipo_lesao_virilha" id="tipo_lesao_virilha" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Pé Esquerdo -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="pe_esquerdo">Pé Esquerdo:</label>
+
+        <label for="tipo_lesao_pe_esquerdo">Tipo de trauma</label>
+        <select name="tipo_lesao_pe_esquerdo" id="tipo_lesao_pe_esquerdo" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Pé Direito -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="pe_direito">Pé Direito:</label>
+
+        <label for="tipo_lesao_pe_direito">Tipo de trauma</label>
+        <select name="tipo_lesao_pe_direito" id="tipo_lesao_pe_direito" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Mão Esquerda -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="mao_esquerda">Mão Esquerda:</label>
+
+        <label for="tipo_lesao_mao_esquerda">Tipo de trauma</label>
+        <select name="tipo_lesao_mao_esquerda" id="tipo_lesao_mao_esquerda" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <!-- Mão Direita -->
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="mao_direita">Mão Direita:</label>
+
+        <label for="tipo_lesao_mao_direita">Tipo de trauma</label>
+        <select name="tipo_lesao_mao_direita" id="tipo_lesao_mao_direita" class="select text-xl border-2 border-[#595959]">
+          <option value="Nenhum">Nenhum</option>
+          <option value="Fraturas/Luxações/Entorses">Fraturas/Luxações/Entorses</option>
+          <option value="Evisceração">Evisceração</option>
+          <option value="Ferimentos Diversos">Ferimentos Diversos</option>
+          <option value="Hemorragias">Hemorragias</option>
+          <option value="Fab./Faf.">Fab./Faf.</option>
+          <option value="Amputação">Amputação</option>
+          <option value="Queimadura 1º Grau">Queimadura 1º Grau</option>
+          <option value="Queimadura 2º Grau">Queimadura 2º Grau</option>
+          <option value="Queimadura 3º Grau">Queimadura 3º Grau</option>
+        </select>
+      </div>
+
+      <div class="input_box flex flex-col gap-2.5 p-4 border" title="Input Box">
+        <label for="input_senha3">Outro local</label>
+        <input id="input_senha3" name="outro_local" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">
+
+        <label for="input_senha3">Tipo de trauma:</label>
+        <input id="tipo_outro_local" name="tipo_outro_local" placeholder="Digite aqui..." type="text" class="input border-b-2 border-[#595959] p-3 bg-input_color text-input_placeholder text-sm w-full
+        transition ease-in-out focus:scale-105 focus:text-black focus:outline-vermelho focus:bg-white">
+      </div>
+
+      <div class="input_box flex flex-col gap-2.5" title="Input Box">
+        <label for="input_senha3">Observações ou comentários</label>
+        <textarea name="observacoes" id="" cols="30" rows="10" class="text-center input border-b-2 border-[#595959] w-full bg-input_color text-input_placeholder text-sm
+        transition ease-in-out focus:text-black focus:outline-vermelho focus:bg-white" placeholder="Digite aqui..."></textarea>
       </div>
     </section>
 
@@ -608,7 +820,7 @@
       <legend class="font-bold text-xl tablet:text-2xl">Problemas Suspeitos</legend>
       <div class="p-4">
         <div class="flex items-center gap-2 space-x-2">
-          <input type="checkbox" name="prob_sus_checkbox[]" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+          <input type="checkbox" name="prob_sus_checkbox[]" value="Psiquiátrico" class="form-checkbox h-7 w-7 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
           <span class="text-gray-700"> Psiquiátrico </span>
         </div>
       </div>

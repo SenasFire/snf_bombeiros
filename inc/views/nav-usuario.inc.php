@@ -6,9 +6,9 @@
 <script src="nav_script.inc.js" defer></script>
 <nav class="navbar_cellphone flex py-2.5 px-8 lg:flex-row justify-between items-center w-full h-fit bg-vermelho">
 
-  <a href="main_socorrista.php">
+  <a href="../main_socorrista.php">
     <header aria-labelledby="nav_title" class="flex flex-row justify-center items-center gap-2.5">
-    <img src="../public/images/logo-noar.png" alt="" class="w-10 h-10 md:h-32 md:w-32">
+    <img src="../../public/images/logo-noar.png" alt="" class="w-10 h-10 md:h-32 md:w-32">
       <div aria-label="Título" class="flex flex-col">
         <h1 id="nav_title" class="font-poppins font-semibold text-white text-4xl">NOAR</h1>
         <p class="hidden laptop:block font-poppins text-2xl text-white font-medium">Núcleo de Operações Aéreas e Resgate</p>
@@ -31,18 +31,18 @@
     </div>
     <ul class="navlinks flex flex-col justify-center items-start gap-2.5 self-stretch text-vermelho font-poppins">
       <li><a class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Perfil</a></li>
-      <li><a href="main_socorrista.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a></li>
-      <li><a href="historico.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Histórico de Ocorrências</a></li>
-      <li><a href="ocorrencia.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Nova Ocorrência</a></li>
-      <li><a href="../inc/class/usuario-db.class.php?action=log-out" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Sair</a></li>
+      <li><a href="../main_socorrista.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a></li>
+      <li><a href="../historico.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Histórico de Ocorrências</a></li>
+      <li><a href="../ocorrencia.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Nova Ocorrência</a></li>
+      <li><a href="../../inc/class/usuario-db.class.php?action=log-out" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Sair</a></li>
     </ul>
   </section>
   <ul class="navlinks hidden desktop:flex flex-row text-white gap-12 items-center text-xl font-poppins">
-    <li><a href="main_socorrista.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a></li>
-    <li><a href="historico.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Histórico de Ocorrências</a></li>
-    <li><a href="ocorrencia.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Nova Ocorrência</a></li>
-    <li><a href="login.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Entrar como admin</a></li>
-    <li><a href="../inc/class/usuario-db.class.php?action=log-out" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Sair</a></li>
-    <li><img src="../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class=""></li>
+    <li><a href="../main_socorrista.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Página Principal</a></li>
+    <li><a href="../historico.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Histórico de Ocorrências</a></li>
+    <li><a href="../ocorrencia.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Nova Ocorrência</a></li>
+    <li><a href="../login.php" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Entrar como admin</a></li>
+    <li><a href="../../inc/class/usuario-db.class.php?action=log-out" class="cursor-pointer hover:text-indigo-300 transition-colors duration-300">Sair</a></li>
+    <li><img src="../../public/images/pfp.svg" alt="Foto Perfil" aria-hidden="false" class=""></li>
   </ul>
 </nav>

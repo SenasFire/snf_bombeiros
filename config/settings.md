@@ -26,3 +26,22 @@
 <p>
   Tudo certo com os arquivos na dist / Tudo certo na class
 </p>
+
+<ul>
+  Cadastrar Bombeiro Adm
+  Cadastrar 2 Equipes
+  Cadastrar Socorrista Adm
+  Cadastrar Socorrista Padrão
+  Cadastrar Médico
+  Cadastrar 3 Notícia
+
+  Cadastrar Ocorrência (Preencher Tudo)
+  Cadastrar Histórico
+
+  Filtrar Ocorrência e bombeiro
+
+  Alterar os dois
+  Alterar Bombeiro na listagem
+
+  Excluir todos
+</ul>

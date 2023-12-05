@@ -19,16 +19,16 @@ class signupController extends Signup {
 
     if ($this->isInputEmpty() == true) {
       // Input vazio!
-      header("Location: ../dist/cadastro.php?error=empty-input");
+      header("Location: ../../dist/cadastro.php?error=empty-input");
       exit();
     }
     if ($this->checkNumFibra($this->num_fibra, $this->cmdt_code) == true) {
       // Código já tomado!
-      header("Location: ../dist/cadastro.php?error=num-fibra-taken");
+      header("Location: ../../dist/cadastro.php?error=num-fibra-taken");
       exit();
     }  
     if ($this->setUser($this->username, $this->num_fibra, $this->pwd, $this->cmdt_radio, $this->cmdt_code) == true) {
-      header("Location: ../dist/cadastro.php?success=usuario-cadastrado");
+      header("Location: ../../dist/cadastro.php?success=usuario-cadastrado");
       exit();
     }
   }

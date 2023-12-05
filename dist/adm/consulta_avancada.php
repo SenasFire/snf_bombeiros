@@ -20,7 +20,7 @@
     $nome = isset($_GET['nome']) ? $_GET['nome'] : '';
     $local = isset($_GET['local']) ? $_GET['local'] : '';
     $num_fibra = isset($_GET['num_fibra']) ? $_GET['num_fibra'] : '';
-    $tp_consulta = isset($_GET['tp_consulta']) ? $_GET['tp_consulta'] : '';
+    $tp_ocorrencia = isset($_GET['tp_ocorrencia']) ? $_GET['tp_ocorrencia'] : '';
 
     // Único role é forçar o usuário a selecionar o tipo da consulta
     // - mas acho que tá bem intuitivo no HTML já...
@@ -45,24 +45,14 @@
     // As consultas baseadas no $_GET['tp_consulta'] (valores no select), vários tipos
     // um tipo corresponde à uma consulta sql diferente:
     if($tp_consulta === "ocorrencia") {
-      $sql = "SELECT ocorrencia_id AS 'ID', ocorrencia.nome_paciente AS 'Paciente', ocorrencia.cpf AS 'CPF do Paciente', ocorrencia.data AS 'Data', ocorrencia.local_ocorrencia AS 'Local', ocorrencia.tipo_ocorrencia AS 'Tipo da Ocorrência' FROM ocorrencia WHERE nome_paciente LIKE '%$nome%' OR local_ocorrencia LIKE '%$local%' OR data LIKE '%$date%' OR tipo_ocorrencia LIKE '%$tp_ocorrencia%'";
+      $sql = "SELECT ocorrencia_id AS 'ID', ocorrencia.nome_paciente AS 'Paciente', ocorrencia.cpf AS 'CPF do Paciente', ocorrencia.data AS 'Data', ocorrencia.local_ocorrencia AS 'Local', ocorrencia.tipo_ocorrencia AS 'Tipo da Ocorrência' FROM ocorrencia WHERE nome_paciente LIKE '%$nome%' OR local_ocorrencia LIKE '%$local%' OR data LIKE '%$date%' OR tipo_ocorrencia LIKE '%$tp_ocorrencia%' ORDER BY CONCAT(nome_paciente, ' ', local_ocorrencia, ' ', tipo_ocorrencia) LIKE '%$nome% $local% $tp_ocorrencia%' DESC";
     }
     if($tp_consulta === "usuarios_socorristas") {
-      $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_username LIKE '%$nome%' OR usuarios_num_fibra = '$num_fibra'";
+      $sql = "SELECT * FROM usuarios_socorristas WHERE usuarios_username LIKE '%$nome%' OR usuarios_num_fibra = '$num_fibra' ORDER BY CONCAT(usuarios_username, ' ', usuarios_num_fibra) LIKE '%$nome% $num_fibra%' DESC";
     }
     if($tp_consulta === "alertas_e_noticias") {
       $sql = "SELECT noticia_nome AS 'Título', noticia_imagem FROM alertas_e_noticias WHERE noticia_nome LIKE '%$nome%' AND data_noticia = '$date'";
     }
-
-    /*
-      - TODO:
-      
-      - Alterar ->fetch para ->fetchAll
-      
-      - fetchAll para retornar todas as consultas que sejam como
-        o solicitado pelo usuário, muito melhor
-        não sei pq usei só o fetch :/
-    */
 
     // Execute a consulta e processe os resultados...
     // $stmt = $dbh->prepare($sql);
@@ -72,7 +62,7 @@
     if(isset($sql)) {
       $stmt = $dbh->connect()->prepare($sql);
       $stmt->execute();
-      $resultado = $stmt->fetch();
+      $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
   }
 ?>
@@ -99,53 +89,53 @@
 </head>
 <body>
   <?php include("../../inc/views/nav-admin.inc.php"); ?>
-  <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-start justify-start w-full h-max font-poppins lg:h-screen">
-    <a onclick="window.history.back()" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
+  <main class="flex flex-col px-16 py-8 gap-8 self-stretch items-start justify-start w-full h-max font-poppins lg:h-screen overflow-y-auto">
+    <a href="main_admin.php" class='flex flex-row items-center justify-center cursor-pointer gap-2.5'>
       <img src="../../public/images/arrow_left.svg" alt="Flecha voltar">
       <p class="text-vermelho text-xl font-bold">Voltar</p>
     </a>
     
     <!-- Opções de filtragem para consultas aqui: -->
-    <form id="formFiltro" method="GET" class="flex flex-col justify-between desktop:flex-row w-full gap-5 bg-input_color p-6" aria-label="Filtros" title="Ações e filtros">
-      <section class="text-xl" title="Selecione os filtros">
-        <div>
-          <legend>Selecione o tipo de tabela que deseja filtrar</legend>
-          <select name="tp_consulta" class="text-xl w-full" required>
-            <option class="text-xl" value="None" disabled selected>Selecione:</option>
-            <option class="text-xl" value="ocorrencia" 
-              <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'ocorrencia' ? 'selected':''):'' ?>
-            >
-            Ocorrência</option>
-            <option class="text-xl" value="usuarios_socorristas" 
-              <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'usuarios_socorristas' ? 'selected':''):'' ?>
-            >
-            Bombeiro</option>
-            
-            <option class="text-xl" value="alertas_e_noticias" 
-              <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'alertas_e_noticias' ? 'selected':''):'' ?>
-            >
-            Postagem</option>
-          </select>
+    <form id="formFiltro" method="GET" class="flex flex-col justify-between w-full gap-5 bg-input_color p-6" aria-label="Filtros" title="Ações e filtros">
+      <legend>Selecione as opções de filtragem conforme necessário:</legend>
+      <section class="flex flex-col justify-between desktop:flex-row w-full gap-5">
+        <!-- LAS entradas opcionales dos usuários! -->
+        <div class="gap-2.5 flex flex-col desktop:flex-row items-center w-full justify-center">
+          <div class="w-full">
+            <select name="tp_consulta" class="text-xl w-full p-4" required>
+              <option class="text-xl" value="None" disabled selected>Selecione:</option>
+              <option class="text-xl" value="ocorrencia" 
+                <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'ocorrencia' ? 'selected':''):'' ?>
+              >
+              Ocorrência</option>
+              <option class="text-xl" value="usuarios_socorristas" 
+                <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'usuarios_socorristas' ? 'selected':''):'' ?>
+              >
+              Bombeiro</option>
+              
+              <option class="text-xl" value="alertas_e_noticias" 
+                <?= isset($_GET['tp_consulta']) == true ? ($_GET['tp_consulta'] == 'alertas_e_noticias' ? 'selected':''):'' ?>
+              >
+              Postagem</option>
+            </select>
+          </div>
+          <input name="date" class="p-4 w-full focus:outline-vermelho" value="<?= isset($_GET['date']) == true ? :'' ?>" class="focus:outline-vermelho" type="date">
+          <input name="nome" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Nome">
+          <input name="local" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Local">
+          <input name="num_fibra" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Número Fibra">
+          <input name="tp_ocorrencia" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Tipo da Ocorrência">
         </div>
-      </section>
-      <!-- LAS entradas opcionales dos usuários! -->
-      <div class="gap-2.5 flex flex-col desktop:flex-row items-center w-full justify-center">
-        <input name="date" class="p-4 w-full focus:outline-vermelho" value="<?= isset($_GET['date']) == true ? :'' ?>" class="focus:outline-vermelho" type="date">
-        <input name="nome" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Nome">
-        <input name="local" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Local">
-        <input name="num_fibra" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Número Fibra">
-        <input name="tp_ocorrencia" class="p-4 w-full focus:outline-vermelho" type="text" placeholder="Tipo da Ocorrência">
-      </div>
-      
-      <section class="flex flex-col laptop:flex-row gap-2.5" title="Botões">
-        <button type="submit" class="px-6 py-4 gap-2.5 lg:text-2xl text-xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-        transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">
-          Filtrar
-        </button>
-        <button onclick="resetarFormulario()" name="reset" class="px-6 py-4 gap-2.5 lg:text-2xl text-xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
-        transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">
-          Resetar
-        </button>
+        
+        <section class="flex flex-col laptop:flex-row gap-2.5" title="Botões">
+          <button type="submit" class="px-6 py-4 gap-2.5 lg:text-2xl text-xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">
+            Filtrar
+          </button>
+          <button onclick="resetarFormulario()" name="reset" class="px-6 py-4 gap-2.5 lg:text-2xl text-xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
+          transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">
+            Resetar
+          </button>
+        </section>
       </section>
     </form>
 
@@ -170,32 +160,45 @@
       <p>Dica: sempre seja específico na consulta</p>
     </section>
 
-    <table class="flex flex-row w-full h-fit border-collapse font-poppins">
-      <thead class="w-1/2">
-        <tr class="flex flex-col h-full border bg-gray-200">
-          <?php
-            // Bem básico, retornando uns table data pra consulta aí, aquele foreach campo e valor e afins:
-            if (isset($resultado)) {
-              foreach ($resultado as $campo => $valor) {
-                echo "<td class='py-4 px-4'>$campo</td>";
-              }
+    <?php
+      if (!empty($resultados)) {
+        // Exiba uma tabela para cada resultado
+        foreach ($resultados as $indice => $resultado) {
+            echo "<h1 class='font-bold text-2xl'>Resultado #" . ($indice + 1) . "</h1>";
+            if($tp_consulta === "ocorrencia") {
+              $id = $resultado['ID'];
+              echo "<a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='visualizar.php?action=visualizar-ocorrencia&id=$id'>Visualizar Detalhadamente</a>";
             }
-          ?>
-        </tr>
-      </thead>
-      <tbody class="w-full">
-        <?php
-          // Aqui só da o retorno do valor, o campo já tá no heading, bem adaptativo:
-          echo "<tr class='flex flex-col h-full border border-gray-300'>";
-          if (isset($resultado)) {
+            if($tp_consulta === "usuarios_socorristas") {
+              $id = $resultado['usuarios_id'];
+              echo "<a class='cursor-pointer hover:text-indigo-300 transition-colors duration-300' href='visualizar_bombeiro.php?id=$id'>Visualizar Detalhadamente</a>";
+            }
+
+            // Defina os cabeçalhos da tabela
+            echo "<table class='flex flex-row w-full h-fit border-collapse font-poppins'>";
+            echo "<thead class='w-1/2'>";
+            echo "<tr class='flex flex-col h-full border bg-gray-200'>";
             foreach ($resultado as $campo => $valor) {
-              echo "<td class='py-4 px-4'>$valor</td>";
+                echo "<td class='py-4 px-4'>$campo</td>";
             }
-          }
-          echo "</tr>";
-        ?>
-      </tbody>
-    </table>
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody class='w-full'>";
+
+            // Exiba os dados da tabela
+            echo "<tr class='flex flex-col h-full border border-gray-300'>";
+            foreach ($resultado as $campo => $valor) {
+                echo "<td class='py-4 px-4'>$valor</td>";
+            }
+            echo "</tr>";
+
+            echo "</tbody>";
+            echo "</table>";
+        }
+      } else {
+          echo "<p>Nenhum resultado encontrado.</p>";
+      }
+    ?>
   </main>
   <?php include("../../inc/views/footer-adm.inc.php"); ?>
 </body>

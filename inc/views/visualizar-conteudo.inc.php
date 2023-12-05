@@ -8,7 +8,18 @@
   `num_ocorrencia` AS 'Número da ocorrência', `local_ocorrencia` AS 'Local da ocorrência', `data` AS 'Data da ocorrência', `equipe_atendimento` AS 'Equipe de atendimento', `num_desp` AS 'Despachante', 
   `aconteceu_outras_vezes` AS 'Ocorrência já aconteceu outras vezes', `qt_tempo_aconteceu` AS 'A quanto tempo aconteceu?', `problema_saude` AS 'Possuí problema de saúde?', `tipo_problema_saude` AS 'Problema de saúde', 
   `medicacao` AS 'Faz uso de medicação', `medicacao_horario` AS 'Horário da medicação', `medicamento_usado` AS 'Medicamento utilizado', `alergia` AS 'Possuí alergias', `alergia_tipo` AS 'Tipo da alergia', 
-  `ingeriu_alimento` AS 'Ingeriu algo', `horario_ingestao` AS 'Horário da ingestão', `abertura_ocular` AS 'Resposta ocular', `resposta_verbal` AS 'Resposta verbal', 
+  `ingeriu_alimento` AS 'Ingeriu algo', `horario_ingestao` AS 'Horário da ingestão', `braco_esquerdo_tipo` AS 'Tipo de lesão - Braço Esquerdo',
+    `braco_direito_tipo` AS 'Tipo de lesão - Braço Direito',
+    `cabeca_tipo` AS 'Tipo de lesão - Cabeça',
+    `peito_tipo` AS 'Tipo de lesão - Peito',
+    `estomago_tipo` AS 'Tipo de lesão - Estômago',
+    `virilha_tipo` AS 'Tipo de lesão - Virilha',
+    `pe_esquerdo_tipo` AS 'Tipo de lesão - Pé Esquerdo',
+    `pe_direito_tipo` AS 'Tipo de lesão - Pé Direito',
+    `mao_esquerda_tipo` AS 'Tipo de lesão - Mão Esquerda',
+    `mao_direita_tipo` AS 'Tipo de lesão - Mão Direita',
+    `outros` AS 'Outros', 
+    `observacoes` AS 'Observações', `abertura_ocular` AS 'Resposta ocular', `resposta_verbal` AS 'Resposta verbal', 
   `resposta_motora` AS 'Resposta motora', `total_gcs` AS 'Avaliação GCS total', `tipo_ocorrencia` AS 'Tipo da ocorrência', `disturbio_comportamento` AS 'Distúrbio de comportamento', 
   `capacete` AS 'Vítima usava capacete', `cinto` AS 'Vítima usava cinto', `avariado_parabrisa` AS 'Para-brisas avariado', `caminhando` AS 'Vítima caminhando no local', `avariado_painel` AS 'Painel avariado', 
   `torcido_vol` AS 'Volante torcido', `problemas_suspeitos` AS 'Problemas suspeitos', `problema_resp` AS 'Problema respiratório', `problema_diabetes` AS 'Diabetes', 
@@ -67,20 +78,7 @@
               ?>
             </tbody>
           </table>
-          <section class="flex gap-2.5">
-            <div class="group w-1/2 hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho">
-              <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <button onclick="event.preventDefault()" id="btn_new_team" class="w-full text-center text-xl">
-                <p>Expandir e visualizar o histórico dessa ocorrência</p>
-              </button>
-            </div>
-            <div class="group w-1/2 hover:bg-vermelho hover:text-white transition-colors duration-300 flex p-2 rounded-2xl border-solid border-2 border-vermelho">
-              <svg class="stroke-vermelho group-hover:stroke-[#FFF] transition-colors duration-300" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4998 6.66675V25.3334M7.1665 16.0001H25.8332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <button onclick="event.preventDefault()" id="btn_new_team" class="w-full text-center text-xl">
-                <p>Preencher o histórico dessa ocorrência</p>
-              </button>
-            </div>
-          </section>
+
           <button type="submit" class="button w-full px-6 py-4 mb-5 gap-2.5 lg:text-2xl text-3xl self-stretch flex items-center justify-center bg-vermelho font-poppins font-bold text-white
             transition ease-in-out hover:bg-white border-vermelho border-2 hover:text-vermelho disabled:opacity-75 disabled:transition-none">Salvar Alterações</button>
         </form>
